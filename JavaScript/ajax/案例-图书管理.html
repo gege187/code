@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap.css">
+    <script src="./lib/jquery.js"></script>
+</head>
+<body style="padding:15px">
+    <div class="panel panel-primary" >
+        <div class="panel-heading">
+            <h3 class="panel-title">添加新图书</h3>
+        </div>
+          <!-- form-inline 控制所有内容一行显示 -->
+        <div class="panel-body form-inline">         
+            <div class="input-group">
+                <div class="input-group-addon">书名</div>
+                <input type="text" class="form-control" id="iptSM" placeholder="请输入书名">
+            </div>
+            <div class="input-group">
+                <div class="input-group-addon">作者</div>
+                <input type="text" class="form-control" id="iptZZ" placeholder="请输入作者">
+            </div>
+            <div class="input-group">
+                <div class="input-group-addon">出版社</div>
+                <input type="text" class="form-control" id="iptCBS" placeholder="请输入出版社">
+            </div>
+            <button id="btnAdd" class="btn btn-primary">添加</button>
+        </div>
+    </div>
+    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>图书</th>
+                <th>作者</th>
+                <th>出版社</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="tb">
+            
+        </tbody>
+    </table>
+    <script>
+        function getList(){
+            $.get('http://www.liulongbin.top:3006/api/getbooks',function(res){
+                // console.log(res);
+                if(res.status !== 200) return alert('获取列表失败！')
+                let rows = []
+                res.data.forEach((item) => {
+                    rows.push(`<tr>
+                        <td>${item.id}</td>
+                        <td>${item.bookname}</td>
+                        <td>${item.author}</td>
+                        <td>${item.publisher}</td>
+                        <td><a href="javascript:;" class="del" data-id='${item.id}'>删除</a></td>
+                        </tr>`)
+                });
+                // 清空之后再次渲染，不加清空就会在原有基础上追加
+                $('#tb').empty().append(rows.join(''))
+            })
+        }
+        getList();
+
+        //ajax是异步请求，在请求数据时，事件绑定已经在进行，所以会导致没法绑定到元素
+        // 用事件委托来做,通过代理的方式为动态添加的元素做事件绑定
+        $('#tb').on('click','.del',function(){
+            // 这样只是删除了页面中的效果，没有实际删除数据库中的数据
+            // this.parentNode.parentNode.remove();
+            let id = $(this).attr('data-id')
+            $.get('http://www.liulongbin.top:3006/api/delbook',{id:id},function(res){
+                if(res.status !== 200) return alert('删除失败')
+                // 删除成功后重新刷新列表
+                getList()
+            })
+        })
+
+        $('#btnAdd').on('click',function(){
+            let sm = $('#iptSM').val().trim()
+            let zz = $('#iptZZ').val().trim()
+            let cbs = $('#iptCBS').val().trim()
+            if(sm.length <= 0 || zz.length <= 0 ||cbs.length <= 0)
+            return alert('请输入完整的图书信息')
+            $.post('http://www.liulongbin.top:3006/api/addbook',{
+                bookname:sm,author:zz,publisher:cbs},function(res){
+                    if(res.status !== 201) 
+                        return alert('添加失败!')
+                    getList()
+                    // $('#iptSM').val() = '' 这样写错误
+                    $('#iptSM').val('')
+                    $('#iptZZ').val('')
+                    $('#iptCBS').val('')
+                })
+        })
+    </script>
+</body>
+</html>

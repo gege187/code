@@ -1,0 +1,54 @@
+<!-- 
+    element.innerHTML
+    element.innerText
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        #perName{
+            outline: none;
+        }
+        .lucky{
+            display: block;
+            width: 200px;
+            height: 40px;
+            border: 2px solid pink;
+            line-height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <input type="text" id="perName">
+    <p>随机抽取到的名字是：</p>
+    <span class="lucky"></span>
+    <script>
+        let div = document.querySelector('div')
+        // innerText不识别标签
+        // div.innerText = '<i>i have a word</i>'
+
+        // 可以解析标签
+        div.innerHTML = '<i>i have a word</i>'
+
+        // 例子，获取随机生成的名字
+        let ipt = document.querySelector('#perName');
+        let lucky = document.querySelector('.lucky');
+        ipt.addEventListener('blur',function(){
+            lucky.innerHTML = ipt.value
+        })
+
+
+    </script>
+</body>
+</html>

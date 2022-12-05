@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // foreach里边的return 不会终止迭代
+        let arr = [1,2,3]
+        let sum = 0
+        arr.forEach(function(value,index,array){
+            // 计算总和
+            sum += value;
+        })
+        console.log(sum);
+
+        // filter() 返回一个新数组，不会终止迭代
+        let farr = [33,55,66,1,3,6]
+        // filter返回一个新数组，所以需要用新的数组接收一下
+        let newFarr = farr.filter(function(value,index){
+            return value >= 20
+        })
+        console.log(newFarr);
+
+        // some() 返回值是布尔值，判断是否满足条件，查找唯一元素用some
+        let sarr = farr.some(function(value){
+            return value > 20
+        })
+        console.log(sarr);
+
+        // find方法，找到第一个满足条件的数组成员
+        let ary = [{
+            id:1,
+            name:'andy'
+        },{
+            id:2,
+            name:'huahua'
+        }]
+        // let fary = ary.find((item,index)=>{})
+        let fary = ary.find(item=>{
+            return item.id == 1
+        })
+        console.log(fary);
+        // findIndex(),找到第一个满足条件的数组成员的索引
+        let fiary = ary.findIndex(item=>{
+            return item.id == 1
+        })
+        console.log(fiary);
+
+        // includes() 表示数组是否包含满足条件的值，返回布尔值
+        let iary = arr.includes(1)
+        console.log(iary);
+    </script>
+</body>
+</html>

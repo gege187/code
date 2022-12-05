@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while循环</title>
+    <script>
+        //1.while循环  语法结构
+        // 条件表达式为true  执行循环体
+        //while (条件表达式) {
+            //循环体
+        //}
+
+        //打印一个人从1岁到100岁
+        /* var age = 1;
+        while(age <= 100){
+            console.log('这个人今年'+ age +'岁了');
+            age++;
+        } */
+        //计算1-100的所有整数和
+        /* var sum = 0;
+        var num = 1;
+        while(num <= 100){
+            sum += num;
+            num++;
+        }
+        console.log(sum); */
+
+        //输入爱才能结束循环
+        /* var why = prompt('你爱我吗？');
+        while(why !== '我爱你'){
+            message = prompt('你爱我吗？');
+        }
+        alert('我也爱你');*/
+
+
+        //do while循环
+        //do{
+            //循环体
+        //} while(条件表达式)
+        var i = 1;
+        do{
+            console.log('hi');
+            i++;
+        }while(i<=100)
+
+        //打印输出1-100岁
+        var nian = 1;
+        do{
+            console.log('这人今年'+ nian  +'岁');
+            nian++;
+        }while(nian<=100)
+
+        //1-100整数和
+        var sum = 0;
+        var i = 1;
+        do{
+            sum += i;
+            i++;
+        }while(i<=100)
+        console.log(sum);
+        
+        //你爱我吗？
+        do{
+            var love = prompt('你爱我吗？');
+        }while(love !== '我爱你')
+        alert('我也爱你');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,11 @@
+p{
+    float: left;
+    width: 50%;
+    height: 100px;
+}
+.l320{
+    background-color: #d21345;
+}
+.l640{
+    background-color: #cd4567;
+}

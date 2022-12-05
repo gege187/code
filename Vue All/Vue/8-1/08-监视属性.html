@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        监视属性watch:
+        1.当被监视的属性变化时，回调函数自动调用，进行相关操作
+        2.监视的属性必须存在，才能进行监视! !
+        3.监视的两种写法:
+            (1)new Vue时，传入watch配置
+            (2)通过vm.$watch监视
+     -->
+     <!-- 
+        深度监视:
+            (1)Vue中的watch默认不监测对象内部值的改变(一层)。
+            (2)配置deep: true可以监测对象内部值改变(多层)。
+        备注:
+            (1)Vue自身可以监测对象内部值的改变，但Vue提供的watch默认不可以!
+            (2)使用watch时根据数据的具体结构。决定是否采用深度监视。
+
+      -->
+    <div id="root">
+        <h2>今天天气很{{feel}}</h2>
+        <!-- <button @click="changeWeather">切换天气</button> -->
+        <button @click="isHot=!isHot">切换天气</button>
+        <hr/>
+        <h3>a的值是{{number.a}}</h3>
+        <button @click="number.a++">点击让a++</button>
+    </div>
+    <script>
+        Vue.config.productionTip = false;   //以阻止 vue 在启动时生成生产提示。
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                isHot:true,
+                number:{
+                    a:1,
+                    b:1,
+                }
+            },
+            computed:{
+                feel(){
+                    return this.isHot ? "炎热" : "凉爽"
+                }
+            },
+            methods: {
+                // changeWeather(){
+                //     this.isHot = !this.isHot
+                // }
+            },
+            // 监视属性
+            watch:{
+                // 监视多级结构中某个属性的变化
+                'number.a':{
+                    handler(){
+                        console.log('a被改变了');
+                    }
+                },
+                // 深度监视：监视多级结构中所有属性的变化
+                number:{
+                    deep:true,
+                    handler(){
+                        console.log('number被改变了');
+                    }
+                },
+                
+                // 监视属性
+                isHot:{
+                    // immediate:true,
+                    // deep:true,
+                    // 初始化时让handler调用一下
+                    handler(newValue,oldValue){
+                        console.log(newValue,oldValue);
+                    }
+                },
+                // 简写：当配置项中只有handler时，可以使用
+                // isHot(newValue,oldValue){
+                //     console.log(newValue,oldValue);
+                // },
+                
+                // 监视计算属性
+                feel:{
+                    // 初始化时让handler调用一下
+                    // immediate:true,
+                    handler(newValue,oldValue){
+                        console.log(newValue,oldValue);
+                    }
+                }
+            }
+        })
+        // 监视属性第二种方式
+        // vm.$watch('isHot',{
+        //      // immediate:true,
+        //      handler(newValue,oldValue){
+        //         console.log(newValue,oldValue);
+        //     }
+        // })
+        // 简写
+        // vm.$watch('isHot',function(newValue,oldValue){
+        //     console.log(newValue,oldValue);
+        // })
+    </script>
+</body>
+</html>

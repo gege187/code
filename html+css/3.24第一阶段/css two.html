@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css进阶</title>
+    <style>
+        /* 后代选择器 */
+        div div{
+            color: red;
+        }
+        /* 子代选择器 */
+        div>p{
+            color: blue;
+        }
+        /* 并集选择器 */
+        h4,h5{
+            color: yellow;
+        }
+        /* 交集选择器 */
+        p.jiao{
+            color: pink;
+        }
+        /* hover伪类选择器 */
+        a:hover{
+            color: yellowgreen;
+        }
+        /* 简写 */
+        /* 宽wpx+高hpx+背景色bgc， */
+        /* bgi背景图片 */
+        .one{
+            width: 400px;
+            height: 400px;
+            background-color: rgba(197, 74, 74,0.9);
+            background-image: url(0.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        
+        h4.da{
+            font-size: 29px;
+        }
+    </style>
+</head>
+<body>
+    <span class="da">dadada</span>
+    <p class="one">只是p标签</p>
+    <div class="jiao">
+        <p>这是div后代的p的标签,测试子代选择器</p>
+    </div>
+    <div>
+        <p>
+            <div>这是div里p标签中的div,测试后代选择器</div>
+        </p>
+    </div>
+    <h4>并集选择器</h4>
+    <h5>并集选择器</h5>
+    <p class="jiao">交集选择器,要选中这个,就要写成p.jiao</p>
+    <a href="#">伪类选择器,测试悬停效果</a>
+
+    <!-- 直接写.red自动生成div类选择器 -->
+    <div class="red"></div>
+    <!-- 直接写#red自动生成div id选择器 -->
+    <div id="red"></div>
+    <!-- 写p.red生成p 类选择器 -->
+    <p class="red"></p>
+    <!-- 写p.red#red同时生成类选择器,id选择器 -->
+    <p class="red" id="red"></p>
+    <!-- 同级加号div+p -->
+    <div></div>
+    <p></p>
+    <!-- 子集大于号ul>li -->
+    <ul>
+        <li></li>
+    </ul>
+    <!-- 实现多个用乘号* h6*3 -->
+    <h6></h6>
+    <h6></h6>
+    <h6></h6>
+    <!-- 添加文本内容ul>li{内容} -->
+    <ol>
+        <li>我是内容</li>
+    </ol>
+    <!-- 文本内容实现递增ol>li{$}* -->
+    <ol>
+        <li>1a</li>
+        <li>2a</li>
+        <li>3a</li>
+    </ol>
+</body>
+</html>

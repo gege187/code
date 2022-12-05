@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let data = {
+            name:'zhudi',
+            school:'international',
+        }
+        // 创建一个实例对象，用于监视data中属性的变化
+        const obj = new Observer(data)
+
+        // 准备一个vm实例对象
+        const vm = {}
+        vm._data = data = obj
+
+
+        function Observer(param){
+            // 汇总对象中所有属性形成一个数组
+            const keys = Object.keys(param)
+            // 遍历
+            keys.forEach(k=>{
+                Object.defineProperty(this,k,{
+                    get(){
+                        return param[k]
+                    },
+                    set(val){
+                        console.log(`${k}被改了`);
+                        param[k] = val
+                    }
+                })
+            })
+        }
+    </script>
+</body>
+</html>

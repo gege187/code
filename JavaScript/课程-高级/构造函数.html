@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function Star(uname,age){
+    this.uname = uname
+    this.age = age
+    // this.sing = function(){
+    //     console.log('sing song');
+    // }
+}
+Star.prototype = {
+    // 如果修改了原来的原型对象，给原型对象赋值的是一个对象，就要利用constructor手动指回原来的构造函数
+    // 需要手动添加constructor属性指向原来的构造函数
+    constructor:Star,
+    sing:function(){
+        console.log('sing song');
+    },
+    move:function(){
+        console.log('move a little');
+    }
+}
+
+let xm = new Star('xiaoming',12)
+let wm = new Star('wangmeimei',13)
+
+
+console.log(xm.__proto__);
+console.log(Star.prototype);
+console.log(xm.__proto__.constructor);
+console.log(Star.prototype.constructor);
+
+
+console.log(Star.prototype.__proto__ === Object.prototype);
+
+    </script>
+</body>
+</html>

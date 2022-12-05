@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日期</title>
+</head>
+<body>
+    <script>
+        // 以T分割日期和时间
+        var d = new Date('2018-12-12T12:23:12')
+
+        var d = new Date("02/19/2018");
+
+        // 获取日期
+        var g = new Date()
+        // 1.返回自 1970 年 1 月 1 日以来的毫秒数：
+        g.getTime()
+        // 2. 获取年份
+        g.getFullYear()
+        // 3.月份(0~11)
+        g.getMonth()
+        // 4.日期（0~31）
+        g.getDate()
+        // 5.时
+        g.getHours()
+        // 6.分
+        g.getMinutes()
+        // 7.秒(0~59)
+        g.getSeconds()
+        // 8.毫秒(0~999)
+        g.getMilliseconds()
+        // 9.星期（0~6）0 是周日
+        g.getDay()
+
+        // 设置日期
+        var s = new Date()
+        // 1. 设置年份(选择设置月和日)
+        s.setFullYear('2020')
+        s.setFullYear('2020,11,3')
+        // 2.月(0~11)
+        s.setMonth('11')
+        // 3.日(1-31)
+        s.setDate('31')
+        // 4.时(0~23)
+        s.setHours('22')
+        // 5.分(0~59)
+        s.setMinutes('22')
+        // 6.秒
+        s.setSeconds('21')
+        // 7.星期
+        
+    </script>
+</body>
+</html>

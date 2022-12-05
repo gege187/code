@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class类</title>
+</head>
+<body>
+    <script>
+        // 类不是对象，是对象模板
+        /* class leiMing{
+            constructor(){
+                this.shuxing = shuxing
+                this.name = name
+            }
+            fangfa(){}
+            fangfa2(){}
+        } */
+        class Person{
+            constructor(name,age,score){
+                this.name = name
+                this.age = age
+                this.score = score
+            }
+            work(){
+                console.log('good job');
+            }
+        }
+        // 创建对象
+        let student1 = new Person('liming',18,99)
+        let student2 = new Person('meimei',22,100)
+        console.log(student1.name);
+        console.log(student2.name);
+
+        // 继承
+        class Model extends Person{
+            constructor(name,age,score,newCon){
+                super(name,age,score);  
+                this.newCon = newCon;
+            }
+        }
+
+        // static 类方法是在类本身上定义的。
+        // 不能在对象上调用 static 方法，只能在对象类上调用。
+        class Car {
+            constructor(name) {
+                this.name = name;
+            }
+            static hello() {
+                return "Hello!!";
+            }
+        }
+    </script>
+</body>
+</html>

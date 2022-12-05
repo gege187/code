@@ -1,0 +1,89 @@
+// 在index.less中 导入 common.less 文件
+@import "common";
+@fs50:50;
+body{
+    min-width: 320px;
+    width: 15rem;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f2f2;
+}
+.search-content{
+    display: flex;
+    // 加固定定位，
+    position: fixed;
+    top: 0;
+    // 只写top，不写left也能居中（？这样也行）
+    // left: 50%;
+    // transform: translateX(-50%);
+    width: 15rem;
+    height: (88 / @fs50)rem;
+    background-color: #ffc001;
+    .classify{
+        width: (44rem / @fs50);
+        height: (70rem / @fs50);
+        background: url(../images/classify.png);
+        background-size: 100% 100%;  //(44rem / @fs50) (70rem / @fs50)
+        margin: (11rem / @fs50)(25rem/ @fs50)(7rem / @fs50);
+    }
+    .search{
+        flex: 1;
+        input{
+            height: (66rem / @fs50);
+            width: 100%;
+            border-radius: (33rem / @fs50);
+            background-color: #fff2cc;
+            font-size: (25rem / @fs50);
+            color: #666;
+            padding-left: (55rem / @fs50);
+        }
+    }
+    .login{
+        width: (75rem / @fs50);
+        height: (70rem / @fs50);
+        margin: (11rem/ @fs50);
+        font-size: (25rem / @fs50);
+        color: #fff;
+        text-align: center;
+        line-height: (70rem / @fs50);
+    }
+}
+.banner{
+    width: (750rem / @fs50);
+    height: (368rem / @fs50);
+    img{
+        width: 100%;
+    }
+}
+// 广告部分
+.ad{
+    display: flex;
+    a{
+        flex: 1;
+        img{
+            width: 100%;
+        }
+    }
+}
+// nav
+nav{
+    width: (750rem / @fs50);
+    a{
+        float: left;
+        width: (150rem / @fs50);
+        height: (140rem / @fs50);
+        text-align: center;
+        img{
+            display: block;
+            width: (84rem / @fs50);
+            height: (84rem / @fs50);
+            margin: (10rem / @fs50) auto 0;
+        }
+        p{
+            margin-top: (10rem / @fs50);
+            font-size: (25rem / @fs50);
+            color: #333;
+        }
+    }
+}

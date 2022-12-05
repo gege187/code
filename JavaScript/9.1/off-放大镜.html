@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实现放大选中区域效果</title>
+    <style>
+        .title{
+            font-size: 24px;
+            width: 100%;
+            text-align: center;
+        }
+        .area{
+            width: 400px;
+            height: 267px;
+            position: relative;
+        }
+        .little{
+            width: 100%;
+        }
+        .mask{
+            position: absolute;
+            display: none;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            opacity: 0.2;
+            cursor: move;
+        }
+        .bigEye{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 410px;
+            width: 300px;
+            height: 267px;
+            overflow: hidden;
+        }
+        .big{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 500px;
+            height: 334px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">点击放大 盛世美颜</div>
+    <div class="area">
+        <img src="long.jpg" alt="" class="little">
+        <div class="mask"></div>
+        <div class="bigEye">
+            <img src="long.jpg" alt="" class="big">
+        </div>
+    </div>
+    <script>
+        var little = document.querySelector('.little')
+        var area = document.querySelector('.area')
+        var big = document.querySelector('.big')
+        var mask = document.querySelector('.mask')
+        var bigEye = document.querySelector('.bigEye')
+        //把事件源放在盒子上而不是图片上，遮罩就不会一直闪
+        area.addEventListener('mouseover',function(){
+            mask.style.display = 'block'
+            bigEye.style.display = 'block'
+        })
+        area.addEventListener('mouseout',function(){
+            mask.style.display = 'none'
+            bigEye.style.display = 'none'
+        })
+        area.addEventListener('mousemove',function(e){
+            //鼠标在盒子里的坐标
+            var x = e.pageX - this.offsetLeft;
+            var y = e.pageY - this.offsetTop;
+            // 遮罩距离盒子左上的坐标
+            var maskX = x - mask.offsetWidth / 2
+            var maskY = y - mask.offsetHeight /2
+            if(maskX <= 0){
+                maskX = 0
+            }else if(maskX >= area.offsetWidth-mask.offsetWidth){
+                maskX = area.offsetWidth-mask.offsetWidth
+            }
+            mask.style.left = maskX + 'px'
+            big.style.left = -maskX + 'px'
+            if(maskY <= 0){
+                maskY = 0
+            }else if(maskY >= area.offsetHeight-mask.offsetHeight){
+                maskY = area.offsetHeight-mask.offsetHeight
+            }
+            mask.style.top = maskY + 'px'
+            big.style.top = -maskY + 'px'
+        })
+    </script>
+</body>  
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        *{
+            margin: 5px;
+        }
+        .basic{
+            width: 300px;
+            height: 100px;
+            border: 1px solid #999;
+        }
+        /* 三选一 */
+        .happy{
+            background-color: pink;
+            border: 1px solid red;
+        }
+        .sad{
+            background-color: green;
+            border: 1px solid #24a70d;
+        }
+        .normal{
+            background-color: rgb(133, 133, 211);
+            border: 1px solid #4b0e87;
+        }
+        /* 多选 */
+        .option1{
+            font-size: 24px;
+        }
+        .option2{
+            text-align: center;
+            line-height: 100px;
+            text-shadow: 2px 2px #1e3919;
+        }
+        .option3{
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <!-- 绑定class样式--字符串写法，适用于:样式的类名不确定，需要动态指定 -->
+        <div class="basic" :class="mood" @click="changeClass">{{name}}</div>
+        <!-- 绑定class样式--数组写法，适用于:要绑定的样式个数不一定，名字也不一定 -->
+        <div class="basic" :class="arr">{{name}}</div>
+        <!-- 绑定class样式-- 对象写法，适用于:要绑定的样式个数确定、名字也确定，但要动态决定用不用-->
+        <div class="basic" :class="obj">{{name}}</div>
+
+        <!-- 绑定style样式,对象写法 -->
+        <div class="basic" :style="styleObj">{{name}}</div>
+        <!-- 绑定style样式,数组写法 -->
+        <!-- <div class="basic" :style=[styleObj,styleObj1]>{{name}}</div> -->
+
+    </div>
+    <script>
+        Vue.config.productionTip = false;   //以阻止 vue 在启动时生成生产提示。
+        new Vue({
+            el:'#root',
+            data:{
+                name:'hello',
+                mood:'normal',
+                arr:['option1','option2','option3'],
+                obj:{
+                    option1:false,
+                    option2:false,
+                    option3:true,
+                },
+                styleObj:{
+                    fontSize:'40px'
+                }
+            },
+            methods: {
+                changeClass(){
+                    // this.mood = 'happy'
+                    // 随机选择一个
+                    const arr = ['happy','sad','normal']
+                    const index = Math.floor(Math.random()*3)
+                    this.mood = arr[index]
+                }
+            },
+        })
+    </script>
+</body>
+</html>

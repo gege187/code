@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+    <style>
+        div{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: pink;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="angly"></div>
+    <script>
+        // 1.定义一个节流阀
+        let timer = null
+        $(document).on('mousemove',function(e){
+            // 3.判断节流阀是否为空,为空时执行下一条
+            if(timer){return}
+            // 2.开启延时器
+            timer = setTimeout(function(){
+                $('.angly').css('top',e.pageY + 'px').css('left',e.pageX + 'px')
+                console.log('ok');
+                // 3.每次执行完之后，将节流阀置空
+                timer = null
+            },16)
+            // $('.angly').css('top',e.pageY + 'px').css('left',e.pageX + 'px')
+        })
+    </script>
+</body>
+</html>

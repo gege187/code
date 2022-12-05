@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组案例</title>
+    <script>
+        //案例
+        // 删除指定数组元素
+        var arr1 = [2,0,1,33,0,43,0,24,4];
+        var newArr1 = [];
+        for(var i = 0; i < arr1.length; i++){
+            if(arr1[i] == 0){
+                continue;
+            }
+            newArr1[newArr1.length] = arr1[i];
+        }
+        console.log(newArr1);
+
+        //翻转数组
+        var arr2 = ['red','green','blue','pink','purple'];
+        var newArr2 = [];
+        for(var i = 0; i < arr2.length; i++){
+            //for(var i = arr2.length-1; i >= 0; i--){
+            newArr2[arr2.length-1-i] = arr2[i];
+        }
+        console.log(newArr2);
+        //方法2：
+        var arr2 = ['red','green','blue','pink','purple'];
+        var newArr2 = [];
+        for(var i = arr2.length-1; i >= 0; i--){
+            newArr2[newArr2.length] = arr2[i];
+        }
+        console.log(newArr2);
+
+        
+        //冒泡排序：把一系列的数按照一定的顺序进行排列显示
+        var bubble = [5,4,3,2,1,88,41,12,23];
+        var max;
+        for(var j = bubble.length-1; j > 0 ;j--){
+            for(var i = 0; i < j; i++){
+                if(bubble[i] > bubble[i+1]){
+                    max = bubble[i];
+                    bubble[i] = bubble[i+1];
+                    bubble[i+1] = max;
+                }
+            }
+        }
+        console.log(bubble);
+        //方法2
+        var bubble1 = [5,4,3,2,1,88,41,12,23];
+        var max;
+        for(var j = 0; j < bubble1.length-1; j++){
+            for(var i = 0; i < bubble1.length-j-1; i++){
+                if(bubble1[i] > bubble1[i+1]){
+                    max = bubble1[i];
+                    bubble1[i] = bubble1[i+1];
+                    bubble1[i+1] = max;
+                }
+            }
+        }
+        console.log(bubble1);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

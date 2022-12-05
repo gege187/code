@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基础</title>
+</head>
+<body>
+    <!-- 
+    无序列表<ul><li></li><ul>
+    有序列表<ol><li></li><ol>
+    自定义列表<dl><dt></dt><dd></dd><dl>
+    表格<table><caption><caption><tr><td></tr><tr><td></tr></table>
+        属性border,width,height.
+        结构标签thead(表格头部),tbody(表格主体),tfoot(表格底部)--代码执行效率高
+        合并单元格不能跨结构标签合并
+    表单元素：text、password、radio、checkbox、file
+             placeholder、name、checked
+
+     -->
+     <ul>无序列表ul
+         <li>context</li>
+         <li>context</li>
+     </ul>
+     <ol>有序列表ol
+         <li>context2</li>
+         <li>context2</li>
+     </ol>
+     <dl>自定义列表dl
+         <dt>context3</dt>
+         <dd>context4</dd>
+         <dt>context5</dt>
+         <dd>context4</dd>
+     </dl>
+     <table border="1">
+         <caption>con</caption>
+         <thead>
+            <tr>
+                <th>context六</th>
+                <th>context六</th>
+                <th>context六</th>
+            </tr>
+         </thead>
+         <tbody>
+             <tr>
+                 <td>context6</td>
+                 <td rowspan="2">context6</td>
+                 <td>context6</td>
+             </tr>
+            <tr>
+                <td>context6</td>
+                <!-- <td>context6</td> 垂直合并单元格，删去这一行，保留上一行-->
+                <td>context6</td>
+            </tr>
+         </tbody>
+         <tfoot>
+            <tr>
+                <td>context6</td>
+                <td colspan="2">context6</td>
+                <!-- <td>context6</td> 水平合并单元格，删去这一行，保留上一行-->
+            </tr>
+        </tfoot>
+     </table>
+     <br><br>
+
+     <!-- 表单 -->
+     文本框：<input type="text" placeholder="占位符"><br><br>
+     密码框：<input type="password"><br><br>
+     单选框：<input type="radio"><br><br>
+            <input type="radio" name="sex" checked>男          
+            <input type="radio" name="sex">女            <br><br>
+     多选框：<input type="checkbox"><br><br>
+     选中多个文件：<input type="file" multiple><br><br>
+     <!-- 按钮 -->
+     <!-- 要想提交按钮可以使用，必须把表单内容放在<form>（父级标签）内，作为一个整体提交 -->
+    <form action="">    
+        文本框：<input type="text" placeholder="输入用户名"><br><br>
+        密码框：<input type="password" placeholder="输入密码"><br><br>
+        <input type="submit">
+        <input type="reset">
+        <input type="button" value="给按钮赋值"> 
+    </form> 
+    <!-- 按钮 -->
+
+    <button>这是按钮</button>
+    <button type="button">按钮</button>
+    <button type="submit">提交</button>
+    <button type="reset">重置</button>
+    <!-- button按钮 -->
+    <br><br>
+    <!-- 下拉菜单 -->
+    <select >
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option  selected>4</option>
+    </select>
+    <br><br>
+
+    <!-- 文本域 -->
+    <textarea cols="30" rows="10"> </textarea>
+    <br><br>
+
+    <!-- label标签：整个区域都可以被选中 -->
+    <input type="radio" name="qita" id="ha">
+    <label for="ha">你</label>
+    <label ><input type="radio">我</label>
+    <input type="radio" name="qita">他
+    <br><br>
+
+    <!-- 无语义标签 -->
+    <div>div标签独占一行</div>
+    <span>span标签在一行显示</span>
+    <br>
+
+    <!-- 有语义标签 -->
+    <header>网页头部</header>
+    <nav>网页导航</nav>
+    <aside>网页侧边</aside>
+    <section>网页区块</section>
+    <article>网页文章</article>
+    <footer>网页底部</footer>
+
+    <!-- 字符实体 -->
+    &nbsp;&nbsp;
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的案例</title>
+    <script>
+        //求任意两个数的最大值
+        function getMax(num1,num2){
+            /* if(num1 > num2){
+                return num1;
+            }else{
+                return num2;
+            } */
+            return num1 > num2 ? num1 : num2;
+        }console.log(getMax(33,44));
+
+        //求数组中最大值
+        function getArrMax(arr){
+            var max = arr[0];
+            for(var i = 1; i < arr.length; i++){
+                if(arr[i] > max){
+                    max = arr[i];
+                }
+            }
+            return max;
+        }
+        var re = getArrMax([4,3,55,66,21,77]);
+        console.log(re);
+
+        //①写一个函数 ,用户输入任意两个数字的任意算术运算(简单的计算器小功能) , 并能弹出运算后的结果。
+        //②写一个函数 ,用户输入任意两个数字的最大值,并能出弹运算后的结果。
+        //③写一个函数 ,用户输入任意三个不同数字的最大值,并能单出运算后的结果。
+        //④写一个函数 ，用户输入-个数判断足否足素数,并返弹出回值(又叫质数,贝能被1和自身整数的数)
+
+        function work1(wo1,signal,wo2){
+            var result1;
+            // wo1 = parseFloat(wo1)
+            // wo2 = parseFloat(wo2)
+            // alert(signal)
+            // alert(wo2)
+            switch(signal){
+                case '+':
+                    result1 = wo1 + wo2;
+                    return result1;
+                case '-':
+                    result1 = wo1 - wo2;
+                    return result1;
+                case '*':
+                    result1 = wo1 * wo2;
+                    return result1;
+                case '/':
+                    result1 = wo1 / wo2;
+                    return result1;
+                default:
+                    alert('错误');
+            }
+        }
+        var re1 = work1(parseFloat(prompt('第一个数：')),prompt('运算符'),parseFloat(prompt('第二个数：')));
+        // console.log(re1);
+        alert(re1)
+
+
+        //4.
+        function work4(wo8){
+            for(var i = 2;i < wo8 ; i++){
+                if( wo8 % i == 0){
+                    return alert('不是素数');
+                }else{
+                    return alert('是素数');
+                }
+            }
+
+        }
+        var re4 = work4(prompt('请输入一个数：'));
+        console.log(re4);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

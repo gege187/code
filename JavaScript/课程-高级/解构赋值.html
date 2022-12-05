@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        {
+            // 从数组中提取值，按照对应位置，对变量赋值，对象也可以实现解构
+            let arr = [1,2,3]
+            let [a,b,c] = arr
+            console.log(a);
+            console.log(b);
+            console.log(c);
+            // 如果解构不成功， 变量的值为undefined
+            let [d,e,f] = [1,2]
+            console.log(f);
+        }
+
+        {
+            // 对象解构
+            let obj = {id:1,name:'andy'}
+            // let {a,b} = obj
+            let {id,name} = obj
+            console.log(id);
+            console.log(name);
+
+            // 重新赋值
+            let {id : newID } = obj
+            console.log(newID);
+        }
+
+        {
+            // 剩余参数：将一个不定数量的参数表示一个数组
+            let sum = (...args)=>{
+                console.log(args);
+                let total = 0
+                args.forEach(item => total += item)
+                return total
+            }
+            sum(10,2,3,4)
+
+            // 剩余参数接收解构数组中剩余的变量的值
+            let arr = [1,2,3]
+            let [...s1] = arr
+            console.log('s1',s1);
+        }
+
+        // Array扩展运算符：将数组或对象转为用逗号分隔的参数序列，一次输出多个内容
+        let ary = [1,2,3]
+        console.log(...ary);
+        // 扩展运算符应用于数组合并
+        let arr1 = [1,2,3]
+        let arr2 = [4,5,6]
+        let arr3 = [...arr1,...arr2]
+        console.log(arr3);
+        //第二种追加方法.push()
+        arr1.push(...arr2)
+        console.log(arr1);
+        //
+        console.log(arr1.push(...arr2));
+
+
+        // 扩展运算符：将伪数组或可遍历对象转换成真正的数组
+        let lis = document.querySelectorAll('li')
+        console.log(lis); //伪数组
+        lis = [...lis]
+        console.log(lis);
+        //第二种转换方法.from()
+        let arrLike = {
+            0: 2,
+            1:'xiao',
+            2:'gao',
+            3: 3, 
+            // 必须有length
+            'length':4
+        }
+        let x = Array.from(arrLike)
+        console.log(x);
+        //
+        console.log(Array.from(arrLike));
+        // from()方法可接受第二个参数(函数)，作用类似于数组的map方法，用来对每个元素进行处理，将处理后的值放在数组中
+        // 只有一句时省略大括号
+        let newx = Array.from(arrLike, item => item*2)
+        console.log(newx);
+    </script>
+</body>
+</html>

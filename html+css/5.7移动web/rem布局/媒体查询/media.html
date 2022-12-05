@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入资源，不同屏幕尺寸引入不同样式 -->
+    <link rel="stylesheet" href="link320.css" media="screen and (min-width:320px)">
+    <link rel="stylesheet" href="link640.css" media="screen and (min-width:640px)">
+    <title>媒体查询</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 在400px以内，设置页面背景色为pink */
+        @media screen and (min-width:400px){
+            body{
+                background-color: pink;
+            }
+        }
+        /* and后面必须加空格 */
+        /* @media screen and (min-width:800px) and (max-width:1000px){ */
+            @media screen and (min-width:800px){
+            body{
+                background-color: skyblue;
+            }
+        }
+
+        /* 媒体查询+rem实现元素动态变化 */
+        @media screen and (min-width:320px){
+            html{
+                font-size: 50px;
+            }
+        }
+        @media screen and (min-width:640px){
+            html{
+                font-size: 100px;
+            }
+        }
+        .top{
+            font-size: .5em;
+            height: 1rem;
+            background-color: #f3a345;
+            color: #fff;
+            text-align: center;
+            line-height: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">2.元素动态变化</div>
+    <p class="l320">111</p>
+    <p class="l640">222</p>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* 精灵图 */
+    span{
+        /* 1.加宽高2.背景图3.找位置 */
+        display: block;
+        width: 80px;
+        height: 80px;
+        background-color: #ccc;
+
+        background-image: url(bottom01.jpg);
+        /* 向上向左都是负值————水平    垂直 */
+        background-position: -20px -20px;
+    }
+    
+        /* 背景图缩放，按比例 /  px / %  */
+        /* background-size: contain; */
+    .box{
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+        /* 阴影 */
+        /* 水平   垂直    模糊度    阴影扩大   阴影颜色    内部阴影inset */
+        box-shadow: 2px 3px 10px 10px pink;
+
+        /* 过渡 */
+        transition: background-color 2s,width 2s;
+    }
+    .box:hover{
+        background-color: #3eb6b6;
+        width: 120px;
+    }
+</style>
+<body>
+    <!-- 精灵图要放在行内标签中 -->
+    <span></span>
+    
+    <!-- 背景图缩放 -->
+
+    <!-- 盒子阴影 -->
+    <div class="box"></div>
+</body>
+</html>

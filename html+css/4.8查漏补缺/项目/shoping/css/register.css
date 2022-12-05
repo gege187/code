@@ -1,0 +1,118 @@
+.wapper{
+    margin: 0 auto;
+    width: 1200px;
+}
+header{
+    height: 84px;
+    border-bottom: 1px solid #e12228;
+}
+.logo{
+    padding-top: 18px;
+}
+.registarea{
+    margin-top: 20px;
+    height: 522px;
+    border: 1px solid #ccc;
+}
+.registarea h3{
+    padding: 0 10px;
+    height: 42px;
+    border: 1px solid #ccc;
+    background-color: #ececec;
+    line-height: 42px;
+    font-weight: 400;
+    font-size: 18px;
+}
+.registarea .login{
+    float: right;
+    font-size: 14px;
+}
+.registarea .login a{
+    color: #e12228;
+}
+.reg_form{
+    margin: 50px auto 0;
+    width: 600px;
+}
+.reg_form li{
+    margin-bottom: 20px;
+}
+.reg_form label{
+    display: inline-block;
+    width: 88px;
+    text-align: right;
+}
+.reg_form input{
+    margin: 0 10px;
+    width: 240px;
+    height: 36px;
+    border: 1px solid #ccc;
+}
+.reg_form .error{
+    color: #df3033;
+}
+.reg_form .error_icon,
+.reg_form .success_icon{
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    background: url(../images/error.png) no-repeat;
+}
+.reg_form .success{
+    color: green;
+}
+.reg_form .success_icon{
+    background: url(../images/success.png) no-repeat;
+}
+.reg_form .safe{
+    padding-left: 162px;
+}
+.reg_form .safe em{
+    margin: 0 2px;
+    padding: 0 12px;
+    color: #fff;
+}
+.reg_form .safe .ruo{
+    background-color: #de1111;
+}
+.reg_form .safe .zhong{
+    background-color: #40b83f;
+}
+.reg_form .safe .qiang{
+    background-color: #f79100;
+}
+.reg_form .agree{
+    /* 加外边距不行诶 */
+    padding-top: 24px;
+}
+.reg_form .agree input{
+    margin-left: 100px;
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+}
+.reg_form .agree a{
+    color: #1ba1e6;
+}
+.reg_form .btn{
+    margin-left: 110px;
+    margin-top: 24px;
+    width: 200px;
+    height: 34px;
+    color: #fff;
+    background-color: #c81623;
+}
+footer .mod_copyright{
+    margin-top: 20px;
+    text-align: center;
+}
+footer .mod_copyright .links{
+    margin-bottom: 10px;
+}
+footer .mod_copyright .links a{
+    margin: 0 5px;
+}
+footer .mod_copyright .copyright{
+    line-height: 20px;
+}

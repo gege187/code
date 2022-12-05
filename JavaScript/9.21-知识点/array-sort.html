@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排序</title>
+</head>
+<body>
+    <script>
+        // 数组排序
+        var paixu = ['adhjd','edjk','bood','qdf','hee']
+        console.log(paixu.sort());
+        // 翻转数组
+        console.log(paixu.reverse());
+
+        // 数字排序
+        var points = [40, 100, 1, 5, 25, 10];
+        points.sort(
+            function(a, b){
+                return a - b
+            }
+        ); 
+        console.log(points);
+
+        // 查找最大值
+        // Math.max.apply([1, 2, 3]) 等于 Math.max(1, 2, 3)。
+        console.log(Math.max.apply(null,points));
+        // 查找最小值
+        // Math.min.apply([1, 2, 3]) 等于 Math.min(1, 2, 3)。
+        console.log(Math.min.apply(null,points));
+
+        // 自定义找最大值
+        function myArrayMax(arr) {
+            var len = arr.length
+            // 保证max的初始值比任何一个都小
+            var max = -Infinity;
+            while (len--) {
+                // 第一次就把数组中第一个数字的值赋给了max
+                if (arr[len] > max) {
+                    max = arr[len];
+                }
+            }
+            return max;
+        }
+        // 自定义找最小值
+        function myArrayMin(arr) {
+            var len = arr.length
+            var min = Infinity;
+            while (len--) {
+                if (arr[len] < min) {
+                    min = arr[len];
+                }
+            }
+            return min;
+        }
+        // 排序对象数组
+
+        
+    </script>
+</body>
+</html>

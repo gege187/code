@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字型</title>
+</head>
+<body>
+    <script>
+        // 转换成字符串
+        var num = 123;
+        console.log(num.toString());
+        // 返回四舍五入的值，参数是小数点后字符数
+        var ex = 1234.89
+        console.log(ex.toExponential(2));
+        console.log(ex.toExponential(4));
+        // 参数是小数位
+        console.log(ex.toFixed());
+        // 参数是整个数字的长度
+        console.log(ex.toPrecision(2));
+        // 以数字返回数字
+        var x = 123;
+        console.log(x.valueOf());
+    </script>
+</body>
+</html>

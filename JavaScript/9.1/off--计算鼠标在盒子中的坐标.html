@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算鼠标在盒子中的坐标</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            margin: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        /* 麻烦了一点
+        var div = document.querySelector('div');
+        var boxX = div.offsetLeft;
+        var boxY = div.offsetTop;
+        document.addEventListener('click',function(e){
+            var valueX = e.pageX - boxX;
+            var valueY = e.pageY - boxY;
+            console.log(valueX,valueY);
+        }) */
+
+        var div = document.querySelector('div');
+        div.addEventListener('click',function(e){
+            var x = e.pageX - this.offsetLeft;
+            var y = e.pageY - this.offsetTop;
+            console.log(x,y);
+        })
+    </script>
+</body>
+</html>

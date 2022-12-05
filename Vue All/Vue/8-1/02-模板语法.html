@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板语法</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        Vue模板语法有2大类:
+        1.插值语法:
+            功能:用于解析标签体内容。
+            写法: {{xxx}}, xxx是js表达式，且可以直接读取到data中的所有属性。
+        2.指令语法:
+            功能:用于解析标签(包括:标签属性、标签体内容、绑定事 件.....)。
+            举例: v-bind :href="xxx"或简写为 :href="xxx", xxx同样要写js表达式，
+                且可以直接读取到data中的所有属性。
+            备注: Vue中有很多的指令，且形式都是: v_????, 此处我们只是拿v-bind举个例子。
+
+     -->
+    <div id = "demo1">
+        <h2>模板语法</h2>
+        <a v-bind:href="url">点击去到{{other}}{{page}}</a>   <!--遇到v-bind，""里的内容当做表达式来处理，简写成：  -->
+        <!-- <a :href={{url}}>点击去到另一个页面</a> -->
+        <p>这是{{p.other}}{{p.page}}{{p.name}}</p>
+    </div>
+    <script>
+        new Vue({
+            el:'#demo1',
+            data:{
+                url:'https://www.bilibili.com/',
+                other:'另一个',
+                page:'页面',
+                p:{
+                    other:'p标签',
+                    page:'文字',
+                    name:':p',
+                }
+            },
+        })
+    </script>
+</body>
+</html>

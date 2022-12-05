@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动端返回顶部</title>
+    <style>
+        body{
+            width: 100%;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .content{
+            width: 80%;
+            height: 2000px;
+            margin: 0 auto;
+            background-color: pink;
+        }
+        .aside{
+            position: absolute;
+            top: 500px;
+            left: 100px;
+            width: 100px;
+        }
+        ul li{
+            list-style: none;
+            width: 50px;
+            height: 50px;
+            background-color: skyblue;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="content"></div>
+    <div class="aside">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li class="back" style="background-color: rgb(147, 235, 135);display: none;">返回顶部</li>
+        </ul>
+    </div>
+    <script>
+        var aside = document.querySelector('.aside')
+        var back = document.querySelector('.back')
+        document.addEventListener('scroll',function(){
+            //当滚动距离大于侧边栏距离顶部的高度时，显示隐藏
+            if(window.pageYOffset >= aside.offsetTop){
+                back.style.display = 'block'
+            }else{
+                back.style.display = 'none'
+            }
+        })
+        //快速返回顶部
+        back.addEventListener('click',function(){
+            window.scroll(0,0)
+        })
+    </script>
+</body>
+</html>

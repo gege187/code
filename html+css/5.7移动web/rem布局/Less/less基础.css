@@ -1,0 +1,23 @@
+body {
+  background-color: #fff;
+}
+div {
+  color: #fff;
+}
+.fa {
+  width: 20px;
+  height: 20px;
+  background-color: #de2314;
+}
+.fa span {
+  color: #987a26;
+}
+.fa a {
+  font-size: 25px;
+}
+.fa a:hover {
+  color: #e432ad;
+}
+.fa::after {
+  content: '';
+}

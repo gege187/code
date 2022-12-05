@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            margin: 0 auto;
+            width: 200px;
+            height: 80px;
+            border: 2px solid pink;
+            text-align: center;
+            line-height: 80px;
+        }
+        .btn{
+            width: 200px;
+            margin: 10px auto;
+        }
+        .start{
+            margin-right: 56px;
+        }
+    </style>
+</head>
+<body>
+    <p class="select"></p>
+    <div class="btn">
+        <button class="start">开始随机点名</button>
+        <button class="end">结束</button>
+    </div>
+    <script>
+        let data = ['张飞','刘备','关羽','叶秋','叶修','苏沐秋','苏沐橙','温迪','老傅']
+
+        function random(min,max){
+            return Math.floor(Math.random()*(max-min+1))+min
+        }
+
+        let select = document.querySelector('p')
+        let start = document.querySelector('.start')
+        let end = document.querySelector('.end')
+        let timer = 0
+        let ran = 0
+        start.addEventListener('click',function(){
+            timer = setInterval(function(){
+                ran = random(0,data.length-1)
+                select.innerHTML = data[ran]
+            },50)
+            if(data.length == 1){
+                start.disabled = true
+                end.disabled = true
+            }
+        })
+        // 抽一个少一个
+        end.addEventListener('click',function(){
+            clearInterval(timer)
+            // 起始位置index，删除元素个数
+            data.splice(ran,1)
+        })
+
+
+        /* // 控制按钮2秒内不可重复点击
+        btn.addEventListener('click',function(){
+            btn.disabled = true
+            setTimeout(function(){
+                btn.disabled = false
+            },2000)
+            // 随机生成名字
+            let num = 0
+            let timer = setInterval(function(){
+                select.innerHTML = data[random(0,data.length-1)]
+                num++
+                if(num == 25){
+                    clearInterval(timer)
+                }
+           
+        }) */
+
+    </script>
+</body>
+</html>

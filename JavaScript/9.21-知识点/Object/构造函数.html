@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数</title>
+</head>
+<body>
+    <script>
+        // 大写首字母
+        // 添加新属性和新方法，必须在函数内部来进行
+        function Person(name,age,score,newCon){
+            this.name = name;
+            this.age = age;
+            this.score = score;
+            this.newCon = newCon
+        }
+        // js原型 prototype 属性允许您为对象构造器添加新属性和新方法：
+        Person.prototype.addProto = 'success'
+        Person.prototype.addMotd = function(){
+            return '添加成功'
+        }
+    </script>
+</body>
+</html>

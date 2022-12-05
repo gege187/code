@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            id:1,
+            name:'andy',
+            msg:{
+                age:18,
+            }
+        }
+        let o = {}
+        for(let k in obj){
+            o[k] = obj[k]
+        }
+        // console.log(o);
+        // o.msg.age = 20
+        // 浅拷贝 是把更深层次对象级别的地址拷贝下来，和更深对象级别共用一个地址，当o地址中指向的内容发生改变时，会影响更深层级
+        // console.log(obj);
+
+        // 用ES6语法糖来实现
+        // console.log('---------------');
+        // Object.assign(o,obj);
+        // console.log(o);
+        // o.msg.age = 24
+        // console.log(obj);
+
+        // 深拷贝
+        let obj1 = {
+            id:1,
+            name:'andy',
+            msg:{
+                age:18,
+            }
+        }
+        let o1 = {}
+        function deepCopy(newObj,oldObj){
+            for(let k in oldObj){
+                // 判断属性值属于哪种数据类型
+                let item = oldObj[k]
+                if(item instanceof Array){
+                    newObj[k] = []
+                    deepCopy(newObj[k],item)
+                }else if(item instanceof Object){
+                    newObj[k] = {}
+                    deepCopy(newObj[k],item)
+                }else{
+                    newObj[k] = item
+                }
+            }
+        }
+        deepCopy(o1,obj1)
+        console.log(o1);
+        o1.msg.age = 24
+        console.log(obj1);
+    </script>
+</body>
+</html>

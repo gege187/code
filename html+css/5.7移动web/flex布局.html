@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex布局</title>
+    <style>
+            /* 设置主轴方向 
+            flex-direction: row;
+            设置主轴上的子元素排列方式 
+            justify-content: ;
+            设置子元素是否换行 
+            flex-wrap: ;
+            设置侧轴子元素的排列方式（多行） 
+            align-content: ;
+            设置侧轴上的子元素排列方式（单行） 
+            align-items: ;
+            同时设置direction和wrap 
+            flex-flow: ;*/
+        .div1{
+            display: flex;
+            /* 设置主轴方向,默认主轴 */
+            /* flex-direction: column; */
+            flex-direction: row;
+            /* 设置主轴上的子元素排列方式 */
+            justify-content: center;
+            /* 设置子元素是否换行，默认不换行，排不开就缩小子盒子大小 */
+            flex-wrap: wrap;
+            width: 500px;
+            height: 400px;
+            background-color: #e43567;
+        }
+        .div1 span{
+            width: 100px;
+            height: 100px;
+            background-color: #23aa45;
+        }
+        .div2{
+            display: flex;
+            /* 设置主轴方向,默认主轴 */
+            flex-direction: column;
+            /* flex-direction: row; */
+            /* 设置主轴上的子元素排列方式 */
+            justify-content: center;
+            /* 设置子元素是否换行，默认不换行，排不开就缩小子盒子大小 */
+            flex-wrap: wrap;
+            /* 设置侧轴上的子元素排列方式（单行） */
+            align-items: center;
+            width: 500px;
+            height: 400px;
+            background-color: #123456;
+        }
+        .div2 span{
+            width: 100px;
+            height: 100px;
+            background-color: #897654;
+        }
+        section{
+            display: flex;
+            margin: 0 auto;
+            width: 600px;
+            height: 200px;
+            background-color: #adfd23;
+        }
+        section div:nth-child(1){
+            width: 100px;
+            height: 200px;
+            background-color: #a6a4d4f1;
+        }
+        section div:nth-child(2){
+            flex: 1;
+            background-color: #aaddfff1;
+        }
+        section div:nth-child(3){
+            width: 100px;
+            height: 200px;
+            background-color: #345433f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <span>1</span>        
+        <span>2</span>        
+        <span>3</span>         
+    </div>
+    <div class="div2">
+        <span>1</span>        
+        <span>2</span>        
+        <span>3</span>        
+    </div>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+</body>
+</html>
+    

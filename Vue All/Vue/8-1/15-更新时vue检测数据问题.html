@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h2>人员列表</h2>
+        <button @click="updateMei">更新那冬梅信息</button>
+        <ul>
+            <li v-for="k in persons" :key="k.id">
+                {{k.name}}-{{k.age}}-{{k.sex}}
+            </li>
+        </ul>
+    </div>
+    <script>
+    Vue.config.productionTip = false;   //以阻止 vue 在启动时生成生产提示。
+   
+    // 用computed实现
+    new Vue({
+        el:'#root',
+        data:{
+            persons:[
+                {id:'001',name:'周冬雨',age:'12',sex:'女'},
+                {id:'002',name:'王冬梅',age:'22',sex:'女'},
+                {id:'003',name:'赵六六',age:'32',sex:'男'},
+                {id:'004',name:'张三请',age:'13',sex:'男'},
+            ],
+        },
+        methods: {
+            updateMei(){
+                // 可以
+                // this.persons[0].name = '马老师'
+                // this.persons[0].age = 50
+                // this.persons[0].sex = '男'
+
+                // 不可以，数据已经被修改了，但是vue没有检测到他的改变
+                this.persons[0] = {id:'001',name:'那老师',age:'80',sex:'男'}
+                
+                // 可以,splice（从第几位开始，删除几个，添加元素）
+                this.persons.splice(0,1,{id:'001',name:'那老师',age:'80',sex:'男'})
+            }
+        },
+    })
+    </script>
+</body>
+</html>

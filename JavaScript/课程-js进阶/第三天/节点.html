@@ -1,0 +1,101 @@
+<!-- 
+    节点类型：
+        元素节点：html根节点、标签
+        属性节点：class、
+        文本节点：文本、
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点</title>
+    <style>
+        .erweima{ 
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border: 2px solid #999;
+            margin: 10px;
+        }
+        .close{ 
+            display: block;
+            position: absolute;
+            top: -2px;
+            right: -23px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+    </style>
+ </head>
+ <body>
+    <!-- 
+        节点关系：parentNode
+     -->
+    <div class="fa">
+        <div class="son">son</div>
+    </div>
+    <!-- 关闭多个二维码 -->
+    <div class="erweima">
+        <span class="close">X</span>
+    </div>
+    <div class="erweima">
+        <span class="close">x</span>
+    </div>
+    <div class="erweima">
+        <span class="close">x</span>
+    </div>
+    <div class="erweima">
+        <span class="close">x</span>
+    </div>
+    <!-- 
+        节点关系：children：返回元素节点
+                 sibling：兄弟元素节点
+                    nextElementSibling
+                    previousElementSibling
+     -->
+     <ul>
+        <li>1</li>
+        <li class="two">2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+     </ul>
+     <button>button</button>
+     <script>
+        // 父节点
+        let son = document.querySelector('.son')
+        son.parentNode.style.display = 'none'
+
+        // 关闭多个二维码
+        let close = document.querySelectorAll('.close')
+        for(let i = 0; i < close.length; i++){
+            close[i].addEventListener('click',function(){
+                this.parentNode.style.display = 'none'
+            })
+        }
+
+        // 子节点
+        let ul = document.querySelector('ul')
+        let btn = document.querySelector('button')
+        btn.addEventListener('click',function(){
+            for(let i = 0; i< ul.children.length; i++){
+                ul.children[i].style.color = '#ccc'
+            }
+        })
+        // 点击前
+        ul.children[1].style.color = 'red'
+        // 兄弟节点
+        let two = document.querySelector('.two')
+        btn.addEventListener('click',function(){
+            two.nextElementSibling.style.color = 'yellow'
+            two.previousElementSibling.style.color = 'red'
+        })
+     </script>
+ </body>
+ </html>

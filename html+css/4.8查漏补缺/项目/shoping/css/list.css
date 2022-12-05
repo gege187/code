@@ -1,0 +1,101 @@
+/* 声明字体图标,要注意路径的更改*/
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?tomleg');
+    src:  url('../fonts/icomoon.eot?tomleg#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?tomleg') format('truetype'),
+      url('../fonts/icomoon.woff?tomleg') format('woff'),
+      url('../fonts/icomoon.svg?tomleg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+.nav{
+    overflow: hidden;
+}
+.sk{
+    position: absolute;
+    padding: 0 5px;
+    top: 40px;
+    left: 190px;
+    border-left: 1px solid #b1191a;
+}
+.sk_list{
+    float: left;
+}
+.sk_list li{
+    float: left;
+}
+.sk_list li a{
+    line-height: 47px;
+    margin: 0 30px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+}
+.sk_con{
+    float: left;
+}
+.sk_con li{
+    float: left;
+}
+.sk_con li a{
+    line-height: 49px;
+    margin: 0 30px;
+}
+.sk_con li:last-child a::after{
+    content: '';
+    font-family: 'icomoon';
+}
+.sk_bd ul li{
+    float: left;
+    margin-right: 13px;
+    width: 290px;
+    height: 460px;
+    border: 1px solid transparent;
+}
+.sk_bd ul li:hover{
+    border: 1px solid #e12228;
+}
+.sk_bd ul li:nth-child(4n){
+    margin-right: 0;
+}
+.sk_bd ul li .text{
+    padding: 0 12px;
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 24px;
+}
+.sk_bd ul li b{
+    color: #e60012;
+    font-size: 22px;
+    font-weight: 600;
+}
+.sk_bd ul li span{
+    display: inline-block;
+    
+}
+.sk_bd ul li .tiao1{
+    display: inline-block;
+    margin: 0 8px;
+    width: 130px;
+    height: 13px;
+    border: 1px solid #e12228;
+    border-radius: 13px;
+}
+.sk_bd ul li .tiao2{
+    width: 87%;
+    height: 100%;
+    background-color: #e12228;
+    border-radius: 13px;
+}
+.sk_bd ul li button{
+    margin-top: 10px;
+    width: 288px;
+    height: 51px;
+    line-height: 51px;
+    text-align: center;
+    background-color: #b1191a;
+    color: #fff;
+    font-size: 18px;
+}

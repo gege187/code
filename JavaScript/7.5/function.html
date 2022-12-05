@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+    <script>
+        //函数使用：
+        // 1.声明函数  
+        // 1.function声明函数的关键字 全部小写
+        // 2.函数名一般是动词
+        // 3.函数不调用不执行
+        function sayHi() {
+            console.log('hi');
+        }
+        // 2.调用函数
+        // 1.调用函数要加小括号
+        sayHi();
+
+
+        //参数
+        function getName(param) { //形参是接收实参的，param = '参数传递'  形参类似于一个变量
+            console.log(param); 
+        }
+        getName('参数传递');
+        
+        //求任意两个数的和
+        function getSum(shu1,shu2){
+            var sum = shu1 + shu2;
+            console.log(sum);
+        }
+        getSum(10,20);
+
+        //求任意两个数之间的和
+        function getSum1(num1,num2){
+            var sum1 = 0;
+            for(var i = num1; i <= num2; i++){
+                sum1 += i;
+            }
+            console.log(sum1);
+        }
+        getSum1(1,100);
+
+        //函数返回值
+        /* function name(params) {
+            return 需要返回的结果
+        }
+        name(params);    //函数名() = 需要返回的结果
+        //现在还没有打印出来，需要控制台输出
+        console.log(name(params));
+        */
+
+        //只能返回后一个值
+        function fn(f1,f2){
+            return f1,f2;
+        }
+        console.log(fn(1,2));
+        //数组实现返回多个值   求任意两个数的加减乘除结果
+        function getRes(num3,num4){
+            return[num3+num4,num3-num4,num3*num4,num3/num4];
+        }
+        var res = getRes(3,4);
+        console.log(res);
+
+        //没有return 返回underfined
+        function fun(){
+
+        }
+        console.log(fun());
+
+        //arguments
+        function getMax(){
+            var max = arguments[0];
+            for(var i = 1; i < arguments.length; i++){
+                if(arguments[i] > max){
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+        var result = getMax(33,44,31,1,21);
+        console.log(result);
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

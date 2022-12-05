@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实时更新输入框字数</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        textarea{
+            margin-top: 30px;
+            margin-left: 30px;
+            padding: 5px;
+            width: 500px;
+            height: 80px;
+            border: 2px solid #ccc;
+            outline: none;
+            border-radius: 10px;
+            resize: none;
+        }
+        p{
+            margin-top: 10px;
+            width: 500px;
+            text-align: right;
+        }
+        button{
+            margin-left: 10px;
+            width: 80px;
+            height: 30px;
+            background-color: #7058e7;
+            color: #fff;
+            border: none;
+        }
+        span{
+            color: red;
+        }
+</style>
+</head>
+<body>
+    <textarea placeholder="说点什么吧..." maxlength="200"></textarea>
+    <p><span>0</span>/200<button>发布</button></p>
+    <script>
+        let ta = document.querySelector('textarea')
+        let span = document.querySelector('span')
+        // ta.addEventListener('change',function(){})
+        // input输入事件
+        ta.addEventListener('input',function(){
+            span.innerHTML = ta.value.length
+        })
+    </script>
+</body>
+</html>

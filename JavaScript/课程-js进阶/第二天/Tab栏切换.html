@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            margin: 100px 0 0 200px;
+        }
+        .tab{
+            width: 400px;
+            height: 30px;
+        }
+        li{
+            float: left;
+            list-style: none;
+            width: 70px;
+            height: 30px;
+            line-height: 30px;
+            margin: 0 10px;
+            text-align: center;
+        }
+        .bord{
+            border-bottom: 2px solid rgb(217, 72, 72);
+        }
+        .content{ 
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            width: 400px;
+            height: 200px;
+        }
+        .con{
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="tab">
+            <ul>
+                <li class="bord">国际大牌</li>
+                <li>果庄名牌</li>
+                <li>清洁用品</li>
+                <li>勇士精品</li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="con show">这是第一个内容</div>
+            <div class="con">这是第二个内容</div>
+            <div class="con">这是第三个内容</div>
+            <div class="con">这是第四个内容</div>
+        </div>
+    </div>
+    <script>
+        let lis = document.querySelectorAll('li')
+        let cons = document.querySelectorAll('.con')
+        for(let i = 0;i < lis.length;i++){
+            lis[i].addEventListener('click',function(){
+                document.querySelector('.bord').classList.remove('bord')
+                // this.className = 'bord'
+                this.classList.add('bord')
+
+                document.querySelector('.show').classList.remove('show')
+                cons[i].classList.add('show')
+            })
+        }
+
+    </script>
+</body>
+</html>

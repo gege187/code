@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h2>学校名称：{{name}}</h2>
+        <h2>学校地址：{{address}}</h2>
+        <h1>学生信息</h1>
+        <button @click="addSex">点击添加性别属性</button>
+        <h2>学生姓名：{{students.name}}</h2>
+        <h2 v-if="students.sex">学生性别：{{students.sex}}</h2>
+        <h2>学生年龄：真实：{{students.age.rage}}， 对外：{{students.age.sage}}</h2>
+        <h2>朋友们</h2>
+        <ul>
+            <li v-for="(f,index) in students.friends" :key="index">{{f.name}}--{{f.age}}</li>
+        </ul>
+        <h2>爱好</h2>
+        <ul>
+            <li v-for="(h,index) in students.hobby" :key="index">{{h}}</li>
+        </ul>
+
+    </div>
+    <script>
+    Vue.config.productionTip = false;   //以阻止 vue 在启动时生成生产提示。
+    const vm = new Vue({
+        el:'#root',
+        data:{
+            name:'shanghai',
+            address:'beijing',
+            students:{
+                name:'tom',
+                age:{
+                    rage:40,
+                    sage:20,
+                },
+                // 修改数组的方式
+                // vm.students.hobby.push('学习')
+                // vm.$set(vm.students.hobby,0,'打太极')
+                hobby:['抽烟','喝酒','烫头'],
+                friends:[
+                    {name:'herry',age:30}
+                ]
+            }
+        },
+        methods: {
+            addSex(){
+                // Vue.set(this.students,'sex','男')
+                this.$set(this.students,'sex','男')
+            }
+        },
+    })
+    console.log(vm);
+    </script>
+</body>
+</html>

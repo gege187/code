@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 相对定位 */
+        .po1{
+            width: 200px;
+            height: 200px;
+            background-color: #ddd;
+        }
+        .po2{
+            /* 距左上各100，相对于自己原来位置进行移动 */
+            /* 特点1.占有原来的位置2.仍具有标签原有自身样式 */
+            position: relative;
+            left: 100px;
+            top: 100px;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        /* 绝对定位两种情况 */
+        /* 1.父级定位则根据父级位置移动2.父级未定位则按照浏览器窗口移动 */
+        /* .po11父级未定位,按浏览器定位
+           .po21父级定位，按父元素位置定位 */
+        /* 特点1.不占标准流2.改变标签样式（行内块模式，宽高生效，在一行显示） */
+        .po11{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: #bbb;
+        }
+        .po21{
+            position:absolute;
+            right: 50px;
+            bottom: 50px;
+            z-index: 1;
+            width: 100px;
+            height: 100px;
+            background-color: #d3a3a3;
+        }
+        .po22{
+            position: absolute;
+            left:   0;
+            width: 100px;
+            height: 100px;
+            background-color: #bcbcdc;
+        }
+        .po3{
+            /* 实现居中 */
+            position: absolute;
+            /* margin: 0 auto; */
+            /* 水平居中 */
+            left: 50%;
+            /* margin-left: -150px; */
+            top: 50%;
+            /* margin-top: -150px;  */
+            /* 垂直居中——结束 */
+            /* 位移:    */
+            transform: translate(-50%,-50%);
+            width: 300px;
+            height: 300px;
+            background-color: #d3a3cf;
+        }
+        .po4{
+            /* 特点1.不占位置2.定位参照浏览器窗口3.具备行内块特点 */
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background-color: #de4;
+        }
+        .po41{
+            position: absolute;
+            top: 100px;
+            /* 设置为none会消失，并且不占位置 */
+            display: none;
+            width: 100px;
+            height: 100px;
+            background-color: #ddeeaa;
+        }
+        .po4:hover .po41{
+            /* 悬停显示，要在悬停主体后加上对象，设置本身块级样式 */
+            display: block;
+            
+        }
+        .mouse{
+            width: 100px;
+            height: 100px;
+            background-color: #8ba9c7;
+            /* ：text   ：move */
+            cursor: pointer;
+        }
+        .yuan{
+            /* 赋值从左上角开始 */
+            /* 正圆：50% */
+            /* 胶囊：高度的一半 */
+            width: 100px;
+            height: 100px;
+            background-color: rgb(98, 164, 61);
+            border-radius: 10px 20px 30px 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="po1">1
+        <div class="po11">11</div>
+    </div>
+    <div class="po2">2
+        <div class="po21">21</div>
+    </div>
+    <div class="po3">绝对定位的盒子水平居中</div>
+    <!-- 固定定位 -->
+    <div class="po4">4
+        <div class="po41">41悬停显示</div>
+    </div>
+
+    <!-- 层级关系 -->
+    <!-- 默认情况下，定位的盒子后来者居上——后边的标签覆盖前边的 -->
+    <!-- 参考21 22 -->
+    <!-- z-index:整数;和定位配合使用.取值越大,显示顺序越靠上,z-index默认值为0 -->
+    <!-- 只有在同级之间起作用，父子级 - 子级在父级上 -->
+    <div class="po22">好长</div>
+    <div>好长</div>
+    <div>好长</div>
+    <div>好长</div>
+    <div>好长</div>
+    <div>好长</div>
+    <div class="mouse">光标</div>
+    <div class="yuan">圆角</div>
+    <div>好长</div>
+    <div>好长</div>
+    <div>好长</div>
+    <div>好长</div>
+    <div>好长</div>
+    <div>好长</div>
+    <div>好长</div>
+    <div>好长</div>
+    <div>好长</div>
+    
+</html>

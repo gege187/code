@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* var num = 10;
+        if(true){
+            console.log(num);
+            let num = 20;
+        } */
+
+        var arr = []
+        // 使用let声明的变量有自己的块级作用域
+        // 函数执行时会去找到自己变量的那个作用域里的值
+        for(let i = 0; i < 2; i++){
+            arr[i] = function(){
+                console.log(i);
+            }
+        }
+        arr[0]()
+        arr[1]()
+
+        // const 声明常量，也具有块级作用域
+    </script>
+</body>
+</html>

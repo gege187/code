@@ -1,0 +1,44 @@
+<!-- 
+    parentNode
+    childNodes[]
+    firstChild
+    lastChild
+    nextSibling
+    previousSibling
+
+    根节点：
+    document.body ： 文档的 body
+    document.documentElement ： 完整文档
+
+    nodeName 属性规定节点的名称。
+        只读
+        元素节点的 nodeName 等同于标签名
+        属性节点的 nodeName 是属性名称
+        文本节点的 nodeName 总是 #text
+        文档节点的 nodeName 总是 #document
+    
+    nodeValue 属性规定节点的值。
+        元素节点的 nodeValue 是 undefined
+        文本节点的 nodeValue 是文本文本
+        属性节点的 nodeValue 是属性值
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo">value</p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <script>
+        var pval = document.querySelector('p').firstChild.nodeValue
+        var pname = document.querySelector('p').childNodes[1].nodeName
+        var ptype = document.querySelector('p').childNodes[2].nodeType
+
+    </script>
+</body>
+</html>

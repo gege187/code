@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点案例</title>
+    <style>
+        ul li{
+            width: 200px;
+            height: 20px;
+            background-color: pink;
+            color: red;
+            margin-top: 10px;
+        }
+        a{
+            float: right;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <textarea name="" id="" cols="30" rows="10">123</textarea>
+    <button class="push">发布</button>
+    <ul>
+       
+    </ul>
+    <script>
+        var push = document.querySelector('.push');
+        var text = document.querySelector('textarea');
+        var ul = document.querySelector('ul');
+        push.onclick = function(){
+            if(text.value == ''){
+                alert('wrror!');
+                return false;
+            }else{
+                //创建节点
+                var li = document.createElement('li');
+                // li = text.value; 类型不一致
+                li.innerHTML = text.value + "<a href='javascript:;'>删除</a>";
+                //放在ul中
+                // ul.appendChild(li);
+                ul.insertBefore(li,ul.children[0]);
+                //删除元素,删除的是整个li，a的父级
+                var as = document.querySelectorAll('a');
+                for(var i = 0; i < as.length; i++){
+                    as[i].onclick = function(){
+                        ul.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+        
+    </script>
+</body>
+</html>

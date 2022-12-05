@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css基础</title>
+    <!-- 在头部标签中添加链接 -->
+    <link rel="stylesheet" href="./one.css">
+</head>
+<style>
+    /* css内嵌式 */
+    /* 标签选择器 */
+    p{
+        color: rgb(9, 226, 154);
+    }
+    /* 类选择器 */
+    .red{
+        color: blue;
+    }
+    .size{
+        font-size: 24px;
+    }
+    /* id选择器 */
+    #a{
+        color: yellow;
+    }
+    /* 通配符选择器 */
+    *{
+        color: rgb(65, 57, 57);
+        margin: 0 auto;
+    }
+    /* 字体样式 */
+    .to{
+        font-size: 20px;
+        font-weight: 20px;
+        font-style: italic;
+        font-family: 宋体;
+        /* 如果电脑没有装第一个字体，就按任意一种非衬线字体系列显示 */
+        font-family: 宋体,sans-serif;
+    }
+    .tt{
+        color: beige;
+        color: darkmagenta;
+        /* 复合属性 */
+        /* font-style: normal; */
+        font:italic 700 30px 黑体;
+    }
+
+    /* 文本 */
+    .tho{
+        text-indent: 2em;
+    }
+    .tht{
+        text-align: center;
+    }
+    .thf{
+        /* line-height: 40px; */
+        line-height: 2;
+    }
+</style>
+<body>
+    <!-- 标签选择器 -->
+    <!-- 内嵌式 -->
+    <p>标签选择器</p>
+    <!-- 外链式 -->
+    <div class="two">第二条内容由外联式css控制</div>
+    <!-- 行内式 -->
+    <br><br>
+    <span style="color: aqua;">这条内容由单独样式控制</span>
+    <br><br>
+
+    <!-- 类选择器 -->
+    <div class="red">类选择器</div>
+    <div class="red size">多个类名</div>
+
+    <!-- id选择器,只能有一个，不可重复 -->
+    <div id="a">id选择器</div>
+
+    <!-- 通配符选择器 -->
+    <div>通配符，未添加样式的标签受用</div>
+
+    <!-- 字体样式 -->
+    <div class="to">字体大小、粗细、倾斜、字体</div>
+    <div class="tt">样式重叠</div>
+    
+    <!-- 文本样式 -->
+    <div class="tho">文本缩进</div>
+    <div class="tht">文本居中显示</div>
+    <div class="tht"><img src="0.jpg" alt=""></div>
+    <p class="thf">我没有喜欢过人，我面前的这个，叫谢俞的小朋友是第一个。
+        虽然小朋友脾气不好，动不动就打人，但我还是很喜欢他。
+        很认真的那种喜欢，看到他就高兴，想跟他谈恋爱，喜欢的要命。（贺朝）</p>
+    <div>margin: 0 auto控制居中 </div>
+
+
+
+</body>
+</html>

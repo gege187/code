@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数案例</title>
+    <script>
+        //翻转
+        function getTurn(){
+            var newArr = [];
+            for(var i = arguments.length - 1; i >= 0; i--){
+                newArr[newArr.length] = arguments[i];
+            }
+            return newArr;
+        }
+        var result1 = getTurn(['pink','green','blue','purple']);
+        console.log(result1);
+
+        //冒泡排序
+        function bubble(arr){
+            for(var i = 0; i < arr.length-1; i++){
+                for(var j = 0; j < arr.length - i - 1; j++){
+                    if(arr[j] > arr[j+1]){
+                        var change = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = change;
+                    }
+                }
+            }
+            return arr;
+        }
+        var result2 = bubble([22,43,13,54,76,24]);
+        console.log(result2);
+
+        //判断闰年
+        function year(num){
+            var flag = false;
+            if(num % 100 != 0 && num % 4 == 0 || num % 400 == 0){
+                flag = true;
+                //return '是闰年';
+            }//else{
+                //return '不是闰年';
+            //}
+            return flag;
+        }
+        //var result3 = year(parseInt(prompt('输入一个年份：')));
+        //alert(result3);
+        console.log(year(prompt('输入一个年份：')));
+
+        // 一个函数调用另一个函数
+        // 输入年份，输出二月份天数
+        function getMonth(year1){
+            if(year(year1)){
+                alert('二月29天');
+            }else{
+                alert('二月28天');
+            }
+        }
+        var result4 = getMonth(prompt('输入年份：'));
+        console.log(result4);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

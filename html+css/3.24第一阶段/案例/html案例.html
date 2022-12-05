@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例</title>
+</head>
+<body>
+    <table border="1" width="300" height="300">
+        <caption><h3>优秀学生信息表</h3></caption>
+        <tr>
+            <th>年级</th>
+            <th>姓名</th>
+            <th>学号</th>
+            <th>班级</th>
+        </tr>
+        <tr>
+            <td rowspan="2">高三</td>
+            <td>张三</td>
+            <td>110</td>
+            <td>三年二班</td>
+        </tr>
+        <tr>
+            <td>赵时</td>
+            <td>120</td>
+            <td>三年三班</td>
+        </tr>
+        <tr>
+            <td>评语</td>
+            <td colspan="3">你们都很优秀</td>
+        </tr>
+    </table>
+
+    <!-- 表单案例 -->
+    <!-- 要实现表单排列对齐，可以用表格嵌套，第一列写用户名等辅助信息，后跟input元素 -->
+    <h1>青春不常在，抓紧谈恋爱</h1>
+    <hr>
+<form>
+    昵称：<input type="text" placeholder="请输入昵称"><br><br>
+    性别：<label><input type="radio" name="sex">男</label>
+          <label><input type="radio" name="sex">女</label>
+          <br><br>
+    所在城市：<select>
+                <option>上海</option>
+                <option selected>北京</option>
+                <option>广东</option>
+             </select>
+             <br><br>
+    婚前况状：<label><input type="radio" name="marry">未婚</label>
+    <label><input type="radio" name="marry">已婚</label>    
+    <label><input type="radio" name="marry">保密</label>   
+    <br><br>
+    喜欢的类型：<label><input type="checkbox" checked>可爱</label>
+               <label><input type="checkbox">性感</label>
+               <label><input type="checkbox" checked>萝莉</label>
+               <label><input type="checkbox">大叔</label>
+               <br><br>
+    个人介绍：<br><br><textarea cols="50" rows="6"></textarea>
+    <br><br>
+    <h3>我承诺</h3>
+    <ul>
+        <li>年满18岁，单身</li>
+        <li>抱着严肃的态度</li>
+        <li>真诚寻找另一半</li>
+    </ul>
+
+    <input type="checkbox">我同意所有的条款
+    <br><br>
+    <input type="submit" value="免费注册">
+    <input type="reset">
+</form>
+
+               
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点</title>
+</head>
+<body>
+    <div class="fa">
+        <p class="son"></p>
+    </div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        var son = document.querySelector('.son');
+        //获取离元素最近的父节点，找不到返回null
+        console.log(son.parentNode);
+
+        var ul = document.querySelector('ul');
+        //包括所有的子节点  元素  文本等
+        console.log(ul.childNodes);
+        //(推荐)获取所有的子元素节点
+        console.log(ul.children);
+
+        // 1.获取节点的第一个li和最后一个li
+        //第一个子节点，不管是文本节点还是元素节点
+        console.log(ul.firstChild);
+        console.log(ul.lastChild);
+
+        //2.获取第一个和最后一个元素节点
+        console.log(ul.firstElementChild);
+        console.log(ul.lastElementChild);
+
+        // 3.（推荐）实际开发的写法
+        console.log(ul.children[0]);
+        console.log(ul.children[li.children.length - 1]);
+
+
+        var div = document.querySelector('div');
+        //获取上一个兄弟节点
+        console.log(div.previousSibling);
+        // 获取上一个兄弟的元素节点
+        console.log(div.previousElementSibling);
+        //获取下一个兄弟节点，包括元素节点 文本节点等等
+        console.log(div.nextSibling);
+        // 获取下一个兄弟节点的元素节点
+        console.log(div.nextElementSibling);
+    </script>
+</body>
+</html>

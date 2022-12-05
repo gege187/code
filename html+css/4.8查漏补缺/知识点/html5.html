@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新特性</title>
+    <style>
+        li{
+            list-style: none;
+            margin: 10px 0;
+        }
+        header,nav,footer{
+            width: 600px;
+            height: 100px;
+            border-radius: 15px;
+            background-color: pink;
+            margin: 20px auto;
+        }
+        article{
+            position: relative;
+            width: 290px;
+            height: 200px;
+            border-radius: 15px;
+            background-color: pink;
+            margin: 20px auto;
+        }
+        section{
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background-color: skyblue;
+            border-radius: 15px;
+        }
+        
+    </style>
+</head>
+<!-- 在ie9中，需要把这些元素转换为块级元素 -->
+<body>
+    <!-- 验证必须添加form表单域 -->
+    <form action="">
+        <ul>
+            <li>邮箱：<input type="email"></li>
+            <li>网址：<input type="url"></li>
+            <li>日期：<input type="date"></li>
+            <li>时间：<input type="time"></li>
+            <li>数量：<input type="number"></li>
+            <li>手机号：<input type="tel"></li>
+            <li>搜索：<input type="search"></li>
+            <li>颜色：<input type="color"></li>
+            <li>文本框：
+                <input type="text" required="required" placeholder="默认文本" 
+                        autofocus="autofocus" autocomplete="off">
+            </li>
+            <li>文件：<input type="file" multiple></li>
+            <li><input type="submit" value="提交"></li>
+            
+        </ul>
+    </form>
+
+    <header>头部标签</header>
+    <nav>导航标签</nav>
+    <article>内容标签
+        <section>定义文档某个区域</section>
+    </article>
+    <aside>侧边栏标签</aside>
+    <footer>尾部标签</footer>
+
+</body>
+</html>

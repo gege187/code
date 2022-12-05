@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本包装类型</title>
+    <script>
+        // 基本包装类型: 就是把简单数据类型包装成为了复杂数据类型,这样基本数据类型就有了属性和方法
+        var str = 'angly';
+        console.log(str.length);
+        //equals
+        // 1.把简单数据类型包装成为了复杂数据类型
+        var str1 = new String('angly');
+        // 2.把临时变量的值给str
+        str = str1;
+        // 3.销毁这个临时变量
+        str1 = null;
+
+        // 根据字符返回位置  indexOf()   lastIndexOf()
+        var str2 = 'nihaowoshinibaba';
+        console.log(str2.indexOf('o'));
+        console.log(str2.indexOf('o',5)); //5是从哪个位置开始向后查找
+
+        //查找字符串中某一个字符出现的位置和次数
+        var str3 = 'abcoefoxyozzopp';
+        var index = str3.indexOf('o');
+        var newArr = [];
+        var sum = 0;
+        while(index != -1){
+            newArr.push(index);
+            sum++;
+            index = str3.indexOf('o',index + 1);
+        }
+        console.log(newArr);
+        console.log('o出现的位置：' + newArr);
+        console.log('o出现的次数：'+ sum);
+
+        //根据位置返回字符
+        //(1)charAt(index)
+        var str = 'angly';
+        console.log(str.charAt(3));
+        for(var i = 0; i < str.length; i++){
+            console.log(str.charAt(i));
+        }
+
+        // (2)charCodeAt(index)  返回ASCII
+        console.log(str.charCodeAt(3));
+
+        // (3)str[index]  H5新增   更简单
+        console.log(str[3]);
+
+        // 对象['属性名'] 判断是否有该属性
+        var per = {
+            age:18,
+        }
+        if(per['age']){
+            console.log('yes');
+        }else{
+            console.log('no');
+        }
+        //案例--统计出现最多的字符
+        var strr = 'abcoefoxyozzopp';
+        var o = {};
+        for(var i = 0; i< strr.length ; i++){
+            var chars = strr.charAt(i);
+            if(o[chars]){     //变量不用加''或""
+                o[chars]++;    //o[chars] 得到的是属性值
+            }else{
+                o[chars] = 1;
+            }               
+        }
+        console.log(o);
+        //遍历对象
+        var max = 0;
+        var ch = '';   //声明一个空字符用来存放数量最多的字符
+        for(var k in o){
+            if(o[k] > max){
+                max = o[k];
+                ch = k;
+            }
+        }
+        console.log("max:" + max + ',' + "char:" + ch);
+
+        //拼接字符串
+        var str4 = 'i LOVE ';
+        console.log(str4.concat('you'));
+        //截取字符串,从哪开始，截取几个
+        console.log(str4.substr(0,2));   
+        //替换字符串
+        console.log(str4.replace('i','i not')); 
+        var demo1 = "acjskaadeskffhdk";
+        while(demo1.indexOf("f") != -1){
+            demo1 = demo1.replace('f','t');
+        }
+        console.log(demo1);
+        //字符转换为数组
+        var str5 = '1/2/3/4';
+        console.log(str5.split('/'));
+        //字符转换大小写
+        console.log(str4.toUpperCase());
+        console.log(str4.toLowerCase());
+    </script>
+</head>
+<body>
+</body>
+</html>

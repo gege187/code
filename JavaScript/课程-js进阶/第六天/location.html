@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location</title>
+</head>
+<body>
+    <a href="https://www.bilibili.com/video/BV1AT4y1v75t?p=66&spm_id_from=pageDriver&vd_source=68b3281bbf7734b5425717a2353a38c3">五秒后自动跳转</a>
+    <button>关闭定时器</button>
+    <a href="#one">hash-one</a>
+    <a href="#two">hash-two</a>
+    <script>
+        // 可读写
+        console.log(location.href);
+        // location.href = 'https://www.bilibili.com/video/BV1AT4y1v75t?p=66&spm_id_from=pageDriver&vd_source=68b3281bbf7734b5425717a2353a38c3'
+
+        // 五秒后自动跳转
+        let a = document.querySelector('a')
+        let btn = document.querySelector('button')
+        btn.addEventListener('click',function(){
+            clearInterval(timer)
+        })
+        let num = 5
+        let timer = setInterval(function(){
+            num--
+            a.innerHTML = `${num}秒后自动跳转`
+            if(num == 0){
+                location.href = 'https://www.bilibili.com/video/BV1AT4y1v75t?p=66&spm_id_from=pageDriver&vd_source=68b3281bbf7734b5425717a2353a38c3'
+            }
+        },1000)
+
+        // 得到地址中携带的参数
+        console.log(location.search);
+
+        // hash属性获取地址中#后面的部分，vue路由跳转的铺垫，用于不刷新页面来显示不同页面
+        console.log(location.hash);
+
+        // 刷新,强制刷新reload(true)
+        // location.reload()
+    </script>
+</body>
+</html>

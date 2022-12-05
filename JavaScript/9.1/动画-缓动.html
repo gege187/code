@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>缓动动画</title>
+    <style>
+        .one{
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        .two{
+            position: absolute;
+            top: 200px;
+            left: 0px;
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+            z-index: 99;
+        }
+        .split{
+            position: absolute;
+            top: 200px;
+            left: -70px;
+            width: 120px;
+            height: 50px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="one"></div>
+    <button class="btn400">400</button>
+    <button class="btn800">800</button>
+    <div class="two"></div>
+    <div class="split"></div>
+    <script>
+        var one = document.querySelector('.one')
+        var two = document.querySelector('.two')
+        var split = document.querySelector('.split')
+        var btn400 = document.querySelector('.btn400')
+        var btn800 = document.querySelector('.btn800')
+        function animate(obj,target,callback){
+            //加清除之前的定时器效果，否则会鬼畜
+            clearInterval(obj.move)
+            obj.move = setInterval(function(){
+                if(obj.offsetLeft == target){
+                    clearInterval(obj.move)
+                    if(callback){
+                        callback();
+                    }
+                }
+                //缓动就是把步长慢慢缩小
+                // obj.style.left = obj.offsetLeft + 1 + 'px'
+                //要取整，否则可能距离会是小数值不准确
+                // var step = Math.ceil((target - obj.offsetLeft) / 10)有判断条件
+                var step = (target - obj.offsetLeft) / 10
+                step = step > 0? Math.ceil(step) : Math.floor(step)
+                obj.style.left = obj.offsetLeft + step + 'px'
+            },30)
+        }
+        btn400.addEventListener('click',function(){
+            //正着走就是向上（大）取整
+            animate(one,400)
+        })
+        btn800.addEventListener('click',function(){
+            // 反着向后退就是向下取整
+            animate(one,800,function(){
+                //动画结束后的实现效果
+                console.log('true');
+            })
+        })
+        two.addEventListener('mouseenter',function(){
+            animate(split,50,function(){
+                two.innerHTML = '完成'
+            })
+        })
+        two.addEventListener('mouseleave',function(){
+            animate(split,-70,function(){
+                two.innerHTML = ''
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let fn = ()=>{
+            console.log('arrow');
+        }
+        fn();
+        // 函数体中只有一句代码，并且代码的执行结果就是函数返回值，函数{}可以省略
+        let one = (n1,n2) => n1 + n2
+        console.log(one(1,2));
+        // 在箭头函数中，如果只有一个形参，可以省略小括号
+        let two = n3 => console.log(n3);
+        two(4)
+        // 箭头函数中的this关键字指向箭头函数定义位置中this
+        let four = {name:'andy'}
+        function fun() {
+            console.log(this);
+            return ()=>{
+                console.log(this);
+            }
+        }
+        // fun.call(four)
+        let res = fun.call(four)
+        res();
+
+        // 易错点,对象不产生作用域,所以箭头函数中的this指向window
+        // var age = 100
+        var five = {
+            age:20,
+            say: ()=>{
+                console.log(this.age);
+            }
+        }
+        five.say()
+    </script>
+</body>
+</html>

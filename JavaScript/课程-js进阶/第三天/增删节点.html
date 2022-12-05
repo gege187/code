@@ -1,0 +1,46 @@
+<!-- 
+    1.创建:新的标签
+    2.添加
+    3.删除
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">box</div>
+    <button>button</button>
+    <script>
+        let box = document.querySelector('div')
+        let div = document.createElement('div')
+        div.innerHTML = 'new'
+        box.appendChild(div)
+        // box.insertBefore(div,放到哪个元素前，默认第一位)
+       let btn = document.querySelector('button')
+
+
+        // 克隆节点
+        let newbox = box.cloneNode()  //默认false，克隆这一个节点
+        let anybox = box.cloneNode(true)  //克隆所有的节点
+        console.log(newbox,anybox);
+
+        // 删除节点，从父元素中删除removechild
+        btn.addEventListener('click',function(){
+            // box.removeChild(div)
+            box.removeChild(box.children[0])
+        })
+
+    </script>
+</body>
+</html>

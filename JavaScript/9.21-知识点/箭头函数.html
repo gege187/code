@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数</title>
+</head>
+<body>
+    <script>
+        // this 关键字始终表示定义箭头函数的对象
+
+        // 如果函数只有一个语句，并且该语句返回一个值，则可以去掉括号和 return 关键字：
+        var fn = function(){
+            return 'ok'
+        }
+        fn = () => {
+            return 'ok'
+        }
+        fn = () => 'ok'
+        // 带参
+        fn = (val) => 'ok' + val
+        fn = val => 'ok' + val
+    </script>
+</body>
+</html>

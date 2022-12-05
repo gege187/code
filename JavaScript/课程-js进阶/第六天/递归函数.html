@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>递归函数</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        // 递归函数：自己调用自己
+        let num = 0
+        function fn(){
+            num++
+            if(num >= 100){
+                return
+            }
+            fn()
+        }
+        fn()
+        console.log(num);
+
+        // 结合递归函数和setTimeout实现setInterval
+        let div = document.querySelector('div')
+        function ring(){
+            div.innerHTML = new Date().toLocaleString()
+            setTimeout(ring,1000)
+        }
+        ring()
+    </script>
+</body>
+</html>

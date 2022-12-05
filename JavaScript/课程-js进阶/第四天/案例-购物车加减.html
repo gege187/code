@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        table{ 
+            width: 800px;
+            margin: 0 auto;
+        }
+        tr{ 
+            height: 55px;
+        }
+        td{ 
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+        img{ 
+            width: 30px;
+        }
+        .four button{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 20px;
+            font-size: 28px;
+            vertical-align: middle;
+        }
+        .four input{
+            display: inline-block;
+            width: 100px;
+            height: 30px;
+            line-height: 27px;
+            border: 1px solid #333;
+            vertical-align: middle;
+            text-align: center;
+        }
+        span{ 
+            margin: 0 10px;
+        }
+        .count{ 
+            width: 70px;
+            height: 30px;
+            border: none;
+            color: #fff;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing="0">
+        <tr>
+            <td ><input type="checkbox" class="all">全选</td>
+            <td>商品</td>
+            <td>单位</td>
+            <td>商品数量</td>
+            <td>小计</td>
+            <td>操作</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="may"></td>
+            <td>
+                <img src="0.jpg" alt="">
+            </td>
+            <td class="danjia">5￥</td>
+            <td class="four">
+                <button style="margin-right:-6px" class="jian" disabled>-</button>
+                <input type="text" value="1" class="number">
+                <button style="margin-left:-5px" class="jia">+</button>
+            </td>
+            <td class="xiaoji">5￥</td>
+            <td class="del">删除</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="may"></td>
+            <td>
+                <img src="0.jpg" alt="">
+            </td>
+            <td class="danjia">5￥</td>
+            <td class="four">
+                <button style="margin-right:-6px" class="jian" disabled>-</button>
+                <input type="text" value="1" class="number">
+                <button style="margin-left:-5px" class="jia">+</button>
+            </td>
+            <td class="xiaoji">5￥</td>
+            <td class="del">删除</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="may"></td>
+            <td>
+                <img src="0.jpg" alt="">
+            </td>
+            <td class="danjia">5￥</td>
+            <td class="four">
+                <button style="margin-right:-6px" class="jian" disabled>-</button>
+                <input type="text" value="1" class="number">
+                <button style="margin-left:-5px" class="jia">+</button>
+            </td>
+            <td class="xiaoji">5￥</td>
+            <td class="del">删除</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="may"></td>
+            <td>
+                <img src="0.jpg" alt="">
+            </td>
+            <td class="danjia">5￥</td>
+            <td class="four">
+                <button style="margin-right:-6px" class="jian" disabled>-</button>
+                <input type="text" value="1" class="number">
+                <button style="margin-left:-5px" class="jia">+</button>
+            </td>
+            <td class="xiaoji">5￥</td>
+            <td class="del">删除</td>
+        </tr>
+        <tr>
+            <td colspan="6" style="overflow:hidden">
+                <div style="float:left">
+                    <span>删除所选商品</span>
+                    <span>清空购物车</span>
+                </div>
+                <div style="float:right">
+                    <span>已选中<i style="color:red" class="xuan">0</i>件商品，总价：<i style="color:red" class="zong">0</i>￥</span>
+                    <button class="count">去结算</button>
+                </div>
+            </td>
+        </tr>
+        <script>
+            // 全选按钮
+            let all = document.querySelector('.all')
+            let may = document.querySelectorAll('.may')
+            all.addEventListener('click',function(){
+                for(let i = 0; i < may.length; i++){
+                    may[i].checked = all.checked
+                }
+            })
+            for(let i = 0; i < may.length; i++){
+                may[i].addEventListener('click',function(){
+                    for(let j = 0; j <= i; j++){
+                        if(may[j].checked == false){
+                            all.checked = false
+                            return
+                        }
+                    }
+                    all.checked = true
+                })
+            }
+
+           
+            let jia = document.querySelectorAll('.jia')
+            let jian = document.querySelectorAll('.jian')
+            let number = document.querySelectorAll('.number')
+            // 获取要删除元素的父元素
+            let tbody = document.querySelector('tbody')
+            let del = document.querySelectorAll('.del')
+
+            let danjia = document.querySelectorAll('.danjia')   //单价
+            let xiaoji = document.querySelectorAll('.xiaoji')   //小计
+
+            let zong = document.querySelector('.zong')  //总价钱
+            let xuan = document.querySelector('.xuan')   //商品数量
+            for(let i = 0; i < jia.length; i++){
+                 // 加减按钮
+                jia[i].addEventListener('click',function(){
+                    number[i].value++
+                    jian[i].disabled = false
+                    multi(i)
+                    result()
+                })
+                number[i].addEventListener('input',function(){
+                    multi(i)
+                    result()
+                })
+                jian[i].addEventListener('click',function(){
+                    number[i].value--
+                    if(number[i].value <= 1){
+                        jian[i].disabled = true
+                    }
+                    multi(i)
+                    result()
+                })
+                // 删除操作
+                del[i].addEventListener('click',function(){
+                    // table.removeChild(table.children[i])
+                    tbody.removeChild(this.parentNode)
+                    multi(i)
+                    result()
+                })
+                
+                
+            }
+            // 计算小计的函数
+            function multi(i){
+                xiaoji[i].innerText = parseInt(danjia[i].innerText) * parseInt(number[i].value) + '￥'
+            }
+
+            
+            // 计算总价和总数量,封装一个函数,定义变量写在函数内部，每次从0开始
+            // window.addEventListener('click',function(){
+            //     let zongNum = 0
+            //     for(let i = 0; i < jia.length; i++){
+            //         zongNum += parseInt(xiaoji[i].innerText)
+            //     }
+            //     zong.innerText = zongNum
+            // })
+            function result(){
+                // 需要再次调用一下输入框和小计，确认此时的个数，在删除操作中有用
+                let xiaoji = document.querySelectorAll('.xiaoji')
+                let number = document.querySelectorAll('.number')
+                let zongSum = 0
+                let zongNum = 0
+                for(let i = 0; i < xiaoji.length; i++){
+                    zongSum += parseInt(xiaoji[i].innerText)
+                    zongNum += +number[i].value
+                    // zongNum += parseInt(number[i].value)
+                }
+                zong.innerText = zongSum
+                xuan.innerText = zongNum
+
+            }
+            result()
+        </script>
+    </table>
+</body>
+</html>

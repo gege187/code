@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for in </title>
+</head>
+<body>
+    <script>
+        // 当顺序很重要时，最好使用 for 循环、for of 循环或 Array.forEach()。
+        var person = {
+            name:'liHua',
+            age:18,
+            sex:'nan'
+        }
+        // for in 循环 遍历 person对象
+        // 键为p: name、age、sex  值为person[p]: liHua、18、nan
+        for(var p in person){
+            console.log(p,person[p]);
+        }
+        var arr = [22,4,12,3,434,232,54,6,99]
+        // for in 循环 遍历arr数组
+        // 键为i，值为 arr[i]
+        for(var i in arr){
+            console.log(i,arr[i]);
+        }
+
+        // for of 循环 遍历数组
+        var t = ''
+        for(var a of arr){
+            t += a + ' | '
+        }
+        console.log(t);
+
+        // for in 遍历字符串
+        var str = 'abcdegj';
+        var s = ''
+        for(var i of str){
+            s += i + ' | '
+        }
+        console.log(s);
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查询商品案例</title>
+    <style>
+        .box{ 
+            width: 600px;
+            margin: 10px auto;
+        }
+        input{ 
+            width: 50px;
+        }
+        .query{ 
+            margin-bottom: 20px;
+        }
+        td{ 
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="query">
+            按照价格查询：<input type="text" class="xiao"> —
+            <input type="text" class="da"> <button class="sou">搜索</button>
+            按照商品名称查询：<input type="text" class="pname"><button class="cha">查询</button>
+        </div>
+        <table width="600" border="1" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>产品名称</th>
+                    <th>价格</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+    <script>
+        let data = [
+            {
+                id:'1',
+                pname:'小米',
+                price:2000
+            },
+            {
+                id:'2',
+                pname:'荣耀',
+                price:3456
+            },
+            {
+                id:'3',
+                pname:'华为',
+                price:5000
+            },
+            {
+                id:'4',
+                pname:'魅族',
+                price:1000
+            }
+        ]
+        // foreach遍历数组拿到对象
+        let tbody = document.querySelector('tbody')
+        setData(data)
+        function setData(changeData){
+            tbody.innerHTML = ''
+            changeData.forEach(function(value){
+            console.log(value.id);
+            let tr = document.createElement('tr')
+            tr.innerHTML = `<td>${value.id}</td><td>${value.pname}</td><td>${value.price}</td>`
+            tbody.appendChild(tr)
+        })
+        }
+        // 获取两个输入框中的值，利用filter查询满足的条件
+        let xiao = document.querySelector('.xiao')
+        let da = document.querySelector('.da')
+        let sou = document.querySelector('.sou')
+        sou.addEventListener('click',function(){
+            let newData = data.filter(function(value){
+                return value.price >= xiao.value && value.price <= da.value
+            })
+            // 将新数组重新渲染
+            setData(newData)
+        })
+
+        // 查询商品名称(唯一元素)
+        let cha = document.querySelector('.cha')
+        let pname = document.querySelector('.pname')
+        cha.addEventListener('click',function(){
+            let arr = []
+            data.some(function(value){
+                if(value.pname === pname.value){
+                    arr.push(value)
+                    return true
+                }
+            })
+            setData(arr)
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        一个重要的内置关系：
+        VueComponent.prototype.__proto__ === Vue.prototype
+        为什么有这个关系：
+        让组件实例对象（vc）可以访问Vue原型上的属性和方法
+
+     -->
+    <!-- 准备好一个容器 -->
+    <div id="root">
+        <h2>{{msg}}</h2>
+        <student></student>
+    </div>
+    <script>
+    
+    Vue.prototype.x = 99
+    // 控制台打印输出vm.x
+
+    //创建student组件
+    const student = Vue.extend({
+        template:`
+            <div>
+                <h2>学生名字：{{studentName}}</h2>
+                <h2>学生年龄：{{age}}</h2>
+                <button @click="showX">点击输出X</button>
+            </div>
+        `,
+        data(){
+            return {
+                studentName:'张三',
+                age:20,
+            }
+        },
+        methods: {
+            showX(){
+                console.log(this.x);
+            }
+        },
+    })
+    // console.log(student.prototype.__proto__ === Vue.prototype);
+
+    const vm = new Vue({
+        el:'#root',
+        data:{
+            msg:'hello',
+        },
+        components:{
+            student,
+        }
+    })
+
+// 1.定义一个构造函数
+    function Demo(){
+        this.a = 1
+        this.b = 2
+    }
+    // 2.创建一个实例对象
+    const d = new Demo()
+
+    // console.log(Demo.prototype);//显式原型属性
+    // console.log(d.__proto__);//隐式原型属性
+
+    // 通过操作显式原型属性给原型对象身上追加一个x属性
+    Demo.prototype.x = 99
+
+    // console.log(d.x);
+
+    </script>
+</body>
+</html>
+

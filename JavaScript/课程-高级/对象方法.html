@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            id:'1',
+            pname:'daqiang',
+            price:2000
+        }
+        // 添加和修改属性的方式(哪一个对象，哪个属性，对象类型)
+        Object.defineProperty(obj,'num',{
+            value:1000,     //设置属性的值
+            writable:true,    //是否允许重写，默认false
+            enumerable:true,    //是否可以遍历
+            configurable:true,   //这个属性是否可以被删除，是否可以修改他的特性（写成true的不能改成false）
+        })
+        Object.defineProperty(obj,'price',{
+            value:99
+        })
+
+        // 获取对象自身属性,返回一个由属性名组成的数组
+        let arr = Object.keys(obj)
+
+    </script>
+</body>
+</html>

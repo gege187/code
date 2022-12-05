@@ -1,0 +1,44 @@
+<!-- 
+    增加：
+        1.创建元素节点：createElement
+        2.追加到已有元素：.appendChlid()
+        2.1 在元素开头增加元素：insetBefore()
+    删除：
+        1.获取元素
+        2.元素.remove()
+        2.1 找到元素父亲： fu.removeChild(zi)
+    替换：
+        1.获取元素
+        2.fu.replaceChild(now,pre)
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素的增加和删除</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li id="three">3</li>
+    </ul>
+    <script>
+        // 添加和删除元素
+        var ul = document.querySelector('ul')
+        var four = document.createElement('li')
+        four.innerHTML = 'four'
+        ul.appendChild(four)
+
+        var three = document.getElementById('three')
+        three.remove()          //ul.remove(three)
+
+        var five = document.createElement('li')
+        five.innerHTML = 'IIIII'
+        ul.replaceChild(five,four)
+        
+    </script>
+</body>
+</html>

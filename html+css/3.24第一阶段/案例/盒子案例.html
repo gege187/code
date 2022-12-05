@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子模型案例</title>
+    <style>
+        /* 清除默认样式 */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .nav{
+            border-top: 2px solid orange;
+            border-bottom: 1px solid #f4f4dc;
+            height: 40px;
+            width: 100%;
+        }
+        .nav a{
+            width: 80px;
+            height: 40px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            line-height: 40px;
+            color: black;
+            font-size: 13px;
+        }
+        .nav a:hover{
+            background-color: rgb(221, 216, 216);
+            color: orange;
+        }
+    .ex1{
+        width: 400px;
+        height: 330px;
+        border: 1px solid #ccc;
+        padding: 40px 30px 0;
+        margin: 50px auto;
+    }
+    h2{
+        border-bottom: 1px dotted #ccc;
+        font-size: 21px;
+        padding-bottom: 5px;
+    }
+    /* 去掉列表符号 */
+    ul{
+        list-style: none;
+    }
+    li a{
+        color: #aaa;
+        text-decoration: none;
+    }
+    .ex1 li{
+        margin: 15px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 5px;
+    }
+    img{
+        width:300px;
+        height: 300px;
+        /* 该增添什么样式使图片可以和块级元素放在一行 */
+    }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="#">新浪导航</a>
+        <a href="#">新浪导航</a>
+        <a href="#">新浪导航</a>
+        <a href="#">新浪导航</a>   
+    </div>
+    
+    <div class="ex1">
+        <h2>最新文章/New Articles</h2>
+        <!-- 如果内容样式都差不多，使用ul>li列表实现 -->
+        <ul>
+            <li><a href="#">北京招聘网页设计,平面设计,php</a></li>
+            <li><a href="#">体验javascript的魅力</a></li>
+            <li><a href="#">jquery世界来临</a></li>
+            <li><a href="#">网页设计师的梦想</a></li>
+            <li><a href="#">jquery中的链式编程是什么</a></li>
+        </ul>
+    </div>
+    <!-- 问题未解决 -->
+    <img src="hezi.png" alt="">
+</body>
+</html>

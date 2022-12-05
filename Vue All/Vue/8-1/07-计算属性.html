@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        计算属性:
+        1.定义:要用的属性不存在，要通过已有属性计算得来。
+        2.原理:底层借助了objcet.defineproperty方法提供的getter和setter.
+        3. get函数什么时候执行?
+            (1).初次读取时会执行一次。
+            (2).当依赖的数据发生改变时会被再次调用。
+        4.优势:与methods实现相比，内部有缓存机制(复用)，效率更高，调试方便。
+        5.备注:
+            1.计算属性最终会出现在vm上，直按读取使用即可。
+            2.如果计算属性要被修改，那必须写set函数去响应修改，且set中要通过 计算时依赖的数据 发生改变
+     -->
+    <div id="root">
+        <input type="text" v-model=xing><br/>
+        <input type="text" v-model=ming>
+        <!-- <h3>全名：{{xing}}-{{ming}}</h3> -->
+        <!-- <h3>全名：{{fName()}}</h3> -->
+        <h3>全名：{{fName}}</h3>
+    </div>
+    <script>
+        Vue.config.productionTip = false;   //以阻止 vue 在启动时生成生产提示。
+        const vm = new Vue({
+            el:'#root',
+            data:{
+                xing:"张",
+                ming:"山",
+            },
+            // 2.利用method实现
+            // methods:{
+            //     fName(){
+            //         return this.xing + '-' + this.ming
+            //     }
+            // },
+            // 3. 利用计算属性实现
+            computed:{
+                // 完整写法：
+                fName:{
+                    // get的作用：当有人读取fName时，get会被调用，返回值作为fName的值
+                    // get会从缓存中拿值，所以需要明白什么时候才调用：1.初次读取时  2. 所依赖数据发生调用时
+                    get(){
+                        console.log('get被调用');
+                        return this.xing + '-' + this.ming
+                    },
+                    // set什么时候被调用：当fName的值发生修改时
+                    set(value){
+                        console.log('set',value);
+                        const arr = value.split('-')
+                        this.xing = arr[0]
+                        this.ming = arr[1]
+                    }
+                },
+                // 简写,只考虑读取，不考虑修改才能用简写，只是写成函数，调用时不用加()
+                // fName(){
+                //     console.log('get被调用');
+                //     return this.xing + '-' + this.ming
+                // }
+            }
+
+        })
+    </script>
+</body>
+</html>

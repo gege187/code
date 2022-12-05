@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性和监视属性对比</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        computed和Ilwatch.之间的区别:
+            1. computed能完成的功能，watch都可 以完成。
+            2. watch能完成的功能，computed不一定 能完成，例如: watch可以进行异步操作。
+        两个重要的小原则:
+            1.所有被Vue管理的两数，最好写成普通两数，这样this的指向才是vm或组件实例对象。
+            2.所有不被Vue所管理的函数( 定时器的回调两数、ajax的回调函数等)，最好写成简头函数，这样this的指向才是vm或组件实例对象。
+
+     -->
+    <div id="root">
+        <input type="text" v-model=xing><br/>
+        <input type="text" v-model=ming>
+        <h3>全名：{{fName}}</h3>
+    </div>
+    <script>
+        Vue.config.productionTip = false;   //以阻止 vue 在启动时生成生产提示。
+        const vm = new Vue({
+            el:'#root',
+            data:{
+                xing:"张",
+                ming:"山",
+                fName:'张-山'
+            },
+            computed:{
+            },
+            watch:{
+                xing(newValue){
+                    setTimeout(()=>{
+                        this.fName = newValue + '-' + this.ming
+                    },1000)
+                },
+                ming(newValue){
+                    this.fName = this.xing + '-' + newValue
+                }
+            }
+        })
+    </script>
+</body>
+</html>

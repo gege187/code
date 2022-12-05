@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内置对象-Math对象</title>
+    <script>
+        // Math对象,不需要new调用，直接使用
+        console.log(Math.max());
+        console.log(Math.max(1,12));
+        // 封装数学对象  里面有PI  最大值  最小值
+        var myMath = {
+            PI : 3.141592653,
+            max: function(){
+                var max = arguments[0];
+                for(var i = 0; i < arguments.length ; i++){
+                    if(arguments[i] > max){
+                        max = arguments[i];
+                    }
+                }
+                return max;
+            },
+            min : function(){
+                var min = arguments[0];
+                for(var i = 0; i < arguments.length ; i++){
+                    if(arguments[i] < min){
+                        min = arguments[i];
+                    }
+                }
+                return min;
+            }
+        }
+        console.log(myMath.PI);
+        console.log(myMath.max(2,3));
+        console.log(myMath.min(2,3));
+        //绝对值
+        console.log(Math.abs(-1));
+        console.log(Math.abs('-1')); //隐式转换
+        console.log(Math.abs('pink')); //NaN
+        //取整方法
+        //  向下取整
+        console.log(Math.floor(1.9));
+        //  向上取整
+        console.log(Math.ceil(1.1));
+        //  四舍五入
+        console.log(Math.round(1.5));  //2
+        console.log(Math.round(1.4));   //1
+        console.log(Math.round(-1.5));   //-1 , 取大的数（即右轴的值）
+        //随机数 [0-1)
+        console.log(Math.random());
+        //  得到一个两数之间的随机整数（含最大最小值）
+        function getRandom(min,max){
+            //return Math.floor(Math.random() * (max - min)) + min; 不含最大值
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        console.log(getRandom(1,10));
+        //取随机值
+        var arr = ['22','nihao','081','33'];
+        console.log(arr[getRandom(0,arr.length-1)]);
+
+        //案例-猜数字
+        /* 
+        程序随机生成一个1~ 10之间的数字,并让用户输入一个数字,
+        1.如果大于该数字,就提示，数字大了,继续猜;
+        2.如果小于该数字,就提示数字小了,继续猜;
+        3.如果等于该数字,就提示猜对了,结束程序。
+        */
+        // var ranNum = getRandom(1,10);
+        // console.log(ranNum);
+        // while(1){
+        //     var inputNum = prompt('请输入一个数字：');
+        //     if(ranNum > inputNum){
+        //     alert('数字小了,继续猜');
+        //     // continue;
+        // }
+        //     else if(ranNum < inputNum){
+        //     alert('数字大了,继续猜');
+        //     // continue;
+        // }
+        //     else{
+        //     alert('猜对了');
+        //     break;
+        // }
+        // }
+
+
+        // 要求用户猜1~50之间的一个数字但是只有10次猜的机会
+        var ranNum1 = getRandom(1,50);
+        console.log(ranNum1);
+        var count = 1;
+        while(count > 0){
+            var inputNum1 = prompt('请输入一个数字：您还有'+count+'次机会');
+            count--;
+            if(count == 0){
+                alert('您输了，游戏结束');
+                break;
+            }
+            if(ranNum1 > inputNum1){
+            alert('数字小了,继续猜');
+            // continue;
+        }
+            else if(ranNum1 < inputNum1){
+            alert('数字大了,继续猜');
+            // continue;
+        }
+            else{
+            alert('猜对了');
+            break;
+        }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作用域</title>
+    <script>
+        //函数内部不声明直接赋值的变量是全局变量
+        function fn(){
+            var num1 = 10;
+            num2 = 20;
+        }
+        fn();
+        //console.log(num1);
+        console.log(num2);
+
+
+        //预解析
+        //1.
+        //console.log(a);  //错
+
+        //2.
+        console.log(b);   //underfined
+        var b = 10;
+        //相当于执行了以下代码
+        var b;
+        console.log(b);
+        b = 10;
+
+
+        //3.
+        c();    //20
+        function c(){
+            console.log(20);
+        }
+
+        //4.
+        var d = function(){
+            console.log(13);
+        }
+        d();    //13
+        //5.
+        e();
+        var e = function(){
+            console.log(15);
+        }
+        //相当于执行以下代码
+        var e;
+        e();
+        fun = function(){};
+
+        //text1
+        var num = 10;
+        fun();  //underfined
+        function fun(){
+            console.log(num);
+            var num = 20;
+        }
+        /* 
+        var num;
+        function fun(){
+            var num;
+            console.log(num);
+            num = 20;
+        }
+        num = 10;
+        fun();
+        */
+
+        //text2
+        var num = 10;
+        function fn(){
+            console.log(num);
+            var num = 20;
+            console.log(num);
+        }
+        fn();
+
+        /* 
+        var num;
+        function fn(){
+            var num;
+            console.log(num);
+            num = 20;
+            console.log(num);
+        }
+        num = 10;
+        fn();
+        */
+
+        //text3
+        var a = 10;
+        f1();
+        function f1(){
+            var b = 9;
+            console.log(a);
+            console.log(b);
+            var a = '123';
+        }
+
+        /* 
+        var a;
+        function f1(){
+            var b;
+            var a;
+            b = 9;
+            console.log(a);
+            console.log(b);
+            a = '123';
+        }
+        a = 18;
+        f1();
+        */
+
+        //text4
+        f1();
+        console.log(c);
+        console.log(b);
+        console.log(a);
+        function f1(){
+            var a = b = c = 9;
+            //var a = 9; b = 9; c = 9;
+            //集体声明： var a = 9, b = 9, c = 9;
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+        /* 
+        function f1(){
+            var a;   
+            a = b = c = 9;
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+        f1();
+        console.log(c);
+        console.log(b);
+        console.log(a);
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式</title>
+</head>
+<body>
+    <!-- 
+        正则表达式作用：替换敏感词、表单验证、提取满足条件的字符串
+            执行顺序：定义、调用
+            语法：/表达式/,存的是对象
+            元字符：[0-9][a-z]
+                边界符 开头结尾 ^[]开头 $结尾，两个一起是精确匹配
+                量词 重复次数，*、+、？、{n}、{n，}、{n，m}
+                字符类 \d(相当于[0-9])
+                [^]取反，写在方括号里边 
+            预定义类： \d \D(取反) \w \W 
+            修饰符：replace替换
+                字符串.replace(/正则|激情|基情/g,'替换文本')
+    -->
+    <script>
+        let num = /javascript/
+        // 检测是否匹配，返回true 或 false
+        console.log(num.test('html,java,script,css,h5'));
+        // 查找符合的数组
+        console.log((num.exec('html,javascript,css,h5')));
+
+        // 量词
+        console.log(/a*/.test(''));  // >=0
+        console.log(/a+/.test(''));  // >0
+        console.log(/a*/.test('a'));
+        console.log(/a+/.test('a'));
+        console.log(/a*/.test('aa'));
+        console.log(/a?/.test('aa'));  // 0||1
+        console.log(/a{3}/.test('aaa'));  
+        console.log(/a{3,}/.test('aaaa'));  
+        console.log(/a{3,5}/.test('aaaaaaaa'));  
+        console.log('-----------------------------------');
+
+        //  字符类，只要匹配其中一个就是true
+        console.log(/[abc]/.test('abcd'));
+        // 三选一
+        console.log(/^[abc]$/.test('a'));
+        console.log(/^[abc]$/.test('b'));
+        console.log(/^[abc]$/.test('c'));
+        // -连字符，只要匹配到[-]中的一个字符就可以
+        console.log(/[0-9]/.test('dhfvfd3445ndj'));
+        console.log(/[0-9]/.exec('dhfvfd3445ndj'));
+        console.log(/[a-zA-Z-_]/.test('dhfvfd3445ndj'));
+        // 多选一
+        console.log(/^[a-z]$/.test('d'));
+        // 
+        console.log(/^abc{3}$/.test('abccc'));
+        console.log(/^(abc){3}$/.test('abcabcabc'));
+        // 
+        console.log(/[\d]/.test('123')); //数字        
+        console.log(/[\D]/.test('123')); //取反        
+        console.log(/[\w]/.test('123asd--')); // 数字、字母、下划线     
+        console.log(/[\s]/.test('  '));  //匹配空格   
+
+    </script>
+</body>
+</html>

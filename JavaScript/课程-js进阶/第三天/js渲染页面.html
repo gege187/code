@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        li{ 
+            float: left;
+            width: 200px;
+            height: 248px;
+            border: 1px solid #ccc;
+            list-style: none;
+            margin: 20px;
+        }
+        img{
+            width: 100%;
+        }
+        .bot{
+            width: 95%;
+            margin: 10px auto;
+        }
+        p{
+            margin-top: 10px;
+        }
+        span{ 
+            color: coral;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <!-- <li>
+            <img src="./bawei.jpg" alt="">
+            <div class="bot">
+                <h3>实战项目训练实战项目训练</h3>
+                <p>高级·<span>1125</span>人想看</p>
+            </div>
+        </li> -->
+    </ul>
+    <script>
+        data=[
+            {
+                imgSrc:'./bawei.jpg',
+                title:'实战项目训练实战项目训练',
+                num:'22',
+            },
+            {
+                imgSrc:'./xiamu.jpeg',
+                title:'2实战项目训练实战项目训练',
+                num:'111',
+            },
+            {
+                imgSrc:'./bawei.jpg',
+                title:'3实战项目训练实战项目训练',
+                num:'1211',
+            },
+            {
+                imgSrc:'./xiamu.jpeg',
+                title:'4实战项目训练实战项目训练',
+                num:'1411',
+            },
+            {
+                imgSrc:'./bawei.jpg',
+                title:'5实战项目训练实战项目训练',
+                num:'1155',
+            }
+        ]
+        // 有几条数据，创建几个li
+        let ul = document.querySelector('ul')
+        for(let i = 0; i < data.length; i++){
+            let li = document.createElement('li')
+            // 先写好内容再追加
+            li.innerHTML = `
+                <img src=${data[i].imgSrc} alt="">
+                <div class="bot">
+                    <h3>${data[i].title}</h3>
+                    <p>高级·<span>${data[i].num}</span>人想看</p>
+                </div>
+            `
+            ul.appendChild(li)
+        }
+    </script>
+</body>
+</html>

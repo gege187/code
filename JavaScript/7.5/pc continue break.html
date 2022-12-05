@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>continue break</title>
+    <script>
+        //continue
+        for(var i = 1; i <= 5; i++){
+            if(i == 3){
+                continue; //遇见continue，就退出此次循环，跳到i++上
+            }
+            console.log(i);
+        }
+
+        //求1-100之间，除了能被7整除的整数和
+        var sum = 0;
+        for(var i = 1; i <= 100; i++){
+            if(i % 7 == 0){
+                continue;
+            }
+            sum += i;
+        }
+        console.log(sum);
+
+        //break  
+        for(var i = 1; i <= 5; i++){
+            if(i == 3){
+                break; //退出整个循环
+            }
+            console.log(i);
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

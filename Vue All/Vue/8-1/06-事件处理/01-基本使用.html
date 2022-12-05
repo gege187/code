@@ -1,0 +1,85 @@
+<!--
+    基本事件 
+    事件修饰符
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件基本使用</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <style>
+        *{
+            margin: 5px;
+        }
+        .box1{
+            padding: 10px;
+            background-color: skyblue;
+        }
+
+        .box2{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        1.prevent : 阻止默认事件(常用)
+        2.stop :  阻止事件冒泡(常用)
+        3.once :  事件只触发一次(常用) ;
+        4.capture : 使用事件的捕获模式;
+        5.self : 只有event .target是当前操作的元素时才触发事件；
+        6.passive : 事件的默认行为立即执行，无需等待事件回调执行完毕;
+     -->
+    <div id = 'root'>
+        <h2>{{first}}</h2>
+        <!-- <button v-on:click="show">点击出现弹窗</button> -->
+        <!-- 事件的回调需要配置在methods对象中，最终会在vm上 -->
+        <button @click="show1">点击出现弹窗1(不传参)</button>
+        <button @click="show2($event,66)">点击出现弹窗2(传参)</button>
+        <!-- 事件修饰符:阻止默认事件 -->
+        <a href="https://www.w3school.com.cn/html/html_basic.asp" @click.prevent="turn">点击跳转</a>
+        <!-- 使用事件的捕获模式,原本是先2后1，事件捕获是先1后2 -->
+        <div class="box1" @click.capture="show(1)">
+            div1
+            <div class="box2" @click="show(2)">
+                div2
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+         Vue.config.productionTip = false;   //以阻止 vue 在启动时生成生产提示。
+        const vm = new Vue({
+            el:'#root',
+            data:{
+                first:'首先'
+            },
+            methods:{
+                // show:(event)=>{
+                //     console.log(this);
+                // }
+                show1(event){
+                    //console.log(event.target.innerText);
+                    //console.log(this === vm);
+                    alert('弹出弹窗1')
+                },
+                show2(event,num){
+                    console.log(num)
+                    alert('弹出弹窗2')
+                },
+                turn(e){
+                    // e.preventDefault()
+                    alert('hello')
+                },
+                show(msg){
+                    console.log(msg);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

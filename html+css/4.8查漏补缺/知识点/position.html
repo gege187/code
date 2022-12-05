@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .clearfix::after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .fa{
+        width: 300px;
+       
+        border: 2px solid red;
+    }
+    .one{
+        float: left;
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+    }
+    .two{
+        float: left;
+        width: 100px;
+        height: 100px;
+        background-color: saddlebrown;
+    }
+    .three{
+        float: left;
+        width: 100px;
+        height: 100px;
+        background-color: seagreen;
+    }
+    p{
+        height: 100px;
+        background-color: pink;
+    }
+    .fa2{
+        position: relative;
+        left: 50px;
+        top: 50px;
+        width: 100px;
+        height: 100px;
+        background-color: #333;
+    }
+    .fa3{
+        width: 100px;
+        height: 100px;
+        background-color: #ccc;
+    }
+    .mid{
+        width: 100px;
+        height: 100px;
+        background-color: #666;
+        position: absolute;
+        left: 50%;
+        margin-left: -50px;
+        top: 50%;
+        margin-top: -50px;
+    }
+</style>
+<body>
+    <div class="fa clearfix">
+        <div class="one">1</div>
+        <div class="two">2</div>
+        <div class="three">3</div>
+        <!-- <div style="clear:both"></div> -->
+    </div>
+    <div class="fa2"></div>
+    <div class="fa3"></div>
+    <div class="mid"></div>
+</body>
+</html>

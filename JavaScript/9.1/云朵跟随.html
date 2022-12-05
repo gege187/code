@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/animate.js"></script>
+    <title>筋斗云跟随鼠标移动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .box{
+            position: relative;
+            width: 400px;
+            height: 50px;
+            background-color: #ccc;
+            margin: 20px auto;
+        }
+        .yun{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 80px;
+            height: 40px;
+            margin-top: 5px;
+            border-radius: 20px;
+            background-color: #fff;
+        }
+        ul{
+            position: relative;
+        }
+        ul li{
+            float: left;
+            width: 80px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            z-index: 2;
+        }
+        ul li:hover{
+            color: red;
+        }
+        .current{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span class="yun"></span>
+        <ul>
+            <li class="current">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <script>
+        var cloud = document.querySelector('.yun')
+        var box = document.querySelector('.box')
+        var lis = box.querySelectorAll('li')
+        var current = 0
+        for(var i = 0; i < lis.length; i++){
+            lis[i].addEventListener('mouseenter',function(){
+                animate(cloud,this.offsetLeft)
+            })
+        }
+        for(var i = 0; i < lis.length; i++){
+            lis[i].addEventListener('mouseleave',function(){
+                animate(cloud,current)
+            })
+        }
+        for(var i = 0; i < lis.length; i++){
+            lis[i].addEventListener('click',function(){
+                current = this.offsetLeft
+                animate(cloud,current)
+                for(var j = 0; j < lis.length; j++){
+                    lis[j].className = ''
+                }
+                this.className = 'current'
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>touch触摸事件</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        .drag{
+            position: absolute;
+            top: 150px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="ok"></div>
+    <div class="drag"></div>
+    <script>
+        var ok = document.querySelector('.ok')
+        ok.addEventListener('touchstart',function(e){
+            console.log(e.targetTouches[0]);
+            // console.log(e);
+            // console.log('i touch you');
+        })
+        ok.addEventListener('touchmove',function(){
+            console.log('i touch you everywhere');
+        })
+        ok.addEventListener('touchend',function(){
+            //手指离开屏幕时，没有touchs对象和targeTouchs对象，有changeTouchs
+            console.log('i not touch you ');
+        })
+
+        //拖动DOM : 手指滑动距离 - 手指初始位置 + DOM初始位置
+        var drag = document.querySelector('.drag')
+        //手指初始位置
+        var startX = 0;
+        var startY = 0;
+        var x = 0;
+        var y = 0;
+        drag.addEventListener('touchstart',function(e){
+            startX = e.targetTouches[0].pageX
+            startY= e.targetTouches[0].pageY
+            x = this.offsetLeft;
+            y = this.offsetTop;
+        })
+        drag.addEventListener('touchmove',function(e){
+            var slipX = e.targetTouches[0].pageX - startX
+            var slipY = e.targetTouches[0].pageY - startY
+            this.style.left = x + slipX + 'px'
+            this.style.top = y + slipY + 'px'
+            e.preventDefault(); //阻止屏幕滚动的默认行为
+        })
+    </script>
+</body>
+</html>

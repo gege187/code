@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性和方法</title>
+</head>
+<body>
+    <button>click</button>
+    <span>5秒后进行跳转</span>
+    <script>
+        //点击跳转
+        /* var btn = document.querySelector('button');
+        btn.addEventListener('click',function(){
+            location.href = "https://www.baidu.com/?tn=40020637_10_oem_dg"
+        }) */
+
+        //五秒后自动跳转到新页面
+        /* var autoTurn = setTimeout(function(){
+            location.href = "https://www.baidu.com/?tn=40020637_10_oem_dg"
+        },5000) */
+
+        //显示倒计时五秒文字
+        var sp = document.querySelector('span')
+        var i = 4
+        setInterval(function(){
+            sp.innerHTML = i+'秒后进行跳转'
+            i--
+            if(i == 0){
+                setTimeout(function(){
+                    location.href = "https://www.baidu.com/?tn=40020637_10_oem_dg"
+                })
+            }
+        },1000)
+
+        //location方法
+        var btn = document.querySelector('button');
+        btn.addEventListener('click',function(){
+            //跳转页面，可以实现后退功能
+            location.assign('https://www.baidu.com/?tn=40020637_10_oem_dg')
+            //不实现后退功能，直接替换页面
+            location.replace('https://www.baidu.com/?tn=40020637_10_oem_dg')
+            //重新加载页面，相当于刷新按钮，Ctrl + F5 强制刷新
+            location.reload()
+        })
+
+    </script>
+</body>
+</html>

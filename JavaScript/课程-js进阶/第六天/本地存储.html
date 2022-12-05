@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地存储</title>
+</head>
+<body>
+    <script>
+        // 数据存储在用户浏览器中，页面刷新不丢失数据
+        // localStorage：
+        //      永久生效，多窗口共享，键值对形式存储
+        //      localStorage.setItem(key,value);
+        localStorage.setItem('uname','xiaoming');
+        console.log(localStorage.getItem('uname'));
+        localStorage.removeItem('uname')
+
+        // 存储复杂数据类型
+        let obj = {
+            uname:'huahua',
+            age:14,
+            address:'http://sdjcbjk.com'
+        }
+        /*  
+            JSON 属性和值都是用双引号包裹
+            let obj = {
+            "uname":"huahua",
+            "age":"14",
+            "address":"http://sdjcbjk.com"
+        } */
+
+        // 存储 JSON.stringify()
+        localStorage.setItem('object',JSON.stringify(obj))
+        // 取出 JSON.parse('')
+        console.log(JSON.parse(localStorage.getItem('object')));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        常用的生命周期钩子:
+            1. mounted:发送ajax请求、启动定时器、绑定自定义事件、订闵消息等[初始化操作]。
+            2. beforeDestroy:清除定时器、解绑自定义事件、取消订阅消息等[收尾工作]。
+        关于销毁Vue实例
+            1.销毁后借助Vue开发者工具看不到任何信息。
+            2.销毁后自定义事件会失效，但原生DOM事件依然有效。
+            3.一般不会在beforeDestroy操作数据，因为即便操作数据，也不会再触发更新流程了。
+     -->
+    <!-- 准备好一个容器 -->
+    <div id="root">
+        <h2>n：{{n}}</h2>
+        <button @click="add">点击n++</button>
+        <button @click="destroy">点击销毁vm</button>
+    </div>
+    <script>
+    Vue.config.productionTip = false;   //以阻止 vue 在启动时生成生产提示。
+    new Vue({
+        el:'#root',
+        // template:`
+        //     <div>
+        //         <h2>n：{{n}}</h2>
+        //         <button @click="add">点击n++</button>
+        //     </div>`,
+        data:{
+            n:1,
+        },
+        methods: {
+            add(){
+                this.n ++
+                console.log('add');
+            },
+            destroy(){
+                this.$destroy()
+            },
+        },
+        watch: {
+            n(){
+                console.log('n变了');
+            }
+        },
+        beforeCreate() {
+            console.log('beforeCreate')
+            //console.log(this)
+            //刷新触发
+            // debugger
+        },
+        created() {
+            console.log('create')
+            //console.log(this);
+            //debugger
+        },
+        beforeMount() {
+            console.log('beforeMount');
+            //console.log(this);
+            //debugger
+        },
+        mounted() {
+            console.log('mounted');
+
+        },
+        beforeUpdate() {
+            console.log('beforeUpdate');
+            //console.log(this.n);
+            // 数据尚未和页面保持同步
+            //debugger
+        },
+        updated() {
+            console.log('updated');
+            //console.log(this.n);
+        },
+        beforeDestroy() {
+            console.log('beforeDestroy');
+        },
+        destroyed() {
+            console.log('destroyed');
+        },
+    })
+    </script>
+</body>
+</html>
+

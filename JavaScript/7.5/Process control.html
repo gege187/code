@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流程控制</title>
+    <script>
+        /* 1、语法结构  2、执行思路  
+        如果if里面的条件表达式结果为真true 则执行大括号里面的执行语句
+        如果if条件表达式结果为假则不执行大括号里面的语句 则执行if语句后面的代码 */
+        /* if(条件表达式){
+            条件成立执行的代码语句
+        } */
+
+        // 案例
+        /* var age = prompt("请输入你的年龄：");
+        if( age >= 18){
+            alert('可以进入网吧');
+        } */
+
+        /* if(条件表达式){
+            条件成立执行的代码语句
+        }  else{
+            不成立时执行这一条,else后边没有小括号
+        }
+        */
+
+       // 案例
+       /* var age = prompt("请输入你的年龄：");
+        if( age >= 18){
+            alert('可以进入网吧');
+        }else{
+            alert('滚！');
+        } */
+
+        //案例-判断闰年
+        /* var year  = prompt('请输入要判断的年份：');
+        if(((year % 4) == 0 && (year % 100 != 0))|| (year % 400) == 0){
+            alert(year + '是闰年');
+        }else{
+            alert(year + '不是闰年');
+        } */
+
+        //if else if 多分支语句
+        /* if(条件表达式){
+            
+        }else if(条件表达式){
+
+        }else if(条件表达式){
+
+        }else{
+
+        } */
+        //案例-判断成绩级别
+        /* var grade = parseInt(prompt('输入分数：'));
+        if( grade >= 90){
+            alert("A");
+        }else if(grade >=80){
+            alert('B');
+        }else if(grade >=70){
+            alert('C');
+        }else if(grade >=60){
+            alert('D');
+        }else{
+            alert('E');
+        } */
+
+        //三元运算符
+        //条件表达式 ? 表达式1 : 表达式2
+        /* var num = 3 < 5 ? '是' :'不是'
+        console.log(num); */
+
+        //案例-小于10在数字前补0
+        /* var num1 = parseInt( prompt('请输入0~59的一个数字:'));
+         if(num1 < 10){
+            var num2 = '0' + num1;
+            alert(num2);
+        } 
+        var num2 = num2 < 10 ? '0' + num2 : num2;
+        alert(num2);
+        */
+
+        //switch语句
+        /* switch(表达式){
+            case value1:
+                 执行语句1;
+                 break;
+            case value2:
+                 执行语句2;
+                 break;
+            default:
+                执行最后的语句; //最后没有break
+        } */
+        /* switch(2){
+            case 1:
+                console.log('1');
+                break;
+            case 2:
+                console.log('2');
+                break;
+            case 3:
+                console.log('3');
+                break;
+            default:
+                console.log('no');
+        } */
+
+        //案例-
+        /* var fruit = prompt('请输入一个水果：');
+        switch (fruit) {
+            case '香蕉':
+                alert('3.5/斤');
+                break;
+            case '榴莲':
+                alert('35/斤');
+                break;
+            default:
+                alert('没有此水果');  
+        } */
+        
+        // 循环结构
+        // for循环、while循环、do...while循环
+        // for循环  语法结构   通常和计数相关
+        // for(初始化变量;条件表达式;操作表达式){
+             //循环体
+        // }
+
+        // for(var i = 0; i<100; i++){
+        //     console.log(i);
+        // }
+
+        //案例 1-100的整数和
+       /*  var sum = 0;
+        for(var i = 1; i <= 100; i++){
+            sum+=i;
+        }
+        console.log(sum); */
+
+        //案例 1-100之间所有数的平均值
+        /* var sum = 0;
+        var average = 0;
+        for(var i = 1; i <= 100; i++){
+            sum+=i;
+            average++;
+        }
+        sum = sum / average;
+        console.log(sum); */
+
+        //1-100所有偶数和奇数的和
+        /* var even = 0;
+        var odd = 0;
+        for(var i = 1;i <= 100; i++){
+            if(i % 2 == 0){
+                even += i;
+            }else{
+                odd += i;
+            }
+        }
+        console.log(even);
+        console.log(odd); */
+
+        //1-100之间所有被3整除的数字和
+        /* var three = 0;
+        for(var i = 1; i <= 100; i++){
+            if(i % 3 == 0){
+                three += i;
+            }
+        }
+        console.log(three); */
+
+        //求学生成绩
+        /* var score = 0;
+        var num = prompt('请输入班级总人数');
+        for(var i = 1;i <= num; i++){
+            score = score + parseInt(prompt('请输入第'+ i +'个学生成绩'));
+        }
+        score /= num;
+        console.log('班级平均成绩为：'+ score); */
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

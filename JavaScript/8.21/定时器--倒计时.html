@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东倒计时效果</title>
+    <style>
+
+        span{
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: #000;
+            color: #fff;
+            line-height: 50px;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div>倒计时</div>
+        <span class="d"></span>  天
+        <span class="h"></span> : 
+        <span class="m"></span> : 
+        <span class="s"></span>
+    
+    <div style="margin: 10px;">
+        <button class="on">开启</button>
+        <button class="off">关闭</button>
+    </div>
+
+    <div style="margin: 30px;">
+        <input type="text">
+        <button class="btn1">发送</button>
+    </div>
+    <script>
+        var d = document.querySelector('.d');
+        var h = document.querySelector('.h');
+        var m = document.querySelector('.m');
+        var s = document.querySelector('.s');
+        var inputTime = +new Date('2022-9-10 00:00');
+        //先执行一次，点击开始后再执行
+        countDown();
+        //倒计时函数
+        function countDown(){
+            var nowTime = +new Date();
+            var times = (inputTime - nowTime) / 1000;
+            var dd = parseInt(times / 24 / 60 / 60);
+            dd = dd < 10 ? '0' + dd : dd;
+            d.innerHTML = dd;
+
+            var hh = parseInt(times / 60 / 60 % 24);
+            hh = hh < 10 ? '0' + hh : hh;
+            h.innerHTML = hh;
+
+            var mm = parseInt(times / 60 % 60);
+            mm = mm < 10 ? '0' + mm : mm;
+            m.innerHTML = mm;
+
+            var ss = parseInt(times % 60);
+            ss = ss < 10 ? '0' + ss : ss;
+            s.innerHTML = ss;
+        }
+        //setInterval(countDown,1000);
+
+        //案例--开启和关闭定时器
+        //现在实现点击开启，让倒计时开始生效，点击关闭清楚倒计时效果
+        var on = document.querySelector('.on');
+        var off = document.querySelector('.off');
+        var stop = null; //null是一个空对象
+        on.addEventListener('click',function(){
+            stop = setInterval(countDown);
+        })
+        off.addEventListener('click',function(){
+            clearInterval(stop);
+        })
+
+        //按钮五秒内禁用
+        var btn1 = document.querySelector('.btn1');
+        var num = 5;
+        var sent = null;
+        function show(){
+            btn1.innerHTML = num + '秒后再次点击';
+            num--;
+            if(num == 0){
+                btn1.disabled = false;
+                btn1.innerHTML = '发送';
+                clearInterval(sent);
+                num = 5;
+            }
+        }
+        btn1.addEventListener('click',function(){
+            btn1.disabled = true;
+            sent = setInterval(show,1000);
+        })
+    </script>
+</body>
+</html>

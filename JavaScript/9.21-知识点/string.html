@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串</title>
+</head>
+<body>
+    <script>
+        // 转义字符 \'  \"  \\
+        var y = "jsfjkdfldfk\"cjdkjk\"dddd"
+        // 字符串方法
+        // 1.字符串长度
+        var txt = 'fdjkfdkfjk'
+        console.log(txt.length);
+
+        // 2.1查找第一次出现的字符串，返回索引号,找不到返回-1
+        var  find = 'fhdkfdkfkchinadsjkfdkchina'
+        console.log('indexof'+find.indexOf('china'));
+        // 2.2最后出现的位置,找不到返回-1
+        console.log('lastIndexOf'+ find.lastIndexOf('china'));
+        // 2.1.2 两个参数,3代表查找的起始位置
+        console.log('two index'+find.indexOf('dk',3));
+        // 2.2.2 两个参数,3代表查找从3开始往前找直到0的起始位置
+        console.log('two index'+find.lastIndexOf('dk'+18));
+
+        // 3.检索第一次出现的字符串,不能设置第二个参数
+        console.log('search'+find.search('china'));
+
+        // 4.1截取字符串,两个参数(起始位置，结束位置)
+        var small = 'nishuodaodiweishenmo'
+        var zheng = small.slice('slice'+2,6)
+        console.log(zheng);
+        // 倒数第二个~倒数第六个
+        var fu = small.slice('slice'+-2,-6)
+        console.log(fu);
+        // 从第六个到最后一个，反之也如此
+        var o = small.slice('slice'+6)
+        console.log(o);
+        // 4.2 没有负索引值,和slice类似
+        var s = small.substring('substring'+2,6)
+        console.log(s);
+        // 4.3 两个参数（起始位置，截取个数）
+        var st = small.substr(3,6)
+        console.log('substr'+st);
+
+        //5.替换字符串,替换首次出现的，对大小写敏感
+        var re = 'jdfjkDFGjdfkdvfdbood'
+        var rep = re.replace('bood','food')
+        console.log('old'+re,'now'+rep);
+        // 5.1 大小写不敏感， \i
+        var i = re.replace(/dfg/i,'aaaa')
+        console.log(i);
+        // 5.2替换所有匹配的值
+        var g = re.replace(/j/g,'h')
+        console.log(g);
+
+        //转换大小写
+        // 6.1 toUpperCase()大写
+        var tr = 'hEllO'
+        console.log('6.1'+tr.toUpperCase());
+        // 6.2  toLowerCase()小写
+        console.log('6.2'+tr.toLowerCase());
+
+        //7 concat() 连接字符串
+        var con = 'hello'
+        var cat = con.concat(" "+'cat')
+        console.log('7'+ cat);
+
+        // 8. 删除字符串两端的空白
+        var bai = '      djfbdkvbkd        '
+        console.log(bai.trim());
+
+        // 9.1 提取字符串，返回指定下标的那个字符串
+        var ti = 'doushiwodecuo'
+        console.log(ti.charAt(3));
+        // 9.2 返回指定下边的字符串的unicode 编码
+
+        // 10. 字符串分割，以 分割,成为数组类型
+        var sp = 'a,b,c,d,e'
+        sp.split(',') //逗号分割
+        sp.split('|') //竖线分割
+
+        // 11.根据正则表达式匹配到所有符合的字符串
+        var mat = 'pipeisuoyouzifuchuansuoyousuo'
+        console.log('11'+ mat.match(/suo/g));
+        // 11.2不区分大小写的全局匹配
+        console.log('11.2'+ mat.match(/suo/gi));
+
+        // 包括该值就返回true
+        var inc = 'hello world'
+        console.log(inc.includes('ld'));
+
+        // 指定开头，返回布尔值,不区分大小写，同理endwith
+        var zhi = 'hello this is a party'
+        console.log(zhi.startsWith('hello'));
+        console.log(zhi.endsWith('ty'));
+    </script>
+</body>
+</html>

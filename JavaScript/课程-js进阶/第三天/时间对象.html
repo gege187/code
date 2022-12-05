@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p></p>
+    <script>
+        // 实例化 时间对象
+        let t = new Date()
+        // 指定时间
+        let z = new Date('2021-04-23 12:09:12')
+        // 
+        z.getFullYear()
+
+        // 得到标准格式YYYY-MM-DD HH:mm:ss
+        let p = document.querySelector('p')
+        let arr = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六',]
+        getTime()
+        setInterval(getTime,1000)
+
+        function getTime(){
+            //把实时更新的数据放在定时器中
+            let t = new Date()
+            let y = t.getFullYear()
+            let M = t.getMonth()+1
+            let d = t.getDate()
+            let h = t.getHours()
+            let m = t.getMinutes()
+            let s = t.getSeconds()
+            let day = t.getDay()
+            p.innerHTML = `${y}-${M}-${d} ${h}:${m}:${s} ${arr[day]}`
+        }
+
+    </script>
+</body>
+</html>

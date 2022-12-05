@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <!-- <link rel="stylesheet" href="js/banner.js"> -->
+    <script src="js/animate.js"></script>
+    <script src="js/banner.js"></script>
+    <style>
+        li{
+            list-style: none;
+        }
+        .banner{
+            position: relative;
+            width: 1875px;
+            height: 830px;
+            border: 3px solid #ccc;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        ul{
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 20px 0 0 200px;
+            width: 600%;
+        }
+        .imgs li img{
+            /* display: block; */
+            width: 1400px;
+            float: left;
+        }
+        .arrow{
+            position: absolute;
+            top: 400px;
+            width: 72%;
+            display: flex;
+            justify-content: space-between;
+            margin-left: 256px;
+            z-index: 999;
+        }
+        .left,.right{
+            display: none;
+            width: 70px;
+            height: 70px;
+            background-color: #ccc;
+            /* opacity: .5; */
+            border-radius: 35px;
+            line-height: 65px;
+            text-align: center;
+            font-size: 50px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .circle{
+            position: absolute;
+            bottom: 100px;
+            left: 47%;
+            z-index: 999;
+        }
+        .circle li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            opacity: .3;
+            margin-right: 30px;
+            cursor: pointer;
+        }
+        .current{
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="arrow">
+            <div class="left"><</div>
+            <div class="right"> > </div>
+        </div>
+        <ol class="circle">
+            <!-- 动态生成 -->
+        </ol>
+        <ul class="imgs">
+            <li><img src="./image/img1.jpeg" alt=""></li>
+            <li><img src="./image/long.jpg" alt=""></li>
+            <li><img src="./image/long2.jpg" alt=""></li>
+        </ul>
+    </div>
+
+</body>
+</html>

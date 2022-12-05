@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象-作业</title>
+    <script>
+        /* 
+        1.创建一个电脑对象,该对象要有颜色、重量、品牌、型号,可以看电影、听音乐、打游戏和敲代码。
+        2.创建一个按钮对象,该对象中需要包含宽,高,背景颜色和点击行为。
+        3.创建一个车的对象,该对象要有重量、颜色、牌子,可以载人拉货和耕出。
+心
+
+        */
+        function Computer(color, weight, logo, model){
+            this.color = color;
+            this.weight = weight;
+            this.logo = logo;
+            this.model = model;
+            this.movie = function(movie){
+                console.log(movie);
+            }
+            this.music = function(music){
+                console.log(music);
+            }
+            this.game = function(game){
+                console.log(game);
+            }
+            this.code = function(code){
+                console.log(code);
+            }
+        }
+        // new Computer();
+        
+        function Button(width,height,bgc){
+            this.width = width;
+            this.height = height;
+            this.bgc = bgc;
+            this.click = function(click){
+                console.log(click);
+            }
+        }
+        new Button();
+
+
+        //3.创建一个车的对象,该对象要有重量、颜色、牌子,可以载人拉货和耕出。
+        function Car(weight,color,brand){
+            this.weight = weight;
+            this.color = color;
+            this.brand = brand;
+            this.per = function(per){
+                console.log(per);
+            }
+            this.goods = function(goods){
+                console.log(goods);
+            }
+            this.filed = function(filed){
+                console.log(filed);
+            }
+        }
+        new Car();
+
+        /* 
+        ①写一个函数,实现反转任意数组。
+        ②写一个函数,实现对数字数组的排序。
+        */
+        function Reverse(arr){
+            // this.arr1 = arr;
+            var newArr = [];
+            for(var i = arr.length - 1; i >= 0; i--){
+                newArr[newArr.length] = arr[i];
+            }
+            //注意区分   对象属性和局部变量（或者参数）的区别
+            // arr = newArr;  
+            this.arr1 = newArr;
+        }
+        console.log(new Reverse([2,55,12,42,65]));
+
+        function Sort(arr){
+            // this.arr = arr;
+            for(var i = 0; i < arr.length - 1; i++){
+                for(var j = 0; j < arr.length - 1 - i; j++){
+                    if(arr[j] > arr[j+1]){
+                        var mid = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = mid;
+                    }
+                }
+            }
+            this.arr2 = arr;
+        }
+        console.log(new Sort([22,33,12,31,1,45,64]));
+
+        //简易计算器
+        function calculator(){
+            while(true){
+                var num = prompt('欢迎使用简易计算器:\n1.加法运算;\n2.减法运算;\n3.乘法运算;\n4.除法运算;\n5.退出;\n请输入您的选项:');
+                if(num == ''){
+                    alert('The input is null, please input again!!!');
+                    continue;
+                }
+                if(num == null) return;
+                if(num == 5) return;
+
+                var num1 = parseInt(prompt('请输入第一个数：'));
+                var num2 = parseInt(prompt('请输入第二个数：'));
+
+                if(num == 1){
+                    alert(add(num1, num2));
+
+                }
+                else if(num == 2){
+                    alert(dec(num1, num2));
+                }
+                else if(num == 3){
+                    alert(multiply(num1, num2));
+                }
+                else if(num == 4){
+                    alert(division(num1, num2));
+                }else{
+                    alert('输入错误!');
+                }
+            }
+        }
+
+        // function input(){
+        //     var num1 = parseInt(prompt('请输入第一个数：'));
+        //     var num2 = parseInt(prompt('请输入第二个数：'));
+        // }
+        
+
+        function add(num1,num2){
+            return num1 + num2;
+        }
+        function dec(num1,num2){
+            return num1 - num2;
+        }
+        function multiply(num1,num2){
+            return num1 * num2;
+        }
+        function division(num1,num2){
+            return num1 / num2;
+        }
+
+        calculator();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

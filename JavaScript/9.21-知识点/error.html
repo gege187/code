@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>错误异常</title>
+</head>
+<body>
+    <p>请输入 5 到 10 之间的数字：</p>
+    <input id="demo" type="text">
+    <button type="button" onclick="myFunction()">检测输入</button>
+    <p id="message"></p>
+    <script>
+        // 测试运行的代码块
+        try {
+            adddlert("欢迎访问！");
+        }
+        // 处理错误的代码
+        catch(e) {
+            document.getElementById("demo").innerHTML = e.message;
+        }
+        // 无论如何都会执行的代码
+        finally {
+            document.getElementById("demo").style.border = "3px solid pink";
+        }
+
+        // throw 语句允许您创建自定义错误。
+        function myFunction() {
+            var message, x;
+            message = document.getElementById("message");
+            // message.innerHTML = "";
+            x = document.getElementById("demo").value;
+            try { 
+                if(x == "") throw "空的";
+                if(isNaN(x)) throw "不是数字";
+                x = Number(x);
+                if(x < 5) {
+                    throw  "太小"
+                };
+                if(x > 10) throw "太大";
+                else throw 'ok'
+            }
+            catch(err) {
+                message.innerHTML = "输入值 " + err;
+            }
+            finally {
+                document.getElementById("demo").value = "";
+            }
+        }
+    </script>
+</body>
+</html>

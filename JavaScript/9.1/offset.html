@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素偏移量offset系列</title>
+    <style>
+        .father{
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            margin: 100px;
+        }
+        .son{
+            position: relative;
+            width: 220px;
+            height: 220px;
+            background-color: skyblue;
+            margin-left: 20px;
+        }
+        .sun{
+            width: 110px;
+            height: 110px;
+            background-color: #a89;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son">
+            <div class="sun"></div>
+        </div>
+    </div>
+    <script>
+        var fa = document.querySelector('.father');
+        console.log('father top',fa.offsetTop);
+        console.log('father left',fa.offsetLeft);
+        //父元素不带定位
+        var son = document.querySelector('.son');
+        console.log('son left 以body为准',son.offsetLeft);
+        //父元素带了定位
+        var sun  = document.querySelector('.sun');
+        console.log('sun left  以父元素为准' ,sun.offsetLeft);
+        console.log('sun width',sun.offsetWidth);
+        console.log('sun height',sun.offsetHeight);
+        //返回带有定位的父元素
+        console.log('son 父亲没有定位 body',son.offsetParent);
+        //返回最近一级的父亲
+        console.log('son 父亲 father',son.parentNode);
+    </script>
+</body>
+</html>

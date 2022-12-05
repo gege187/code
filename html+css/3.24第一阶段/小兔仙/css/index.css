@@ -1,0 +1,248 @@
+.banner{
+    height: 500px;
+    background-color: #f5f5f5;
+}
+.banner .wapper{
+    position: relative;
+    height: 500px;
+    background-image: url(../uploads/banner_1.png);
+}
+.banner .left{
+    float: left;
+    height: 500px;
+    width: 230px;
+    background-color: #000;
+    opacity: 0.8;
+}
+.banner .left li{
+    height: 50px;
+    line-height: 50px;
+}
+.banner .left li:hover{
+    background-color: #27ba9b;
+}
+.banner .left a{
+    position: relative;
+    display: block;
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 15px;
+    font-size: 14px;
+    color: #fff;
+}
+.banner .left li span{
+    font-size: 12px;
+}
+.banner .left a::after{
+    position: absolute;
+    top: 19px;
+    right: 16px;
+    content: '';
+    width: 6px;
+    height: 11px;
+    background-image: url(../images/sprites.png);
+    background-position: -80px -110px;
+}
+
+/* 
+
+.banner .right{
+    float: right;
+    margin-right: 10px;
+    width: 45px;
+    height: 45px;
+    background-color: #000;
+    opacity: 0.2;
+    border-radius: 50%;
+}
+.banner .right span{
+    display: inline-block;
+    color: #fff;
+    width: 14px;
+    height: 23px;
+    background-image: url(../images/sprites.png);
+    background-position: -39px -70px;
+} */
+
+.prev,
+.next{
+    position: absolute;
+    top: 228px;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(0,0,0,.2);
+    border-radius: 50%;
+    background-image: url(../images/sprites.png);
+}
+.prev{
+    left: 250px;
+    background-position: 13px -60px;
+}
+.next{
+    right: 10px;
+    background-position: -22px -60px;
+}
+.banner ol{
+    position: absolute;
+    bottom: 30px;
+    left: 520px;
+    height: 10px;
+}
+.banner ol li{
+    float: left;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.42);
+    margin-right: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.banner ol .current{
+    background-color: #fff;
+}
+/* 小圆点表示当前状态，加上类名控制 */
+/* .banner ol li:hover{
+    background-color: #fff;
+} */
+
+.goods .hd{
+    height: 100px;
+    line-height: 100px;
+}
+.goods .hd h3{
+    float: left;
+    height: 100px;
+    font-size: 27px;
+    font-weight: 400;
+}
+.goods .hd h3 span{
+    margin-left: 30px;
+    font-size: 14px;
+    color: #999;
+}
+.goods .hd a{
+    float: right;
+    color: #999;
+}
+/* >是精灵图 */
+/* .goods .hd a::after{
+    content: '';
+
+} */
+/*  不应该加高，由内容撑开最好
+    在这里我给内容加了高，如果不加高的话，浮动元素不占位置，底部会浮上来
+    需要给con类添加clearfix清除浮动带来的影响 */
+.goods .con{
+    height: 405px;
+}
+.goods .con img{
+    height: 305px;
+}
+/* 直接给li标签加水平居中也能实现文字居中效果 */
+.goods .con li{
+    position: relative;
+    float: left;
+    margin-right: 42.5px;
+    height: 405px;
+    text-align: center;
+    background-color: #f0f9f4;
+}
+.goods .con li:last-child{
+    margin-right: 0;
+}
+.goods .con h5{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    /* text-align: center; */
+    font-size: 18px;
+    font-weight: 400;
+}
+/* 如果不想给span加display，在span外添加一个div独占一行也可 */
+.goods .con span{
+    margin-bottom: 20px;
+    display: block;
+    /* text-align: center; */
+    color: #9a2e1f;
+    font-size: 22px;
+    font-weight: bolder;
+}
+.goods .con .news{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 28px;
+    height: 51px;
+    border: 1px solid #27ba9b;
+    font-size: 18px;
+    color: #27ba9b;
+    border-radius: 5px;
+    line-height: 24px;
+}
+.fresh .hd{
+    height: 90px;
+    line-height: 90px;
+}
+.fresh .hd h3{
+    float: left;
+    font-size: 28px;
+    font-weight: 400;
+    color: #333;
+}
+.fresh .hd ul{
+    float: right;
+    margin-right: 20px;
+}
+.fresh .hd ul li{
+    float: left;
+    margin-right: 7px;
+}
+.fresh .hd li a{
+    padding: 2px 7px;
+}
+.fresh .hd li a:hover{
+    background-color: #27ba9b;
+    color: #fff;
+}
+.fresh .hd .all{
+    float: right;
+    padding: 0 10px;
+    color: #999;
+}
+.goods .hd a::after,
+.fresh .hd .all::after{
+    content: '';
+    display: inline-block;
+    margin-left: 10px;
+    width: 7px;
+    height: 13px;
+    background-image: url(../images/sprites.png);
+    background-position: 0 -108px;
+}
+.fresh .con .left{
+    float: left;
+    width: 242px;
+}
+.fresh .con .right{
+    float: left;
+    margin-left: 22px;
+    width: 736px;
+}
+.fresh .con .right li{
+    float: left;
+    /* margin-right: 5px; */
+    /* padding:0 5px; */
+}
+.fresh .con .right li:last-child{
+    margin-right: 0;    
+}
+.fresh .con .right img{
+    width: 184px;
+}
+.fresh .con .right span{
+    display: block;
+    margin-top: 5px;
+    color: #9a2e1f;
+    font-size: 22px;
+}
+
+

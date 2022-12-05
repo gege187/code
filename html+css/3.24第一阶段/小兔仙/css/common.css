@@ -1,0 +1,187 @@
+/* 放页面相同的样式表：头，尾 */
+.wapper{
+    width: 1000px;
+    margin: 0 auto;
+}
+.shortcut{
+    height: 40px;
+    background-color: #333;
+}
+.shortcut .wapper{
+    height: 40px;
+}
+.shortcut .wapper ul{
+    float: right;
+}
+.shortcut .wapper li{
+    float: left;
+    line-height: 40px;
+}
+.shortcut .wapper a{
+    padding: 0 10px;
+    color: #dcdcdc;
+    font-size: 12px;
+    border-right: 1px solid #ccc;
+}
+.shortcut .wapper a span{
+    display: inline-block;
+    margin-right: 7px;
+    /* 行内和行内块专治垂直方向对不齐问题 */
+    vertical-align: middle;
+    background-position: -160px  -70px;
+    width: 11px;
+    height: 16px;
+    background-image: url(../images/sprites.png);
+}
+/* 头部 */
+.header{
+    height: 70px;
+    /* 如果左右写0，则会覆盖wapper的auto，页面不居中 */
+    margin: 20px auto;
+}
+/* 使搜索引擎优化：用h1嵌套a标签，在a标签内放文字，
+使搜索结果更准确，这样的话就必须使用背景图片，
+将a标签中的文字使用文字大小等于0，才能显示出背景图片，a是行内标签
+一定要记得转换成块级或行内块，要不然不会显示 */
+.header h1{
+    float: left;
+    height: 70px;
+    width: 207px;
+}
+.header h1 a{
+    /* a是行内标签，必须转化 */
+    display: block;
+    height: 70px;
+    width: 207px;
+    font-size: 0;
+    background-image: url(../images/logo.png);
+    background-size: contain;
+}
+/* .header ul{
+    float: left;
+} */
+.header ul li{
+    float: left;
+    line-height: 70px;
+}
+.header ul li a{
+    padding-bottom: 8px;
+    margin-left: 40px;
+    font-size: 14px;
+}
+.header li a:hover{
+    color: #27ba9b;
+    border-bottom: 1px solid #27ba9b;
+}
+.header .sea{
+    /* 相对定位和浮动可以一起用，绝对定位不行 */
+    position: relative;
+    float: left;
+    margin-top: 22px;
+    margin-left: 50px;
+    width: 150px;
+    height: 30px;
+}
+.header .sea input{
+    padding-left: 25px;
+    width: 150px;
+    height: 28px;
+    border-bottom: 2px solid #e7e7e7;
+}
+.header input::placeholder{
+    color: #ccc;
+    font-size: 14px;
+}
+.header .sea span{
+    /* display: inline-block; */
+    position: absolute;
+    left: 2px;
+    top: 0;
+    width: 17px;
+    height: 17px;
+    background-image: url(../images/sprites.png);
+    background-position: -79px -69px;
+}
+.header .car{
+    position: relative;
+    display: inline-block;
+    margin-top: 24px;
+    margin-left: 5px;
+    width: 23px;
+    height: 23px;
+    background-image: url(../images/sprites.png);
+    background-position: -120px -70px;
+}
+.header .car span{
+    position: absolute;
+    top: -4px;
+    right: -11px;
+    /* 实现定位的盒子本身就具有行内块特点 */
+    /* display: inline-block; */
+    width: 20px;
+    height: 15px;
+    border-radius: 8px;
+    background-color: red;
+    color: #fff;
+    /* 让2在span中居中 */
+    text-align: center;
+    line-height: 15px;
+}
+.footer{
+    height: 300px;
+    background-color: #333;
+}
+.footer .wapper{
+    width: 1150px;
+}
+.footer .top{
+    padding: 50px 75px;
+    height: 150px;
+    border-bottom: 1px solid #5c5a5a;
+}
+.footer .top li{
+    float: left;
+    margin: 0 75px;
+    width: 195px;
+    height: 59px;
+}
+.footer .top li:last-child{
+    margin-right: 0;
+}
+.footer .top li::before{
+    /* 伪元素标签是行内,不加display背景图不生效，因为无内容撑开 */
+    display: inline-block;
+    /* 必须加content！！！！ */
+    content: '';
+    /* middle在sapn字体大的时候会不准确，
+    用图片top+字体line-height可以实现居中效果 */
+    vertical-align: top;
+    width: 58px;
+    height: 58px;
+    background-image: url(../images/sprites.png);
+}
+.footer .top li span{
+    font-size: 20px;
+    color: #999;
+    line-height: 59px;
+}
+.footer .top li:nth-child(2)::before{
+    background-position: -64px 0;
+}
+.footer .top li:nth-child(3)::before{
+    background-position: -129px 0;
+}
+
+.footer .bottom{
+    padding: 50px;
+    text-align: center;
+}
+.footer .bottom a{
+    /* 行内标签无法设置左右外边距 */
+    color: #999;
+    font-size: 14px;
+}
+.footer .bottom p{
+    color: #999;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        var arr = ['1','2','3']   // 相等  //var arr = new Array('1','2','3')
+        // 访问第一个值
+        var val = arr[0];
+        // 修改第二个值
+        arr[1] = '22'
+        // 数组可以保存对象、保存函数、甚至可以保存数组
+        function fn(){
+            return 'han meimei'
+        }
+        var larr = ['ni','hao']
+        larr[0] = Date.now();
+        larr[1] = fn;
+        larr[2] = arr
+        console.log(larr);
+
+        //方法：1.length
+        var all = ["Banana", "Orange", "Apple", "Mango"]
+        console.log('length ' + all.length);
+        // 2.访问最后一个元素
+        console.log('last '+all[all.length-1]);
+        // 3.遍历数组元素for
+        // 4.foreach()
+        var ul = "<ul>"
+        all.forEach(a=>{
+            ul += "<li>" + a + "</li>"
+        })
+        ul += "</li>"
+        document.getElementById('demo').innerHTML = ul
+
+        // 5.添加数组元素
+        arr.push('five')
+        arr[arr.length] = 'six'
+
+        // 6. 转换成字符串
+        var tr = arr.toString();
+        var un = arr.join('*');
+        console.log('6 '+ tr ,'||' +un);
+
+        // 增加和删除,并返回
+        var add = arr.push('add')
+        var del = arr.pop();
+        console.log('7.add '+add,'del '+del);
+        // 删除第一个
+        var fis = arr.shift()
+        console.log('shift '+ fis);
+        // 增加第一个,返回长度
+        var st = arr.unshift('one')
+        console.log('shift '+ st);
+
+        // 拼接数组,返回删除项
+        // 2：起始位置  1：删除个数  splice增加新元素
+        var sp = arr.splice('2','1','splice')
+        console.log('splie '+ sp);
+
+        // 连接数组
+        var con = ['z','x','y']
+        var long = con.concat(" and "+arr)
+        console.log(long);
+
+        // 裁剪数组
+        console.log(long.slice(3));
+        console.log(long.slice(1,3));
+
+       
+
+    </script>
+</body>
+</html>

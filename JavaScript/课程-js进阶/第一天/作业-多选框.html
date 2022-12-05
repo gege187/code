@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全选/全不选</title>
+    <style>
+        th{
+            background-color: #93a9e4;
+        }
+        td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table border="1" width="500" cellspacing="0">
+        <tr>
+            <th width="100"><input type="checkbox" class="all">全选</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="one" value="1"></td>
+            <td>22</td>
+            <td>22</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="one" value="2"></td>
+            <td>22</td>
+            <td>2</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="one" value="3"></td>
+            <td>22</td>
+            <td>2</td>
+            <td>2</td>
+        </tr>
+    </table>
+    <script>
+        let all = document.querySelector('.all')
+        let ones = document.querySelectorAll('.one')
+        all.addEventListener('change',function(){
+            for(i = 0; i < ones.length; i++){
+                ones[i].checked = all.checked
+            }
+        })
+        // 同时给多个事件绑定
+        for(i = 0; i < ones.length; i++){
+                ones[i].addEventListener('click',function(){
+                    for(j = 0; j < ones.length; j++){
+                        if(ones[j].checked === false){
+                            all.checked = false
+                            // break 退出循环  continue 退出本次循环
+                            // return 退出函数
+                            return
+                        }
+                    }
+                    all.checked = true
+                })
+            }
+    </script>
+</body>
+</html>

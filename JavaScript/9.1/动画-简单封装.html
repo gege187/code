@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .one{
+            /* 必须加定位 */
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        .two{
+            position: absolute;
+            top: 120px;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        .three{
+            position: absolute;
+            top: 240px;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- 盒子移动 -->
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+    <button>点击运行</button>
+    <script>
+        var one = document.querySelector('.one');
+        var two = document.querySelector('.two');
+        var three = document.querySelector('.three');
+        var btn = document.querySelector('button')
+        var move = setInterval(function(){
+            if(one.offsetLeft >= 400){
+                clearInterval(move)
+            }
+            one.style.left = one.offsetLeft + 1 + 'px'
+        },30)
+        //封装动画函数,目标对象、目标位置
+        function animate(obj,target){
+            obj.move = setInterval(function(){
+                if(obj.offsetLeft >= target){
+                    clearInterval(obj.move)
+                }
+                obj.style.left = obj.offsetLeft + 1 + 'px'
+            },30)
+        }
+        animate(two,300)
+        //优化,给不同元素指定不同的定时器
+        /* function animate(obj,target){
+            obj.move = setInterval(function(){
+                if(obj.offsetLeft >= target){
+                    clearInterval(obj.move)
+                }
+                obj.style.left = obj.offsetLeft + 1 + 'px'
+            },30)
+        }
+        animate(two,300)
+        animate(div,300) */
+        //触发事件后再走
+        //不断点击速度会越来越快,解决方案：先清除上一次的定时器再执行
+        /* function animate(obj,target){
+            clearInterval(obj.move)
+            obj.move = setInterval(function(){
+                if(obj.offsetLeft >= target){
+                    clearInterval(obj.move)
+                }
+                obj.style.left = obj.offsetLeft + 1 + 'px'
+            },30)
+        }
+        btn.addEventListener('click',function(){
+            animate(three,300)
+        }) */
+    </script>
+</body>
+</html>

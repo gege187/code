@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>悬停+过渡</title>
+    <style>
+        .box{
+            width: 20%;
+            position: relative;
+            display: inline-block;
+        }
+        img{
+            width: 100%;
+            /* display: block; */
+        }
+        .overlay{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: #008CBA;
+        }
+        .box:hover .overlay{
+            opacity: 1;
+        }
+        /* 上下滑动，height从 0 到 100% */
+        /* 下滑,bottom100%   上滑，bottom0 */
+        .toBottom{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 100%;
+            width: 100%;
+            height: 0;
+            background-color: pink;
+            transition: 1s ease;
+            overflow: hidden;
+        }
+        .box:hover .toBottom{
+            bottom: 0;
+            height: 100%;
+        }
+        .text{
+            color: rgb(0, 0, 255);
+            /* overflow: hidden; */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        /* /* 左右滑动，width从 0 到 100% */ */
+        .toright{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 100%;
+            height: 100%;
+            width: 0;
+            background-color: pink;
+            transition: 1s ease;
+            /* 有内容时需要添加 */
+            overflow: hidden;
+        }
+        .box:hover .toright{
+            width: 100%;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="./map.png" alt="">
+        <div class="overlay"></div>
+    </div>
+    <div class="box">
+        <img src="./map.png" alt="">
+        <div class="toBottom">
+            <div class="text">wenzitooltip</div>
+        </div>
+    </div>
+    <div class="box">
+        <img src="./map.png" alt="">
+        <div class="toright">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>constructor</title>
+</head>
+<body>
+    <script>
+        // typeof只能返回string、number、boolean、undefined、object、function类型
+
+        // constructor可以返回所有变量的构造函数
+        console.log( "Bill".constructor,);
+        "Bill".constructor,                
+        (3.14).constructor,              
+        false.constructor,                
+        [1,2,3,4].constructor,             
+        {name:'Bill',age: 19}.constructor, 
+        new Date().constructor,            
+        function () {}.constructor;
+
+        
+        // undefined 和 null 值相等但类型不同：
+        console.log(typeof undefined);           // undefined
+        console.log(typeof null );               // object
+
+        console.log(null === undefined);         // false
+        console.log(null == undefined);          // true
+    </script>
+</body>
+</html>

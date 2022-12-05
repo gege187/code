@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{ 
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            background-color: pink;
+        }
+        
+    </style>
+</head>
+<body>
+    <!--跟随鼠标天使-->
+    <div></div>
+    <!-- 点击按钮发布消息 -->
+    <input type="text" value="this message">
+    <button>button</button>
+    <script>
+        // 跟随鼠标天使
+        /* let div = document.querySelector('div')
+        document.addEventListener('mousemove',function(e){
+            div.style.left = e.pageX -10+ 'px' 
+            div.style.top = e.pageY -10+ 'px' 
+        }) */
+        
+        // 点击按钮发布消息
+        let btn = document.querySelector('button')
+        let ipt = document.querySelector('input')
+        ipt.addEventListener('keyup',function(e){
+            if(e.key === 'Enter'){
+                // 自动触发点击事件
+                // 点击事件.click()
+            }
+        })
+    </script>
+</body>
+</html>

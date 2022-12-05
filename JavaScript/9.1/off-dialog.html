@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模态框（弹出对话框）的拖拽</title>
+    <style>
+        .show{
+            width:180px;
+            margin: 0 auto;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .dialog{
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 400px;
+            height: 240px;
+            background-color: #fff;
+            margin: 0 auto;
+            /* 内部内容的居中 */
+            text-align: center;
+            /* 盒子在页面居中 */
+            transform: translate(-50%,-50%);
+            box-shadow: 0px 1px 15px #fff;
+            display: none;
+        }
+        .close{
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            border-radius: 50%;
+            /* text-align: center; */
+            line-height: 40px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .title{
+            height: 70px;
+            line-height: 70px;
+            width: 100%;
+            cursor: move;
+            /* text-align: center; */
+        }
+        .mid{
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        span{
+            display: inline-block;
+            width: 70px;
+            text-align: right;
+        }
+        .mid-input{
+            width: 260px;
+            height: 30px;
+            border: 1px solid #ccc;
+        }
+        .mid-input::placeholder{
+            color: #aaa;
+            padding-left: 10px;
+        }
+        button{
+            width: 120px;
+            height: 30px;
+            border: 1px solid #ccc;
+            line-height: 28px;
+            /* text-align: center; */
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="show">点击,弹出模态框</div>
+    <div class="dialog">
+        <div class="close">关闭</div>
+        <div class="title">登录会员</div>
+        <div class="mid"><span>用户名：</span><input type="text" class="mid-input" placeholder="请输入用户名"></div>
+        <div class="mid"><span>登录密码：</span><input type="password" class="mid-input" placeholder="请输入登录密码"></div>
+        <button>登录会员</button>
+    </div>
+    <script>
+        //实现模态框出现和消失
+        var show = document.querySelector('.show');
+        var dialog = document.querySelector('.dialog');
+        var close = document.querySelector('.close')
+        var body = document.body
+        var title = document.querySelector('.title');
+        show.addEventListener('click',function(){
+            dialog.style.display = 'block'
+            body.style.backgroundColor = '#ddd'
+        })
+        close.addEventListener('click',function(){
+            dialog.style.display = 'none'
+            body.style.backgroundColor = '#fff'
+        })
+        //实现拖拽
+        title.addEventListener('mousedown', function(e) {
+            var x = e.pageX - dialog.offsetLeft;
+            var y = e.pageY - dialog.offsetTop;
+            // (2) 鼠标移动的时候，把鼠标在页面中的坐标，减去 鼠标在盒子内的坐标就是模态框的left和top值
+            document.addEventListener('mousemove', move)
+            function move(e) {
+                dialog.style.left = e.pageX - x + 'px';
+                dialog.style.top = e.pageY - y + 'px';
+            }
+            // (3) 鼠标弹起，就让鼠标移动事件移除
+            document.addEventListener('mouseup', function() {
+                document.removeEventListener('mousemove', move);
+            })
+        })
+    </script>
+</body>
+</html>

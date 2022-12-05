@@ -1,0 +1,62 @@
+<!-- 
+    对象属性：访问方式、for in遍历、新增、删除
+    方法：新增、
+    转化为数组、字符串
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var per = {
+            "name":"张三",
+            "age":22,
+            "grade":"初三",
+            "score":100,
+            work:function(){
+                return '每天写作业，才能拿'+this.score+'分'
+            },
+            watchTV:function(){
+                return this.father + '不同意'
+            },
+        }
+        // 增加方法
+        per.motd = function(){
+            return this.name + this.age
+        },
+        //三种属性访问方式
+        console.log(per.name);
+
+        console.log(per["name"]);
+
+        var x = "age";
+        // console.log(per[x]);
+
+        // for in遍历对象属性
+        for(t in per){
+            // console.log(t+' : ',per[t]);
+        }
+
+        //新增属性
+        per.father = "张无忌"
+        // console.log(per);
+
+        //detele删除对象属性
+        delete per.grade
+        // console.log(per);
+
+        // Object.values() JavaScript 对象都可以被转换为数组
+        var turno = Object.values(per)
+        // console.log(turno);
+
+        // JSON.stringify() 进行字符串化（转换为字符串）
+        var turns = JSON.stringify(per)
+        console.log(turns);
+    </script>
+</body>
+</html>

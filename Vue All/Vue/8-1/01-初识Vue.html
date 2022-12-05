@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>初识Vue</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <!-- 引入Vue -->
+        <script type="text/javascript" src="../js/vue.js"></script>
+    </head>
+    <body>
+        <!-- 1. 和实例 一一 对应，不能一对多，多对一
+             2.书写内容要写成表达式，注意和js代码（语句）区分
+                （1）a （2）a + b （3）demo(1)  （4）x === y ？ a : b
+            -->
+        <div id="root">
+            <h1>hello, {{name}}</h1>
+        </div>
+        <script type="text/javascript">
+            Vue.config.productionTip = false;   //以阻止 vue 在启动时生成生产提示。
+
+            //创建Vue实例
+            //const x = 
+            new Vue({
+                el:'#root',   //el用于指定当前Vue实例为哪个容器服务，值通常是css选择器字符串
+                data:{  //用来储存数据，数据供el所指定的容器使用，值暂时写一个对象
+                    name:'wangbingbing',
+                }
+            })
+        </script>
+    </body>
+</html>

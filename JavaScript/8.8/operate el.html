@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作元素</title>
+    <style>
+        img{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <button>显示时间</button>
+    <div>某个时间</div>
+    <p>直接获取时间</p>
+    <span>区别</span>
+
+    <div>
+        <button id="zxy">张学友</button>
+        <button id="ldh">刘德华</button>
+        <img src="./photo/1.jpg" alt="">
+    </div>
+
+    <div id="demo1"></div>
+    <img src="" alt="" id="demo2">
+    <script>
+        // 1.获取元素
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        //2.注册事件
+        btn.onclick = function(){
+            // div.innerText = "2022";
+            div.innerText = getDate();
+        }
+        function getDate(){
+        var date = new Date();
+        // console.log(date.getFullYear());   //年份
+        // console.log(date.getMonth() + 1);  //月份
+        // console.log(date.getDate());  //几号
+        // console.log(date.getDay());   //星期1-6 ，0代表周日
+        //格式化日期
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var date0 = date.getDate();
+        var arr = ['周日','周一','周二','周三','周四','周五','周六'];
+        var day = date.getDay();
+        return ('今天是：'+ year + '年' + month + '月' + date0 + '日 ' + arr[day]);
+        }
+
+        // 直接获取，不用添加事件
+        var p = document.querySelector('p');
+        p.innerText = getDate();
+
+        //innerText 和 innerHTMl  的区别
+        var span = document.querySelector('span');
+        span.innerHTML = '<u>见天时</u>: 2020';
+        // span.innerText = "<u>见天时</u>: 2009";
+
+        // 2.可读写
+        var val = document.querySelector('span');
+        console.log(val.innerText);
+        console.log(val.innerHTML);
+
+
+        //修改元素属性
+        var ldh = document.getElementById('ldh');
+        var zxy = document.getElementById('zxy');
+        var img = document.querySelector('img');
+        ldh.onclick = function(){
+            img.src = './photo/2.jpg';
+            img.title = "刘德华"
+        }
+        zxy.onclick = function(){
+            img.src = './photo/1.jpg';
+            img.title = '张学友'
+        }
+
+        function getTime(){
+            var date = new Date();
+            var h = date.getHours();
+            return h;
+        }
+
+       /*  根据不同时间,页面显示不同图片,同时显示不同的问候语。
+        如果上午时间打开页面,显示上午好,显示上午的图片。
+        如果下午时间打开页面,显示下午好,显示下午的图片。
+        如果晚上时间打开页面,显示晚上好,显示晚上的图片。 */
+        var demo1 = document.getElementById('demo1');
+        var demo2 = document.getElementById('demo2');
+        var demo3 = new Date();
+        var demo4 = demo3.getHours();
+
+
+        if(demo4 < 12){
+            demo1.innerText = '上午好';
+            demo2.src = './photo/0.jpg';
+        }else if(demo4 < 18){
+            demo1.innerText = '下午好';
+            demo2.src = './photo/1.jpg';
+        }else{
+            demo1.innerText = '晚上好';
+            demo2.src = './photo/2.jpg';
+        }
+        
+
+    </script>
+</body>
+</html>

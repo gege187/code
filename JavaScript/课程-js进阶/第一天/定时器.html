@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 150px;
+            height: 200px;
+            border: 2px solid #ccc;
+            margin: 0 auto;
+            overflow-y: auto;
+        }
+        h6{
+            text-align: center;
+        }
+        button{
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h6>用户登录协议</h6>
+        <p>中国高等教育学生信息网由教育部学生服务与素质发展中心（原全国高等学校学生信息咨询与就业指导中心）主办。学信网依托中心建立的集高校招生、学籍学历、毕业生就业信息一体化的大型数据仓库，开通“阳光高考”信息平台、学籍学历信息管理平台、中国研究生招生信息网、内地高校面向港澳台招生信息网等平台，开通学历查询系统、在线验证系统、硕士研究生网上报名和录取检查系统、硕士研究生招生调剂服务系统、学历认证网上办公系统等20余个信息系统。</p>
+    </div>
+    <button disabled>我同意这个协议(60秒)</button>
+    <script>
+        var btn = document.querySelector('button')
+        let num = 60
+        function fn(){
+            num--
+            btn.innerHTML = `我同意这个协议(${num}秒)`
+            if(num <= 0){
+                btn.disabled = false
+                btn.innerHTML = `我同意这个协议`
+                clearInterval(timer)
+            }
+        }
+        let timer = setInterval(fn,1000)
+    </script>
+</body>
+</html>

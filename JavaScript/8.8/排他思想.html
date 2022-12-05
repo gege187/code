@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排他思想</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+        /* body{
+            background-image: url(./image/1.jpg);
+        } */
+        .pics{
+            width: 500px;
+            height: 150px;
+            border: 1px solid #aaa;
+            /* margin: 0 auto; */
+            line-height: 150px;
+            padding-left: 30px;
+        }
+        .pics img{
+            width: 100px;
+        }
+        img:nth-child(1){
+            border: 1px solid pink;
+        }
+
+        table{
+            border-collapse: collapse;
+            width: 800px;
+            text-align: center;
+        }
+        thead tr{
+            background-color: skyblue;
+            height: 30px;
+        }
+        tbody tr{
+            height: 30px;
+            color: #aaa;
+            font-size: 14px;
+            border-bottom: 1px solid #d7d7d7;
+        }
+        /* td{
+            border-bottom: 1px solid #d7d7d7;
+        } */
+        .bg{
+            background-color: pink;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1.
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button> -->
+
+    2.
+        <div class="pics">
+        <img src="./image/1.jpg" alt="">
+        <img src="./image/2.jpg" alt="">
+        <img src="./image/3.jpg" alt="">
+        <img src="./image/4.jpg" alt="">
+    </div>
+
+    <!-- 3. 
+        <table>
+        <thead>
+            <tr>
+                <th>代码</th>
+                <th>名称</th>
+                <th>最新公布净值</th>
+                <th>累计净值</th>
+                <th>前单位净值</th>
+                <th>净值增长率</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+        </tbody>
+    </table>
+ -->
+
+    <script>
+        /* 1.
+        var btns = document.getElementsByTagName('button');
+        for(var i = 0; i < btns.length; i++){
+            btns[i].onclick = function(){
+                //先清除所有样式，再改变选中按钮样式
+                for(var i = 0; i < btns.length; i++){
+                    btns[i].style.backgroundColor = '';
+                }
+                this.style.backgroundColor = 'pink';
+            }
+        } */
+
+        2.
+        var img = document.getElementsByTagName('img');
+        for(var i = 0; i < img.length; i++){
+            img[i].onclick = function(){
+                for(var i = 0; i < img.length; i++){
+                    img[i].style.border = 'none';
+                }
+                this.style.border = '1px solid pink';
+                //把当前图片路径传给body
+                document.body.style.backgroundImage = 'url('+this.src+')';
+            }
+        }
+
+       /* 3.
+        var trs = document.querySelector('tbody').querySelectorAll('tr');
+        for(var i = 0; i < trs.length; i++){
+            trs[i].onmouseover = function(){
+                this.className = 'bg';
+            }
+            trs[i].onmouseout = function(){
+                this.className = 'tbody tr';
+            }
+        } */
+
+    </script>
+</body>
+</html>

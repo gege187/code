@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>button</button>
+    <script>
+        // call()方法
+        function fn(x,y){
+            console.log('1111');
+            console.log(this);
+            console.log(x+y);
+        }
+        let that = {
+            name : 'ming'
+        }
+        // 1.call()可以调用函数
+        // fn.call()
+        // 2.可以改变这个函数的this指向
+        // fn.call(that,1,2)
+
+        function fun(arr){
+            console.log(this);
+            console.log(arr);
+        }
+        // apply()方法
+        // 也是可以调用函数，可以改变函数内部的this指向
+        // 参数必须是数组（伪数组）
+        // fun.apply(that,['1','2'])
+        // apply的主要应用：借助于数学内置对象求最大值
+        let arr = [22,4,21,42,13,56,99]
+        let max = Math.max.apply(Math,arr)
+        console.log('max:',max);
+
+        // bind()方法
+        // 不调用原来的函数，改变原函数的this指向
+        // 返回原函数改变this之后产生的新 函数
+        // let f = fn.bind(that,3,4)
+        // f();
+        // 主要应用：当函数不需要立即调用，又需要改变这个函数的this指向（定时器）
+        let btn = document.querySelector('button')
+        btn.addEventListener('click',function(){
+            this.disabled = true
+            // let that = this
+            setTimeout(function(){
+                // that.disabled = false
+                this.disabled = false
+            }.bind(this),3000)
+        })
+        
+        
+
+
+        // 借用父构造函数继承属性
+        function Father(uname,age){
+            // this指向父构造函数的对象实例
+            this.uname = uname
+            this.age = age
+        }
+        Father.prototype.sing = function(){
+            console.log('sing a song');
+        }
+        function Son(uname,age){
+            // this指向子构造函数的对象实例
+            // 调用了父构造函数，并且把父this指向给子this,这样就给子构造函数添加了uname，age这两个属性
+            Father.call(this,uname,age)
+        }
+
+        Son.prototype = new Father()
+        Son.prototype.constructor = Son
+
+        Son.prototype.exam = function(){
+            console.log('take a exam');
+        }
+        let son = new Son('ming',20)
+        son.sing()
+        console.log(son);
+        console.log(Father.prototype);
+
+        
+        
+    </script>
+</body>
+</html>

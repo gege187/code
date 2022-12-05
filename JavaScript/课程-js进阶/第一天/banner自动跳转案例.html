@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易版轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            position: relative;
+            width: 500px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        img{
+            width: 100%;
+            height: 281px;
+        }
+        .tip{
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.399);
+        }
+        .text{
+            line-height: 50px;
+            text-indent: 2em;
+            color: rgb(149, 255, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="./image/img1.jpeg" alt="">
+        <div class="tip">
+            <h3 class="text">第1张图片信息</h3>
+        </div>
+    </div>
+    <script>
+        let data = [
+            {
+                imgSrc:'./image/img1.jpeg',
+                title:"第1张图片信息"
+            },
+            {
+                imgSrc:'./image/img2.jpeg',
+                title:"第2张图片信息"
+            },
+            {
+                imgSrc:'./image/img3.jpeg',
+                title:"第3张图片信息"
+            },
+            {
+                imgSrc:'./image/img4.jpeg',
+                title:"第4张图片信息"
+            },
+            {
+                imgSrc:'./image/img5.jpeg',
+                title:"第5张图片信息"
+            },
+            {
+                imgSrc:'./image/img6.jpeg',
+                title:"第6张图片信息"
+            }
+        ]
+        // for(i = 0;i < data.length; i++){
+        //     console.log(data[i]);
+        // }
+        let img = document.querySelector('img')
+        let text = document.querySelector('.text')
+        let num = 0
+        let timer = setInterval(function(){
+            num++
+            img.src = data[num].imgSrc
+            text.innerHTML = data[num].title
+            if(num == data.length-1){
+                num = -1;
+            }
+        },1000)
+    </script>
+</body>
+</html>

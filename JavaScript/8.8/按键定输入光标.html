@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘事件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .search {
+            position: relative;
+            width: 178px;
+            margin: 100px;
+        }
+        
+        .con {
+            display: none;
+            position: absolute;
+            top: -40px;
+            width: 171px;
+            border: 1px solid rgba(0, 0, 0, .2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+            padding: 5px 0;
+            font-size: 18px;
+            line-height: 20px;
+            color: #333;
+        }
+        
+        .con::before {
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 28px;
+            left: 18px;
+            border: 8px solid #000;
+            border-style: solid dashed dashed;
+            border-color: #fff transparent transparent;
+        }
+    </style>
+</head>
+<body>
+    <!-- 案例1. -->
+    <input type="text" placeholder="获取焦点" id="inp1">
+
+    <!-- 案例2. -->
+    <div class="search">
+        <div class="con"></div>
+        <input type="text" placeholder="请输入您的快递单号" class="jd">
+    </div>
+
+    <script>
+        // 1.按s键光标定在输入框中
+        var inp1 = document.querySelector('#inp1');
+        //获得焦点后按键值被输入到框中（不好）
+        /* document.addEventListener('keydown',function(e){
+            if(e.keyCode === 83){
+                input.focus();
+            }
+        }) */
+        document.addEventListener('keyup',function(e){
+            if(e.keyCode === 83){
+                inp1.focus();
+            }
+        })
+
+        // 2.在输入框输入内容，显示更大号的提示字体
+        var con = document.querySelector('.con');
+        var inp2 = document.querySelector('.jd');
+        inp2.addEventListener('keyup',function(){
+            if(inp2.value !== ''){
+                con.innerHTML = inp2.value;
+                con.style.display = 'block';
+            }else{
+                // con.innerHTML = '',
+                con.style.display = 'none';
+            }
+        })
+        inp2.addEventListener('blur',function(){
+            con.style.display = 'none';
+        })
+        inp2.addEventListener('focus',function(){
+            if(inp2.value !== ''){
+                con.style.display = 'block';
+            }
+        })
+        /* 用focus焦点事件只能在鼠标移开之后再次点击时出现提示文字，应该用keyup键盘事件
+        inp2.addEventListener('focus',function(){
+            if(inp2.value !== ''){
+                con.innerHTML = inp2.value;
+                con.style.display = 'block';
+            }
+        }) */
+    </script>
+</body>
+</html>

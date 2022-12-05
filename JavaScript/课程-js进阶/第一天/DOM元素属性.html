@@ -1,0 +1,97 @@
+<!-- 
+    element.src(属性)
+    样式属性：
+        通过style属性
+        操作类名className来控制
+        通过classList操作 类 控制
+        body => document.body.style
+    表单属性：
+
+
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url(./image/img3.jpeg);
+        }
+        img{
+            width: 800px;
+            display: block;
+            margin: 20px auto;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .change{
+            width: 300px;
+            height: 100px;
+            background-color: purple !important;
+        }
+    </style>
+</head>
+<body>
+    <img src="./image/img1.jpeg" alt="">
+    <div></div>
+    <input type="password" value="please input it">
+    <button disabled>按钮</button>
+    <script>
+        //let img = document.querySelector('img')
+        // 修改属性
+        //img.src = ''
+        //img.title = ''
+
+        // 例子-随机图片
+        let img = document.querySelector('img')
+        function getRandom(min,max){
+            return Math.floor(Math.random() * (max-min+1))+min
+        }
+        setInterval(function(){
+            let ran = getRandom(1,6);
+            img.src = `./image/img${ran}.jpeg`
+        },2000)
+
+        // 通过style控制样式属性
+        let div = document.querySelector('div')
+        div.style.backgroundColor = 'skyblue'
+        div.style.width = '300px'
+
+        // 例子-随机背景图片
+        setInterval(function(){
+            let ran = getRandom(1,6);
+            document.body.style.backgroundImage = `url(./image/img${ran}.jpeg)`
+        },2000)
+
+        // 通过className类名控制,缺点：会覆盖之前的类名
+        div.className = 'change'
+
+        // 使用classList,是方法，进行追加、删除、切换
+        div.classList.add('leiming')
+        div.classList.remove('leiming')
+        div.classList.toggle('leiming')
+
+        // 修改表单属性
+        // 例子-显示隐藏密码框
+        let ipt = document.querySelector('input')
+        // ipt.value = ''
+        ipt.addEventListener('focus',function(){
+            ipt.type = 'text'
+        })
+        ipt.addEventListener('blur',function(){
+            ipt.type = 'password'
+        })
+        // 按钮属性
+        let btn = document.querySelector('button')
+        btn.disabled = true
+        // 例子-全选复选框
+
+    </script>
+</body>
+</html>

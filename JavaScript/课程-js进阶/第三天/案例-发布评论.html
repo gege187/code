@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{ 
+            width: 500px;
+            margin: 20px auto;
+        }
+        textarea{ 
+            resize: none;
+            width: 450px;
+            height: 80px;
+        }
+        .two{ 
+            width: 455px;
+            text-align: right;
+        }
+        button{ 
+            width: 70px;
+            height: 30px;
+            background-color: blue;
+            color: #fff;
+            border-radius: 5px;
+            border: none;
+        }
+        ul{
+            margin-top: 40px;
+            list-style: none;
+            width: 480px;
+        }
+        li{ 
+            /* height: 80px; */
+            border-bottom: 1px solid #ccc;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        img{ 
+            float: left;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+        }
+        .fll{ 
+            margin-left: 10px;
+            float: left;
+        }
+        .info{ 
+            color: #999;
+            font-size: 14px;
+        }
+        .content{ 
+            margin-top: 15px;
+            width: 300px;
+            padding-bottom: 5px;
+        }
+        .close{ 
+            float: right;
+            cursor: pointer;
+            padding-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <textarea name="" id="" cols="30" rows="10" maxlength="200" placeholder="说点什么.."></textarea>
+        <div class="two">
+            <span><i style="color:red">0</i> / 200</span>
+            <button>提交</button>
+        </div>
+        <ul>
+            
+        </ul>
+    </div>
+    
+    <script>
+        // 模拟数据
+        let dataArr = [
+            {name:'欧阳小天',imgSrc:'0.jpg'},
+            {name:'欧阳一天',imgSrc:'1.jpg'},
+            {name:'欧阳二天',imgSrc:'2.jpg'},
+            {name:'欧阳删天',imgSrc:'0.jpg'},
+            {name:'欧阳时天',imgSrc:'1.jpg'},
+            {name:'欧阳务天',imgSrc:'2.jpg'},
+            {name:'欧阳起天',imgSrc:'0.jpg'},
+            {name:'欧阳就天',imgSrc:'1.jpg'},
+        ]
+        // 随机函数
+        function getRandom(min,max){
+            return Math.floor(Math.random()*(max-min+1))+min
+        }
+        // 文本域部分
+        var text = document.querySelector('textarea')
+        let i = document.querySelector('i')
+        let btn = document.querySelector('button')
+        text.addEventListener('input',function(){
+            i.innerHTML = this.value.trim().length
+        })
+        // 判断是否为空
+        btn.addEventListener('click',function(){
+            // text.value == ''
+            if(i.innerHTML == '0'){
+                return alert('输入为空')
+            }
+            let random = getRandom(0,7)
+            // 发布评论部分
+            let ul = document.querySelector('ul')
+            let li = document.createElement('li')
+            li.innerHTML = `
+                <img src="${dataArr[random].imgSrc}">
+                <div class="fll">
+                    <p class="uname">${dataArr[random].name}</p>
+                    <p class="info">该评论于${new Date().toLocaleString()}发布</p>
+                    <p class="content">${text.value}</p>
+                </div>
+                <div class="close">X</div>
+            `
+            ul.insertBefore(li,ul.children[0])
+
+             // 在点击生成一个li之后，就给每个生成的li的X绑定删除事件
+            let close = document.querySelector('.close')
+            close.addEventListener('click',function(){
+                // ul.removeChild(this.parentNode)
+                ul.removeChild(li)
+            })
+
+            // 点击后清空框中内容
+            text.value = ''
+            i.innerHTML = '0'
+
+        })
+        
+    </script>
+</body>
+</html>

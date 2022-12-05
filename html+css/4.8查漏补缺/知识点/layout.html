@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            list-style: none;
+            margin-left: -2px;
+            float: left;
+            width: 100px;
+            height: 200px;
+            border: 2px solid pink;
+        }
+        /* ul li:hover{
+             1.如果盒子没有定位，添加相对定位即可 
+            position: relative;
+            border: 2px solid skyblue;
+        } */
+        ul li:hover{
+            /* 2.如果盒子有定位，提高层级即可 */
+            z-index: 1;
+            border: 2px solid skyblue;
+        }
+
+        /* 二、文字环绕图片 */
+        .two{
+            margin: 0 auto;
+            width: 300px;
+            height: 100px;
+            background-color: #ccc;
+        }
+        .two img{
+            float: left;
+            margin-right: 5px;
+            height: 100px;
+        }
+        /* 右侧直角三角 */
+        .thr{
+            margin: 20px auto;
+            width: 0;
+            height: 0;
+            border-top: 100px solid transparent;
+            border-bottom: 0px solid none;
+            border-left: 0px solid none;
+            border-right: 50px solid pink;
+            /*
+            可以写成以下这种形式 
+            border-color: transparent pink transparent transparent;
+            border-style: solid;
+            border-width: 100px 50px 0 0; */
+        }
+    </style>
+</head>
+<body>
+    <ul class="one">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div class="two">
+        <img src="0-long.jpg" alt="">
+        <p>long文字环绕图片long文字环绕图片
+            hao文字环绕图片shuai文字环绕图片.</p>
+    </div>
+    <div class="thr"></div>
+</body>
+</html>

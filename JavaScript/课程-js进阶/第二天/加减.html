@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车加减</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        button{
+            margin-top: 20px;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 20px;
+            font-size: 28px;
+            vertical-align: middle;
+        }
+        input{
+            margin-top: 20px;
+            display: inline-block;
+            width: 100px;
+            height: 30px;
+            line-height: 27px;
+            border: 1px solid #333;
+            vertical-align: middle;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button style="margin-right:-6px" class="jian" disabled>-</button>
+    <input type="text" value="1">
+    <button style="margin-left:-5px" class="jia">+</button>
+    <script>
+        let jian = document.querySelector('.jian')
+        let jia = document.querySelector('.jia')
+        let ipt = document.querySelector('input')
+        let num = 0
+        ipt.addEventListener('input',function(){
+            num = parseInt(ipt.value)
+        })
+        jia.addEventListener('click',function(){
+            num++
+            ipt.value = num
+            jian.disabled = false
+        })
+        jian.addEventListener('click',function(){
+            num--
+            ipt.value = num
+            if(num == 1){
+                jian.disabled = true
+            }
+        })
+    </script>
+
+</body>
+</html>

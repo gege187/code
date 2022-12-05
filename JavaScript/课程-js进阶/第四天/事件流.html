@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="fa">
+        <div class="son">
+            <div class="sun"></div>
+        </div>
+    </div>
+    <a href="https://www.baidu.com/?tn=40020637_22_oem_dg">turn to this link</a>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        // 冒泡事件，同种类型的事件冒泡
+        let fa = document.querySelector('.fa')
+        let son = document.querySelector('.son')
+        let sun = document.querySelector('.sun')
+        fa.addEventListener('click',function(){
+            alert('father')
+        })
+        son.addEventListener('click',function(){
+            alert('son')
+        })
+        // 捕获阶段，每个事件都要加,加true
+        // document.addEventListener('',function(){},true)
+
+        // 阻止事件流动（冒泡），阻止谁给谁加
+        sun.addEventListener('click',function(e){
+            alert('sun')
+            e.stopPropagation()
+        })
+
+        // 鼠标经过事件
+        // mouseover
+        // mouseenter区别在于后者没有鼠标冒泡事件
+
+        // 阻止链接跳转、表单提交等默认行为
+        let a = document.querySelector('a')
+        a.addEventListener('click',function(e){
+            // 阻止默认行为
+            e.preventDefault()
+        })
+
+        // 事件委托
+        // 事件委托是给父级添加事件
+        let ul = document.querySelector('ul')
+        ul.addEventListener('click',function(e){
+            // 当前点击li通过target可以得到
+            e.target.style.color = 'red'
+        })
+    </script>
+</body>
+</html>

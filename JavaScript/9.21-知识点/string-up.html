@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string高级</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        // 模板字面量使用反引号 (``) 而不是引号 ("") 来定义字符串
+        {
+            let str = `this is an apple`
+        }
+        // 在模板字面量中可以在字符串中同时使用单引号和双引号
+        {
+            let str = `'dsjkdjksdkskd"`
+        }
+        // 允许多行字符串
+        {
+            let str = `
+                zhe
+                shi 
+                sha
+            `
+        }
+        //可以插入变量
+        {
+            let str = 'wo shi da cong ming'
+            let introduce = `hello,${str}`
+        }
+        {
+            let header = 'hello,world'
+            let arr = ['a','b','c','d']
+            let html = `<h2>${header}</h2><ul>`
+            for(const x of arr){
+                html += `<li>${x}</li>`
+            }
+            html += `</ul>`
+            document.getElementById('demo').innerHTML = html
+        }
+        
+    </script>
+</body>
+</html>

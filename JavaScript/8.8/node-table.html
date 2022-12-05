@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态生成表格</title>
+    <style>
+        table {
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        td,
+        th {
+            border: 1px solid #333;
+        }
+        thead tr {
+            height: 40px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        /* 数据采取对象形式存储 */
+        var datas = [{
+            name:'张三',
+            subject:'javascript',
+            score:'100'
+        },{
+            name:'李四',
+            subject:'javascript',
+            score:'90',
+        },{
+            name:'王五',
+            subject:'javascript',
+            score:'80',
+        },{
+            name:'赵六',
+            subject:'javascript',
+            score:'70',
+        }];
+        // 往tbody中插入行，所以先获取tbody
+        var tbody = document.querySelector('tbody');
+        for(var i = 0; i < datas.length; i++){
+            //利用for循环创建四行
+            var tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            //列数取决于对象中属性个数，遍历对象用for in
+            for(var k in datas[i]){
+                var td = document.createElement('td');
+                // 得到对象属性值给 td
+                td.innerHTML = datas[i][k];
+                tr.appendChild(td);
+            }
+            var td = document.createElement('td');
+            td.innerHTML = '<a href="javascript:;">删除</a>';
+            tr.appendChild(td);
+        }
+        var as = document.querySelectorAll('a');
+        for(var i = 0; i < as.length; i++){
+            as[i].onclick = function(){
+                //要删除的是a所在的整行，是a的爸爸的爸爸
+                tbody.removeChild(this.parentNode.parentNode);
+                //tbody.removeChild(tbody.children[i]);
+                //console.log(tbody.children[1]);
+            }
+        }
+    </script>
+</body>
+</html>

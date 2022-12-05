@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        条件演染:
+            1.v-if
+                写法:
+                (1)v-if="表达式"
+                (2)v-else-if="表达式"
+                (3)v-else="表达式"
+                适用于:切换频率较低的场景。
+                特点:不展示的DOM元素直接被移除。
+                注意: v-if可以和:v-else-if、 v-else一起使用， 但要求结构不能被“打断”。
+            2.v- show 
+                写法: v-show=" 表达式"
+                适用于:切换频率较高的场景。
+                特点:不展示的DOM元素未被移除，仅仅是使用样式隐藏掉
+            3.使用v-if的时，元素可能无法获取到（被动态删除掉这个节点），而使用v-show定可以获取到（只是隐藏，元素没有被删除）。
+
+     -->
+    <div id="root">
+        <h2>当前n值为{{n}}</h2>
+        <button @click="n++">点击n++</button>
+        <!-- 使用v-show做条件渲染 -->
+        <!-- <div v-show="true">欢迎来到{{world}}</div> -->
+        <!-- <div v-show="1 === 1">欢迎来到{{world}}</div> -->
+
+        <!-- 使用v-if做条件渲染 -->
+        <!-- <div v-if="false">欢迎来到{{world}}</div> -->
+
+        <div v-show="n === 1">one</div>
+        <div v-show="n === 1">one</div>
+
+
+        <!-- 当if语句结果为真，则else-if不再执行,else在上述语句无匹配值的时候 -->
+        <!-- <div v-if="n === 1">one</div> 
+        <div v-else-if="n === 1">two</div>
+        <div v-else>other</div>  -->
+
+        <!-- v-if与template配合使用 -->
+        <template v-if="n === 1">
+            <h3>1</h3>
+            <h3>2</h3>
+            <h3>3</h3>
+        </template>
+    </div>
+    <script>
+        Vue.config.productionTip = false;   //以阻止 vue 在启动时生成生产提示。
+        new Vue({
+            el:'#root',
+            data: {
+                world:'China',
+                n:0,
+            },
+        })
+    </script>
+</body>
+</html>

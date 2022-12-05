@@ -1,0 +1,189 @@
+/* 声明字体图标,要注意路径的更改*/
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?tomleg');
+    src:  url('../fonts/icomoon.eot?tomleg#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?tomleg') format('truetype'),
+      url('../fonts/icomoon.woff?tomleg') format('woff'),
+      url('../fonts/icomoon.svg?tomleg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  /* 主体部分 */
+.main{
+    margin-left: 220px;
+    margin-top: 10px;
+    width: 980px;
+    height: 455px;
+}
+.main .focus{
+    float: left;
+    width: 721px;
+    height: 455px;
+    background-color: #2342ff;
+}
+.main .newsflash{
+    float: right;
+    width: 250px;
+    height: 455px;
+}
+.main .newsflash .news{
+    height: 165px;
+    border: 1px solid #ccc;
+}
+.main .newsflash .news .news_hd{
+    padding-left: 15px;
+    padding-right: 30px;
+    height: 33px;
+    line-height: 33px;
+    border-bottom: 1px dotted #4a4a43;
+}
+.main .newsflash .news .news_hd h5{
+     float: left;
+     font-size: 14px;
+}
+.main .newsflash .news .news_hd .more{
+    float: right;
+    position: relative;
+}
+.main .newsflash .news .news_hd .more::after{
+    content: '';
+    font-family: 'icomoon';
+    position: absolute;
+    top: 0px;
+    right: -15px;
+}
+.main .newsflash .news .news_bd{
+    padding: 6px 0 0 15px;
+}
+.main .newsflash .news .news_bd li{
+    line-height: 24px;
+    /* 文字一行省略 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.main .newsflash .lifeservice{
+    overflow: hidden;
+    height: 209px;
+    border: 1px solid #ccc;
+    border-top: 0;
+}
+.main .newsflash .lifeservice ul{
+    width: 252px;
+}
+.main .newsflash .lifeservice li{
+    /* 如果li宽度太大，在盒子中放不下而掉下来，
+    可以把父盒子即ul的宽度改大，将多余显示的部分利用溢出隐藏起来
+    （为什么不直接把li的宽度改小一点？）小了盒子宽度不够 */
+    float: left;
+    height: 71px;
+    width: 63px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+.main .newsflash .lifeservice li i{
+    margin-top: 12px;
+    display: inline-block;
+    width: 24px;
+    height: 28px;
+    background: url(../images/icons.png) no-repeat -16px -16px;
+}
+.main .newsflash .bargin{
+    margin-top: 5px;
+}
+/* 推荐部分 */
+.recom{
+    margin-top: 12px;
+    height: 163px;
+}
+.recom .recom_hd{
+    float: left;
+    padding-top: 30px;
+    height: 163px;
+    width: 206px;
+    background-color: #5c5251;
+    /* 水平居中给父元素加 */
+    text-align: center;
+}
+.recom .recom_bd{
+    float: left;
+    background-color: #ebebeb;
+}
+.recom .recom_bd li{
+    position: relative;
+    float: left;
+}
+.recom .recom_bd li:nth-child(-n+3):after{
+    /* 这个不能忘啊！！！ */
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 0;
+    width: 1px;
+    height: 143px;
+    background-color: #ddd;
+}
+.jiadian .box_hd{
+    margin-top: 30px;
+    height: 30px;
+    border-bottom: 2px solid #c81623;
+}
+.jiadian .box_hd h3{
+    float: left;
+    color: #c81623;
+    font-size: 18px;
+    font-weight: 400;
+}
+.jiadian .box_hd .tab_list{
+    float: right;
+}
+.jiadian .box_hd .tab_list li{
+    float: left;
+}
+.jiadian .box_hd .tab_list li a{
+    margin:0  15px;
+}
+.jiadian .box_bd{
+    height: 360px;
+}
+/* .jiadian .box_bd .tab_content .tab_content_item */
+.col_210{
+    float: left;
+    width: 210px;
+    height: 360px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+.col_210 li{
+    float: left;
+    margin-left: 12px;
+    width: 86px;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+.col_210 img{
+    margin-top: 30px;
+}
+.col_329{
+    float: left;
+}
+.col_221{
+    display: block;
+    float: left;
+    width: 221px;
+    border-right: 1px solid #ccc;
+}
+.col_219{
+    float: left;
+    width: 219px;
+}
+.bb{
+    /* 一般情况下，如果a包含有宽度的盒子，a需要转为块级元素 */
+    display: block;
+    border-bottom: 1px solid #ccc;
+}

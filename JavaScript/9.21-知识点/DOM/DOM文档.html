@@ -1,0 +1,35 @@
+<!-- 元素
+    查找/获取：id、类名、标签名
+        NodeList、HTMLCollection 对象是类数组的 HTML 元素列表（集合）。
+        document.querySelectorAll('li')、document.getElementsByTagName('li')
+    改变：内容：innerHTML
+          属性：.属性 = 
+          样式：.style.
+    创建：createElement
+    添加：appendChild
+    删除：removeChild
+    替换：replaceChild
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="two"></p>
+    <p class="two1"></p>
+    <p class="two2"></p>
+    <img src="" alt="">
+    <script>
+        document.querySelector('img').src = 'long.jpg'
+        var two = document.querySelectorAll('p')
+        // 节点列表 中的元素可以通过索引值获得
+        var p = two[1]
+        //  length
+        var l = two.length
+    </script>
+</body>
+</html>

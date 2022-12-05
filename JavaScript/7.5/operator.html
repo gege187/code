@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运算符</title>
+    <script>
+        //算数运算符
+        console.log(4 % 2);  //取余  = 0
+
+        //递增运算符
+        var num1 = 10;
+        console.log(++num1);  //先加1 后返回值
+        console.log(num1++);  //先返回原值 再自加1  单独使用结果一样
+        console.log(++num1 + 10);  //num1 = 11 , 结果 = 21
+        console.log(num1++ + 10);  //结果 = 20 , num1 = 11  
+        //前置后置相加
+        var n = 10;
+        nan = n++ + ++n;
+        console.log(nan);  //22
+
+        //比较运算符
+        console.log(18 == '18');  //true == 默认转换数据类型 会把字符串类型的转换成数字型
+        console.log(18 === '18'); //flase
+
+        //逻辑运算符
+        //1.逻辑与 &&  and两侧都为true 结果才是true 只要有一侧为false 结果就为false
+        //2.逻辑或 ||  or 两侧都为false 结果才是假false 只要有一 侧为true 结果就是true
+        //3. 逻辑非！  not 取反 
+        //短路运算
+        //逻辑与 短路运算: 如果表达式1 结果为真则返回表达式2 如果 表达式1为假那么返回表达式1
+        console.log(123 && 456);
+        console.log(0 && 1);
+        //逻辑或 短路运算  如果表达式1 结果为真则返回表达式1 如果 表达式1为假那么返回表达式2
+        console.log(123 || 456);
+        console.log(0 || 456);
+        //案例
+        var num2 = 0;
+        console.log(123 || num2++);
+        console.log(num2);  // = 0;
+
+        //赋值运算符
+        var num3 = 10;
+        num3 += 10;  //num3 = num3 + 10;
+        console.log(num3);
+
+        //案例：计算圆的周长和面积
+        var r = prompt("请输入圆的半径：");
+        var PI = 3.14
+        var c = PI * 2 * r,
+            s = PI * (r * r);
+        alert('圆的周长 = ' + c +'\n'+ '圆的面积 = ' + s);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+// 1.变量的使用：@变量名: 值;
+// 4.运算：
+@fs:20px-5;
+@color_pink:#fff;
+body{
+    background-color: @color_pink;
+}
+div{
+    color: @color_pink;
+}
+.fa{
+    width: 20px;
+    height: 20px;
+    background-color: #de2314;
+    // 3.Less嵌套：将子元素直接写入父元素中，css文件会自动转换成正确的格式。
+    span{
+        color: #987a26;
+    }
+    a{
+        font-size: @fs + 10;
+        // 伪类选择器，加&；不加&表示后代选择器
+        &:hover{
+            color: #e432ad;
+        }
+    }
+    &::after{
+        content: '';
+    }
+}

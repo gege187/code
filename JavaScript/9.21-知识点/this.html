@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(){
+            return this;   //window
+        }
+        console.log(fn());
+
+        // call() apply()将另一个  对象  作为参数调用  一个对象的  方法
+        var person = {
+            mode:function(){
+                return this.name +'  '+ this.age
+            }
+        }
+        var person2 = {
+            name:'wang',
+            age:20
+        }
+        var val = person.mode.call(person2)
+        console.log(val);
+    </script>
+</body>
+</html>

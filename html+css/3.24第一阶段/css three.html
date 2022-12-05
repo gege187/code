@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子模型</title>
+    <style>
+    /* 权重 */
+    /* （0,1,0,1） */
+        div #one{
+            color: red;
+        }
+    /* (0,0,2,0) */
+        .fa .son{
+            color: orange;
+        }
+    /* (0,0,1,1) */
+        .fa p{
+            color: yellow;
+        }
+    /* (0,0,0,1) */
+        div p{
+            color: green;
+        }
+    .box{
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        /* 边框线，三个属性都要写 */
+        /* border: 2px solid #000; */
+        /* 只加一边的边框 */
+        border: 2px dashed #888;
+        /* 内边距 */
+        padding: 20px;
+        /* 外边距 */
+        margin: 20px;
+        
+
+    }
+    .ex1{
+            background-color: pink;
+            height: 100px;
+            width: 400px;
+            font-size: 14px;
+            padding: 5px;
+        }
+        /* 如果想要内容之外始终显示一定的空白，可以把宽度去掉，加上内边距 */
+        .ex1 span{
+            background-color: #f4f4dc;
+            height: 25px;
+            padding: 10px;
+            display: inline-block;
+        }
+        .ex2{
+            width: 200px;
+            height: 200px;
+            background-color: #db6868;
+            border: 5px solid blue;
+            padding: 20px;
+            /* 加上这条样式，盒子大小就是300*300 */
+            box-sizing: border-box;
+        }
+        .ex3{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(235, 111, 132);
+            margin: 30px;
+        }
+        .fa2{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* 解决塌陷问题 */
+            /* 1.给父元素加上padding-top,子元素去掉margin-top */
+            /* 如果设计稿没有border属性，不能使用这个办法 */
+            /* padding-top: 50px; */
+            /* 2.给父元素加overflow: hidden; */
+            /* overflow: hidden; */
+            /* 3.把子元素设置成行内块元素 */
+            /* 设置浮动 */
+
+        }
+        .son2{
+            width: 80px;
+            height: 80px;
+            background-color: skyblue;
+            /* 给子元素设置外边距后，父元素会跟着移动 */
+            margin-top: 50px;
+            /* display: inline; */
+        }
+        .ex31{
+            /* margin: 100px; */
+            /* 上下不生效 */
+            padding: 100px;
+            /* 想要上下生效，使用line-height控制上下边距 */
+            line-height: 100px;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <h3>权重问题</h3>
+    <div class="fa">
+        <p class="son" id="one">权重</p>
+    </div>
+
+    <h3>盒子模型</h3>
+    <div class="box">
+        盒子内容
+    </div>
+    <div class="ex1">
+        <span>1.练习</span>
+        <span>2.好长好长好长好长</span>
+     </div>
+     <div class="ex2">
+         自动修改盒子大小
+     </div>
+     <!-- 问题：一个div里只能有一个盒子？怎么实现盒子水平在一行显示 -->
+     <div class="ex3">
+         <span>外边距1</span>
+     </div>
+     <div class="ex3">
+         <span>外边距2</span>
+     </div>
+     <div class="fa2">
+         <div class="son2">
+             解决margin塌陷问题
+         </div>
+     </div>
+     <span class="ex31">行内元素垂直位置内外边距</span>
+     <span class="ex31">行内元素垂直位置内外边距</span>
+
+</body>
+</html>

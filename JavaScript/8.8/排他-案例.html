@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- https://www.bilibili.com/video/BV1Sy4y1C7ha?p=219&vd_source=68b3281bbf7734b5425717a2353a38c3 -->
+    <title>案例</title>
+    <style>
+        *{
+            margin: 0 auto;
+        }
+        div{
+            margin-top: 10px;
+            width: 100px;
+            height: 20px;
+        }
+        input{
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="all"><input type="checkbox"></div>
+    <div class="many">
+        <ul>
+            <li><input type="checkbox"></li>
+            <li><input type="checkbox"></li>
+            <li><input type="checkbox"></li>
+            <li><input type="checkbox"></li>
+        </ul>
+    </div>
+    <script>
+        var inp = document.querySelector('.all').querySelector('input');
+        var inps = document.querySelector('.many').querySelectorAll('input');
+        inp.onclick = function(){
+            for(var i = 0; i < inps.length; i++){
+                inps[i].checked = this.checked;
+            }
+        }
+        for(var i = 0; i < inps.length; i++){
+            inps[i].onclick = function(){
+                //flag用来控制全选按钮是否被选中
+                var flag = true;
+                //循环所有
+                for(var i = 0;i < inps.length; i++){
+                    if(!inps[i].checked){  //(不等于ture) 如果inps中有没有选中的，就让全选按钮等于false
+                        flag = false;
+                        break;
+                    }
+                }
+                inp.checked = flag;
+                /*  如果当前处于全选状态下，可以取消全选按钮
+                    if(this.checked != inp.checked){
+                    inp.checked = !inp.checked;
+                } */
+            }
+        }
+        
+    </script>
+</body>
+</html>

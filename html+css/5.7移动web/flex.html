@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>详细的flex知识点</title>
+    <style>
+        .first{
+            height: 200px;
+            display: flex;
+            background-color: #ccc;
+            /* 设置主轴方向 column-reverse | column | row-reverse */
+            flex-direction: row; 
+            /* 换行 wrap-reverse */
+            flex-wrap: nowrap ;
+            /* 同时设置 */
+            /* flex-flow: row nowrap; */
+
+            /* 在盒子中心对齐 flex-start | flex-end */
+            /* justify-content: center; */
+
+            /* 带有空格，分散排列 space-between | space-evenly */
+            justify-content: space-around; 
+
+            /* 垂直方向居中 flex-start | flex-end */
+            /* align-items: center; */
+
+            /* 拉伸，填满容器 */
+            align-items: stretch;
+            /* 基线对齐 */
+            /* align-items: baseline; */
+
+            /* 垂直方向上 分散排列 space-around */
+            align-content: space-between;
+
+            /* 多行拉伸，填满容器 */
+            /* align-content: stretch; */
+        }
+        .first div{
+            margin: 10px 20px;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            font-size: 30px;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="first">
+        <!-- order属性 ，给子元素加，改变元素顺序， -->
+        <!-- <div class="one" style="order:2">1</div> -->
+
+        <!-- flex-grow,子元素之间的比例关系 -->
+        <!-- <div class="one" style="flex-grow: 7">1</div>
+        <div class="two" style="flex-grow: 3">2</div> -->
+
+        <!-- flex-shrink,该子元素相比其他元素收缩的比例，反比 -->
+        <!-- <div class="one" style="flex-shrink: 0">1</div> -->
+
+        <!-- flex-basis 子元素的初始长度 -->
+        <!-- <div class="one" style="flex-basis: 200px">1</div> -->
+
+        <!-- align-self：子元素的对齐方式，会覆盖align-items   flex-start | flex-end-->
+        <!-- <div class="one"  style="align-self: center">1</div> -->
+        <div class="one">1</div>
+        <div class="two">2</div>
+        <div class="three">3</div>
+    </div>
+</body>
+</html>

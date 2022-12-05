@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 自定义函数
+        function fn(){}
+
+        // 函数表达式 （匿名函数）
+        let fn = function() {}
+
+        // 利用 new Function('参数1','参数2','函数体')
+
+        // 函数调用
+        // 1.普通函数,this指向window
+        function fnn(){
+            console.log('普通函数'+ this);
+        }
+        fnn()
+        // 2.对象方式，this指向对象
+        let obj = {
+            sayHi:function(){
+                console.log('对象方式'+ this);
+            }
+        }
+        obj.sayHi()
+        // 3.构造函数,this指向实例对象
+        function Star(){}
+        let fun = new Star()
+
+        // 4.绑定事件，this指向事件
+        btn.onclick = function() {}
+        // 5.定时器函数,指向window
+        window.setInterval(function(){},1000)
+        // 6.立即执行函数,自动调用，this指向window
+        (function() {})()
+    </script>
+</body>
+</html>

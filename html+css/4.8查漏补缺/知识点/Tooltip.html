@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tooltip</title>
+    <style>
+        .tooltip {
+            position: relative;
+            top: 100px;
+            left: 20%;
+            margin-right: 50px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        span[class^=tooltip]{
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0; 
+            position: absolute;
+            z-index: 1;
+        }
+        .tooltipright{
+            top: -5px;
+            left: 105%;
+            /* 过渡 */
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        /* 加箭头 */
+        .tooltipleft{
+            top: -5px;
+            /* right: 105%; */
+            right: 110%;
+        }
+        .tooltipleft::after{
+           content: '';
+           position: absolute;
+           top: 50%;
+           left: 100%;
+           transform: translateY(-50%);
+           border: 5px solid transparent;
+           border-left: 5px solid black;
+        }
+        /* 加箭头 */
+        .tooltiptop{
+            /* bottom: 100%; */
+            bottom: 150%;
+            left: 50%; 
+            transform: translateX(-50%);
+        }
+        .tooltiptop::after{
+           content: '';
+           position: absolute;
+           top: 100%;
+           left: 50%;
+           transform: translateX(-50%);
+           border: 5px solid transparent;
+           border-top: 5px solid black;
+        }
+        .tooltipbottom{
+            top: 100%;
+            left: 50%; 
+            transform: translateX(-50%);
+        }
+        .tooltip:hover span[class^=tooltip]{
+            visibility: visible;
+            /* 过渡 */
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="tooltip">Hover over me
+        <!-- 右 -->
+        <span class="tooltipright">Tooltip text</span>
+    </div>
+    <div class="tooltip">Hover over me
+        <!-- 左 -->
+        <span class="tooltipleft">Tooltip text</span>
+    </div>
+    <div class="tooltip">Hover over me
+        <!-- 上 -->
+        <span class="tooltiptop">Tooltip text</span>
+    </div>
+    <div class="tooltip">Hover over me
+        <!-- 下 -->
+        <span class="tooltipbottom">Tooltip text</span>
+    </div>
+
+    <!-- 添加箭头 -->
+</body>
+</html>

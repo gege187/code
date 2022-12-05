@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型</title>
+    <script>
+        // 1.八进制  0~7  数字前加0  代表八进制
+        var num1 = 010;
+        console.log(num1);  //结果为8
+        // 2.十六进制  0~9 a~f 数字前加 0x 表示十六进制
+        var num2 = 0x12;
+        console.log(num2);
+        console.log(Number.MAX_VALUE); //最大值
+        console.log(Number.MIN_VALUE);  //最小值
+        console.log(Infinity);  //无穷大
+        console.log(-Infinity);  //无穷小
+        console.log(NaN);  //非数值
+        //判断非数字，返回一个值  如果是数字返回false  不是数字返回 true
+        console.log(isNaN(123));
+        console.log(isNaN('no a number'));
+
+
+        // 换行符
+        console.log('dchdjsdkcj\ncdhcdk');
+        // 字符串长度
+        var str = 'dndndndnnd';
+        console.log(str.length);
+        //案例
+        // var age = prompt('请输入年龄');
+        // alert('您今年'+ age +'岁');
+
+
+        var flag = true;
+        var flag2 = false;
+        console.log(flag);
+        console.log(flag + 1); 
+
+
+        var und = undefined;
+        console.log(und + 'pink');  // underfinedpink
+        console.log(und + 1);  // NaN
+
+        var nul = null;
+        console.log(nul + 'pink');  // nullpink
+        console.log(nul + 1);   // 1
+
+
+        //获取变量数据类型
+        console.log(typeof nul);
+        console.log(typeof flag2);
+
+
+        //转换数据类型
+        //转换为字符串型1. 变量.toString()方法
+        var num = 10;
+        var str = num.toString();
+        console.log(typeof str);
+        //2.String()强制转换
+        console.log( typeof String(num));
+        // 3. 利用 + 拼接字符串的方式
+        console.log(num + '');
+
+
+        //字符型转换成数字型 1.parseInt(变量名)   字符型转换成数字型  整 数
+        console.log(parseInt('123'));
+        console.log(parseInt('1.23'));
+        console.log(parseInt('12pp'));
+        console.log(parseInt('dhfh12'));
+        //2.parseFloat()  字符型转换成数字型  小数/浮点数
+        console.log(parseFloat('123'));
+        console.log(parseFloat('1.23'));
+        console.log(parseFloat('12pp'));
+        console.log(parseFloat('dhfh12'));
+        //3.Number(变量)强制转换
+        console.log(Number('123'));
+        //4. 用算术运算 - * / ，用 + 是拼接
+        console.log('123' - 0);
+        console.log(123 - '12');
+
+        //案例 :用今年日期 - 出生年份
+        /* var age2 = prompt('请输入您的生日');
+        var result2 = 2022 - age2;
+        alert('您今年'+ result2 +'岁'); */
+
+        //案例 ：两个数相加
+        /* var numb1 = prompt('请输入第一个值：');
+        var numb2 = prompt('请输入第二个值：');
+        var sum2 = parseFloat(numb1) + parseFloat(numb2);
+        alert('结果是:' + sum2); */
+
+
+       //转换成Boolean型
+        console.log(Boolean('')); //false 
+        console.log(Boolean(0)); // false
+        console.log(Boolean(NaN)); // false
+        console.log(Boolean(null)); // false
+        console.log(Boolean(undefined)); // false
+        console.log(Boolean(123)); // true
+
+
+        // 简单（基本）数据类型
+        function a(b){
+            b++;
+            console.log('b='+ b);   //b=11
+        }
+        var c = 10;
+        a(c);
+        console.log('c=' + c);   //c=10
+
+        // 复杂（引用）数据类型
+        function Per1(name){
+            this.name = name;
+        }
+        function per2(id){
+            console.log(id.name);
+            id.name = '张学友';
+            console.log(id.name);
+            
+        }
+        var per = new Per1('刘德华');
+        console.log(per.name);
+        per2(per);
+        console.log(per);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

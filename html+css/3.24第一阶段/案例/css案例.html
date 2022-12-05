@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css案例</title>
+</head>
+<style>
+    .h1{
+        width: 600px;
+        height: 500px;
+        background-color: pink;
+        margin: 0 auto;
+    }
+    .t1{
+        text-align: center;
+    }
+    p{
+        text-indent: 2em;
+    }
+    .h2{
+        width: 240px;
+        height: 300px;
+        background-color: rgb(241, 232, 232);
+        /* 标签居中 */
+        margin:0 auto;
+        padding: 50px;
+        /* 内容居中 */
+        text-align: center;
+    }
+    img{
+        width: 150px;
+    }
+    a{
+        width: 100px;
+        height: 70px;
+        background-color: red;
+        color: white;
+        /* a标签属于行内元素，不能设置宽高，需要转换为行内块级元素 */
+        display: inline-block;
+        /* 去掉超链接下划线 */
+        text-decoration: none;
+        text-align: center;
+        /* 垂直居中：height和line-height设置相同数值 */
+        line-height: 70px;
+    }
+    a:hover{
+        background-color: yellow;
+    }
+
+</style>
+<body>
+    <div class="h1">
+        <div class="t1">
+            <h1>他跪坐其间，吻了红尘</h1>
+            <span style="color: #808080;">有一蓑烟雨</span>
+            <span style="color: #700b57;">何不任平生</span>
+            <!-- <a href="#"  target="_blank">时间</a> -->
+        </div>
+        
+    <hr>
+    <p>他们身后，跟着那艘湿漉漉的旧船，它搁浅多年 残破不堪，如今满载骸骨，尽然又能乘风破浪了——《全球高考》英雄不该是这样的结局，不该被辜负，不该这样离开 ——《穿堂惊掠琵琶声》他们走得不紧不慢，袍摆轻扫却了无尘埃，山道弯袅，岁月漫长，停停走走便是遥遥一生了</p>
+    <p>想对你好，希望你能活在温暖的阳光里，正直，谦逊，纯真，勇敢，去爱或被爱，不必乞求得不到的东西，不必提前经受生活的磨难，而我来守护你不可救药的浪漫和理想主义.阳光依然干净，星河依然灿烂，世界也依然在长久深情中缓缓朝前走，于是时间奔流，得以见证人间，在漫长岁月里所有永恒和不朽——《黑天》.我尊重世界上一切存在，但不代表我要永远沉浸其中——</p>
+    <p>我连魂魄都是黑的，唯独心尖上一点点，血还是红的。用它护着你，我愿意.殿下，风光无限的是你，跌落尘埃的也是你，重点是你，而不是怎样的你。奇怪，说出对不起之后，每个人理所当然的，对别人口中的没关系深信不疑—</p>
+
+    </div>
+
+    <div class="h2">
+        <!-- 图片居中，要给父级元素加上text-align -->
+        <img src="0.jpg">
+        <div style="font-size: 14px; line-height: 25px;" >长阶血未尽</div>
+        <div style="font-size: 12px; color: #4d4d30; line-height: 30px;" >人的动摇始于第一次心软—</div>
+        <div style="font-size: 14px; color: #ffa500;">1999</div>
+
+    </div>
+    
+    <div class="h3">
+        <a href="#">导航1</a>
+        <a href="#">导航2</a>
+        <a href="#">导航3</a>
+        <a href="#">导航4</a>
+        <a href="#">导航5</a>
+    </div>
+
+</body>
+</html>

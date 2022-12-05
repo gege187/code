@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D转换</title>
+    <style>
+        body{
+            /* 透视要加到被观察元素的父盒子上 */
+            perspective: 500px;
+        }
+        .demo1{
+            margin: 50px auto;
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            /* transform: translateX(100px) translateY(100px) translateZ(100px); */
+            /* 简写不能省略，没有就写0 */
+            /* transform: translate3d(100px,100px,400px);试了没啥效果 */
+            transform: translateZ(0px);   
+        }
+        .demo2{
+            perspective: 500px;
+            display: inline-block;
+        }
+        .demo2 img{
+            /* display: block; */
+            transition: all 1s;
+        }
+        .demo2 img:hover{
+            transform: rotateX(180deg);
+        }
+        .demo3{
+            perspective: 500px;
+            display: inline-block;
+        }
+        .demo3 img{
+            /* display: block; */
+            transition: all 1s;
+        }
+        .demo3 img:hover{
+            transform: rotateY(180deg);
+        }
+        .demo4{
+            perspective: 500px;
+            display: inline-block;
+        }
+        .demo4 img{
+            /* display: block; */
+            transition: all 1s;
+        }
+        .demo4 img:hover{
+            transform: rotate3d(1,1,0,45deg);
+        }
+        .demo5{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 50px auto;
+            perspective: 500px;
+            transition: all 2s;
+            transform-style: preserve-3d;
+        }
+        .demo5:hover{
+            transform: rotateY(70deg);
+        }
+        .demo5 div{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #345;
+        }
+        .demo5 div:last-child{
+            background-color: #abc;
+            transform: rotateX(70deg);
+        }
+
+        .demo6{
+            position: relative;
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            transition: all 2s;
+            transform-style: preserve-3d;
+        }
+        .demo6:hover{
+            transform: rotateY(180deg);
+        }
+        .front,
+        .back{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            font-size: 30px;
+            color: #fff;
+        }
+        .front{
+            background-color: pink;
+            /* z-index: 1; */
+            transform: translateZ(1px);
+        }
+        .back{
+            background-color: purple;
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="demo1"></div>
+    <div class="demo2">
+        <img src="0.jpg" alt="">
+    </div>
+    <div class="demo3">
+        <img src="0.jpg" alt="">
+    </div>
+    <div class="demo4">
+        <img src="0.jpg" alt="">
+    </div>
+    <div class="demo5">
+        <div></div>
+        <div></div>
+    </div>
+    <div class="demo6">
+        <div class="front">前边</div>
+        <div class="back">后边</div>
+    </div>
+</body>
+</html>

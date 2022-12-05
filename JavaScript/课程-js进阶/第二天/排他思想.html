@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排他思想</title>
+    <style>
+        .bg{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="bg">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        let lis = document.querySelectorAll('li')
+        // 遍历每一个对象
+        for(let i = 0;i < lis.length;i++){
+            lis[i].addEventListener('click',function(){
+                // 1. 排他思想，把所有置空
+                /* for(let i = 0;i < lis.length;i++){
+                    lis[i].className = ''
+                } */
+
+                // 2.只需要找到单独有样式的那个对象
+                document.querySelector('.bg').classList.remove('bg')
+                // 单独给选中的添加事件
+                this.className = 'bg'
+            })
+        }
+
+    </script>
+</body>
+</html>

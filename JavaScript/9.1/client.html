@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素可视区client系列</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: #3a4;
+            padding: 20px;
+            border: 5px solid #41b;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var div = document.querySelector('div');
+        //和offset区别：不包括边框
+        console.log(div.clientWidth);
+
+
+        //立即执行函数:不需要调用，能够立马自己执行的函数
+                      //最大的作用是：独立创建了一个作用域，变量都是局部变量
+        //(function(){})()  或者  (function(){}())
+        //多个函数调用，要在函数后加分号，或者是给函数加一个名字
+        (function(){
+            console.log(1);
+        })();   //最后的小括号可以看作是调用函数
+
+        (function(a,b){
+            console.log(a+b);
+        })(1,2);
+
+        (function(a,b){
+            console.log(a-b);
+        }(8,4))
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* 伪类选择器实现 */
+    img{
+        width:300px;
+        display: inline;
+    }
+     /* li:first-child{
+        color: red;
+    } */
+    /* li:last-child{
+        color: blueviolet; 
+    } */
+    /* li:nth-child(2){
+        color: orange;
+    } */
+    /* li:nth-last-child(2){
+        color: blue;
+    }  */
+
+    /* 伪类选择器加公式 */
+    /* 偶数 */
+    /* li:nth-child(2n){
+        color: yellow;
+    } */
+    /* 奇数 */
+    /* li:nth-child(2n-1){
+        color: green;
+    } */
+    /* 找前3个 */
+    /* li:nth-child(-n+3){
+        color: aquamarine;
+    } */
+    /* 从第四个往后 */
+    /* li:nth-child(n+4){
+        color: brown;
+    } */
+
+    .fa1{
+        width: 300px;
+        height: 300px;
+        background-color: #eee;
+    }
+    .fa1::before{
+        /* 必须加content */
+        content:'之前';
+        /* 属性都可以实现，默认是行内元素 */
+        background-color: #55e6f7;
+    }
+    .fa1::after{
+        content: '之后';
+    }
+
+    /* 浮动 */
+    .fl1{
+        background-color: pink;
+        float: left;
+    }
+    .fl2{
+        background-color: skyblue;
+        float: left;
+       
+        
+    }
+    /* 清除浮动影响3 */
+    /* .clearfix::after{
+        content:'';
+        display:block;
+        clear:both;
+    */
+        /* 为了兼容性 */
+    /*  height:0;
+        visibility: hidden;
+    }  */
+    /* 清除影响4 */
+    /* .clearfix::before主要解决外边距塌陷问题 */
+    /* .clearfix::before,
+    .clearfix::after{
+        content: '';
+        display: table;
+    }
+    /* 真正清除浮动的标签 */
+    /* .clearfix::after{
+        clear: both;
+    } */
+    /* 5 */
+    /*  给父元素加overflow: hidden; */
+</style>
+<body>
+    <!-- 伪类选择器实现 -->
+    <img src="结构伪类选择器.png" alt="">
+    <img src="选择器公式.png" alt="">
+    <ul>
+        <li>这是第1个li</li>
+        <li>这是第2个li</li>
+        <li>这是第3个li</li>
+        <li>这是第4个li</li>
+        <li>这是第5个li</li>
+        <li>这是第6个li</li>
+        <li>这是第7个li</li>
+    </ul>
+
+    <!-- 伪元素，通过css创建标签，装饰性的不重要的小图 -->
+    <!-- 找父级，在这个父级里边创建 -->
+    <div class="fa1">
+        父
+    </div>
+
+    <!-- 浮动效果 -->
+    <!-- 1.浏览器在解析行内或行内块元素时，如果标签换行，会产生一定的间距 -->
+    <span style="background-color: pink;">1</span>
+    <span style="background-color: skyblue;">2</span>
+
+    <!-- 2.设置浮动效果，标签可以在实现在一行紧挨着 -->
+    <div class="fl1">float111</div>
+    <div class="fl2">float222</div>
+
+    <!-- 浮动作用，特点 -->
+    
+    <!-- 清除浮动带来的影响 -->
+    <!-- 父子级标签，子标签浮动，父标签没有高度，不占标准流，后边的元素会显示到上边的位置 -->
+    <!-- 1.在不方便加高度的情况下 -->
+    <!-- 2.在父元素内容的最后添加一个块级元素<div class="clear"></div>,
+        给添加的块级元素设置.clear{clear:both} -->
+    <!-- 3.单伪元素清除 -->
+    <!-- 父级标签内class="clearfix"增加一个清除类选择器
+        在样式中设置 -->
+    <!-- 4.双伪元素清除浮动 -->
+    <!-- 同样在父元素中增加clearfix类选择器，在css样式中设置 -->
+</body>
+</html>

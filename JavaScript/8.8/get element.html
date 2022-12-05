@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取页面元素</title>
+</head>
+<body>
+    <div id="time">2022-22</div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+    </ul>
+    <ol id = "ol">
+        <li>一</li>
+        <li>二</li>
+    </ol>
+    <div class="one">11</div>
+    <div class="one">22</div>
+    <!-- 因为我们文档页面从上往下加载，所以先得有标签 所以我们script写到标签的下面 -->
+    <script>
+        // 1.参数是大小写敏感的字符串
+        // 2.返回元素对象
+        var docu1 = document.getElementById('time');
+        console.log(docu1);
+        // 3.打印我们返回的元素对象，更好的查看里边的属性和方法
+        console.dir(docu1);
+
+        //1.返回 获取过来元素对象的集合，以伪数组的形式储存
+        // 2.采取遍历的方式依次打印里面的元素
+        // 3.如果页面没有这个元素 返回空的伪数组形式
+        var docu2 = document.getElementsByTagName('li');
+        console.log(docu2);
+        
+        /* var ol = document.getElementsByTagName('ol');
+        console.log(ol[0].getElementsByTagName('li')); */
+        var ol = document.getElementById('ol');
+        console.log(ol.getElementsByTagName('li'));
+
+        //1.根据类名获取元素集合
+        var docu3 = document.getElementsByClassName('one');
+        console.log(docu3);
+        //2.根据指定选择器打印第一个元素
+        var docu4 = document.querySelector('.one');
+        console.log(docu4);
+        // 3.返回指定选择器的所有元素对象集合
+        var docu5 = document.querySelectorAll('.one');
+        console.log(docu5);
+
+        // 获取body元素对象
+        var spec1 = document.body;
+        //获取html元素对象
+        var spec2 = document.documentElement;
+    </script>
+</body>
+</html>

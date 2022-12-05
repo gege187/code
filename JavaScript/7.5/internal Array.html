@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组对象</title>
+    <script>
+        var arr1 = new Array();
+        // var arr1 = new Array(3);  //长度为3的空数组
+        // var arr1 = new Array(2,3);  //[2,3] 数组元素有2，3
+        console.log(arr1);
+
+        // 检测是否是数组
+        //  instanceof 运算符
+        var arr2 = [];
+        console.log(arr2 instanceof Array);
+        var obj2 = {};
+        console.log(obj2 instanceof Array);
+        // Array.isArray() 方法 H5新增  支持IE9以上
+        console.log(Array.isArray(arr2));
+        console.log(Array.isArray(obj2));
+
+        //添加数组元素
+        var arr3 = [1,2,3];
+        // push()
+        // (1)给数组追加新的元素
+        // (2)参数：push()参数直接写要添加的数组元素
+        // (3)返回值：push()结束后，返回新数组的长度
+        // arr3.push(4);
+        console.log(arr3.push(4));  //4(长度)
+        console.log(arr3);
+
+        // 有一个包含工资的数组[1500, 1200, 2000,2100, 1800] ,要求把数组中工资超过2000的删除,剩余的放到新数组里面
+        var array = [1500, 1200, 2000,2100, 1800];
+        var newArr = [];
+        for(var i = 0; i < array.length - 1;i++){
+            if(array[i] < 2000){
+                newArr.push(array[i]);
+            }
+        }
+        console.log(newArr);
+
+
+        // unshift()
+        // (1)给数组前边追加新的元素
+        // (2)参数：unshift()参数直接写要添加的数组元素
+        // (3)返回值：unshift()结束后，返回新数组的长度
+        // arr3.unshift(9,8,7);
+        console.log(arr3.unshift(9,8,7));  //7长度
+        console.log(arr3);
+
+        // 删除数组元素
+        // pop()
+        // (1)删除数组最后一个元素
+        // (2)参数:无参
+        // (3)返回值：返回被删除的元素
+        console.log(arr3.pop());
+        console.log(arr3);
+
+        //shift()
+        // (1)删除数组的第一个元素
+        // (2)参数:无参
+        // (3)返回值：返回被删除的元素
+        console.log(arr3.shift());
+        console.log(arr3);
+
+        // 数组排序
+        //翻转
+        var arr4 = [8,12,43,14,25,36];
+        arr4.reverse();
+        console.log(arr4);
+        //排序
+        arr4.sort(function(a,b){
+                // return a-b;    //升序顺序排列
+                return b-a;     //降序顺序排列
+            });
+        console.log(arr4);
+
+        //返回索引号
+        // indexOf()只返回找到的第一个元素的索引号
+        var arr5 = [1,2,3,4,5];
+        console.log(arr5.indexOf(1));
+        // lastIndexOf()返回找到的最后一个元素的索引号
+        console.log(arr5.lastIndexOf(5));
+
+        //数组去重
+        function unique(arr6){
+            var newArr = [];
+            for(var i = 0; i < arr6.length -1; i++){
+                if(newArr.indexOf(arr6[i]) === -1){
+                    newArr.push(arr6[i]);
+                }
+            }
+            return newArr;
+        }
+        console.log(unique(['q','q','s','a','g','a','v']));
+
+        //数组转换为字符串
+        // toString()
+        var arr7 = [1,2,3];
+        console.log(arr7.toString());
+        // join(分隔符)
+        console.log(arr7.join('+'));
+
+        //concat()   slice()   splice()
+        var arr8 = [1,2,3]
+        var arr9 = ['i','l','o','v','e','y'];
+        var arr10 = arr8.tconca(arr9);
+        console.log(arr10);
+        console.log(arr10.slice(4,8));   //从第几个开始，到第几个结束，左闭右开
+        console.log(arr10.splice(0,3));   //从第几个开始，删除几个
+        console.log(arr10);  //影响原数组
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+body{
+    min-width: 320px;
+    max-width: 540px;
+    margin: 0 auto;
+    font: normal 14px/1.5 Tahoma,"Lucida Grande",Verdana;
+    color: #000;
+    background-color: #f2f2f2;
+    overflow-x: hidden; 
+    height: 2000px;
+}
+.search-index{
+    display: flex;
+    /* 固定定位的盒子跟父级无关，参照浏览器 */
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+    min-width: 320px;
+    max-width: 540px;
+    height: 44px;
+    background-color: #f6f6f6;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.search{
+    position: relative;
+    margin: 11px 9px;
+    height: 26px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    flex: 1;
+    padding-left: 25px;
+    line-height: 23px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.2);
+}
+.search::before{
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: url(../images/search.png) no-repeat;
+    background-size: 15px;
+
+}
+.search-index a{
+    float: right;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+}
+.search-index a span{
+    color: rgb(41,141,247);
+    font-size: 12px;
+}
+.search-index a span::before{
+    display: block;
+    content: '';
+    margin: 4px auto -2px;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    background: url(../images/user.png) no-repeat;
+    background-size: 23px 23px;
+}
+.banner{
+    padding-top: 44px;
+}
+.banner img{
+    width: 100%;
+}
+.local_nav{
+    /* flex布局，li在一行显示 */
+    display: flex;
+    margin: 3px 4px;
+    height: 64px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+}
+.local_nav li{
+    flex: 1;
+}
+.local_nav a{
+    display: flex;
+    flex-direction: column;
+    /* 侧栏单行居中 */
+    align-items: center;
+}
+.local_nav li [class^="local_nav_icon"]{
+    width: 32px;
+    height: 32px;
+    background-image: url(https://pages.c-ctrip.com/basebiz/h5home/v1/nav/main/weekend.png);
+    background-size: contain;
+}
+.local_nav li .local_nav_icon2{
+    background-image: url(https://pages.c-ctrip.com/basebiz/h5home/v1/nav/main/flight.png);
+}
+/* 主导航栏 */
+nav{
+    overflow: hidden;
+    border-radius: 8px;
+    margin: 0 4px 3px;
+}
+.nav_common{
+    display: flex;
+    height: 88px;
+}
+.nav_common:nth-child(1){
+    background: -webkit-linear-gradient(left,#ff6d51,#ff9a47);
+}
+.nav_common:nth-child(2){
+    margin: 3px 0;
+    background: -webkit-linear-gradient(left,#4391f1,#45b4ef);
+}
+.nav_common:nth-child(3){
+    background: -webkit-linear-gradient(left,#29b3a6,#5fc259);
+}
+.nav_common .nav_items{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+/* 以下给前两个孩子右边加边框，也可以给第二个孩子加左右俩边框 */
+.nav_items:nth-child(-n+2){
+    border-right: 1px solid #fff;
+}
+.nav_items a{
+    flex: 1;
+    line-height: 44px;
+    /* 把a设置水平居中，加下边框时是整根长线，设置父元素align-items，则是短线 为啥？ */
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px rgba(0,0,0,.2);
+}
+.nav_items a:nth-child(1){
+    border-bottom: 1px solid #fff;
+}
+.nav_items:nth-child(1) a{
+    border: 0;
+    background: url(../upload/bg2.jpg) no-repeat bottom center;
+    background-size: 100px  auto;
+}
+.subnav-entry{
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 8px;
+    margin: 3px 4px;
+    background-color: #e9e4e4;
+}
+.subnav-entry li{
+    flex: 20%;
+}
+.subnav-entry a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.subnav-entry-icon{
+    width: 28px;
+    height: 28px;
+    background: url(../upload/WIFI.png) no-repeat;
+}
+.sales-box{
+    margin: 3px 4px;
+    border-radius: 8px;
+    border-top: 1px solid #aaa;
+}
+.sales-hd{
+    position: relative;
+    height: 34px;
+    border-bottom: 1px solid #ccc;
+}
+.sales-hd h2{
+    position: relative;
+    text-indent: -999px;
+    overflow: hidden;
+}
+.sales-hd h2::after{
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    content: '11';
+    width: 79px;
+    height: 15px;
+    background: url(https://images4.c-ctrip.com/target/0zc71120008g0ha4z93C6.png);
+    background-size: 79px 15px;
+}
+.sales-hd a{
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    padding: 2px 15px 3px 3px;
+    color: #fff;
+    background: -webkit-linear-gradient(left,#ff506c,#ff6bc6);
+    border-radius: 10px;
+}
+.sales-hd a::after{
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 6px;
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg);
+}
+.sales-bd .row{
+    display: flex;
+}
+.sales-bd .row a{
+    flex: 1;
+}
+.sales-bd .row a img{
+    width: 100%;
+    height: 150px;
+}

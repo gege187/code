@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window事件</title>
+</head>
+<body>
+    <img src="./image/ad.jpg" alt="" class="ad">
+    <button>点击停止定时器</button>
+    
+    <script>
+        //  1.窗口加载事件，可以使js代码放在页面元素的上方，放在文档的任意位置，在执行完页面所有内容之后再去处理执行函数
+        window.onload = function(){
+            //传统方式只能执行一次该方法，如果有多个，以最后一个为准
+        }
+        window.addEventListener('load',function(){
+            //可以有多个相同的监听事件
+        })
+
+        document.addEventListener('DOMContentLoaded', function(){
+            //DOMContentLoaded事件触发时,仅当DOM加载完成,不包括样式表,图片Mflash等等。
+        })
+        
+
+        // 2.只要浏览器窗口发生变化，就会触发该事件
+        window.addEventListener('resize',function(){
+            //window.innerWidth当前屏幕宽度
+            console.log(window.innerWidth);
+        })
+
+
+        //定时器
+        // setTimeout(function(){
+        //     console.log('three');
+        // },3000);
+
+        function callback(){    //回调函数
+            console.log('boon');
+        }
+
+        var st1 = setTimeout(callback,1000);
+        var st2 = setTimeout(callback,2000);
+        // setTimeout('callback()',3000);(不推荐) 
+
+        // 案例--5秒 后自动关闭的广告
+        var ad = document.querySelector('.ad');
+        var wait = setTimeout(function(){
+            ad.style.display = 'none';
+        },5000)
+
+        //停止定时器 (利用刚才写的案例来实现，要停止定时器效果，必须要有定时器的名字)
+        var btn = document.querySelector('button');
+        btn.addEventListener('click',function(){
+            clearInterval(wait);
+        })
+
+        
+    </script>
+
+</body>
+</html>

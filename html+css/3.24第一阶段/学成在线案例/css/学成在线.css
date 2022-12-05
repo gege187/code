@@ -1,0 +1,329 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* 內减模式 */
+    box-sizing: border-box;
+}
+/* 每次写都可以加 */
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+.clearfix:before,.clearfix:after {
+    content:"";
+    display:table; 
+}
+.clearfix:after {
+    clear:both;
+}
+body{
+    background-color: #f3f5f7;
+}
+
+.w{
+    /* 整体都版心居中，所以统一设置一个样式 */
+    margin: 0 auto;
+    width: 1000px;
+}
+.header{
+    height: 42px;   
+    /* 如果左右写成0，会覆盖w写的auto，所以把margin值也改成auto */
+    margin: 30px auto;
+}
+h1{
+    float: left;
+}
+.nav{
+    float: left;
+    margin-left: 50px;
+    height: 42px;
+}
+.nav li{
+    float: left;
+    margin-right: 25px;
+   
+}
+.nav li a{
+    /* 转换成块级元素，本来在导航下方显示的下划线跑到了高度最底部 */
+    display: block;
+    /* 设置悬停时出现 */
+    /* border-bottom: skyblue solid 2px; */
+    padding: 0 8px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 18px;
+    color: #050505;
+}
+.nav li a:hover{
+    border-bottom: skyblue solid 2px;
+}
+.h3{
+    float: left;
+    margin-left: 35px;
+    height: 42px;
+
+}
+.h3 input{ 
+    /* 行内块元素如果父级给了宽度，两个或多个子级内容在一行放不下时，自动换行，增加float */
+    float: left;    
+    width: 250px;
+    height: 40px;
+    border: 1px solid #00a4ff;
+}
+/* 控制标签内属性样式 */
+.h3 input::placeholder{
+    font-size: 14px;
+    color: #ccc;
+}
+/* 主要起美化作用的图片最好设置为背景图片 */
+.h3 button{
+    float: left;
+    height: 40px;
+    width: 50px;
+    background-image: url(btn.png);
+    /* 去掉按钮默认边框 */
+    border: 0;
+}
+.h4{
+    height: 42px;
+    line-height: 42px;
+}
+.h4 img{
+    margin: 0 5px 0 20px;
+    vertical-align: middle;    
+}
+.h4 span{
+    font-size: 16px;
+    color: #666;
+}
+.banner{
+    height: 300px;
+    background-color: #1c036c;
+}
+.banner .w{
+    height: 300px;
+    background-image: url(banner2.png);
+}
+.banner .left{
+    float: left;
+    /* 1.也可以给大盒子加内边距 */
+    padding: 20px;
+    background-color: rgba(23, 38, 23, 0.3);
+    width: 170px;
+    height: 300px;
+    /* 2.行高属于控制文字的属性，能继承 */
+    line-height: 33px;    
+}
+.banner .left span{
+    float: right;
+}
+.banner .left a{
+    /* 3.给a添加样式 */
+    color: #fff;
+    font-size: 14px;
+}
+.banner .left a:hover{
+    /* 4.悬停效果 */
+    color: #44a5ff;
+}
+/* .banner .left ul{
+    margin: 20px 70px 20px 20px;
+    line-height: 33px;
+} */
+/* .banner .left li{
+    color: white;
+} */
+
+
+.banner .right{
+    float: right;
+    margin-top: 40px;
+    width: 170px;
+    height: 200px;
+    background-color: #fff;
+}
+
+.banner .right h3{
+    /* width: 170px; */
+    /* 1.右边头部实现 */
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: rgb(141, 223, 255);
+    color: aliceblue;
+    font-weight: bolder;
+}
+/* .right .r2{
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #ccc;
+}   这两个模块样式没有完全实现
+.right .r3{
+    width: 130px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #44a5ff;
+    text-align: center;
+} */
+.banner .right .class{
+    /* 2.作为一个整体，添加左右内边距 */
+    padding: 0 18px;
+}
+.banner .right dl{
+    /* 下划线 */
+    padding: 10px 0;
+    border-bottom: 2px solid #ccc;
+}
+/* 接下来三个样式，给文字加不同的字体大小 */
+.banner .right .class dt{
+    font-size: 14px;
+    color: #6a6767;
+}
+.banner .right .class span{
+    font-size: 12px;
+    color: #6a6767;
+}
+.banner .right .class dd{
+    font-size: 10px;
+    color: #6a6767;
+}
+.banner .right .all{
+    display: block;
+    /* 给类或者链接加margin都可以实现边框的移动 */
+    /* margin: 4px 20px ; */
+    /* 如果是行内块，则auto不生效 */
+    margin: 4px auto 0;
+    width: 130px;
+    height: 40px;
+    border: 1px solid #005eff;
+    color: #005eff;
+    font-weight: bolder;
+    text-align: center;
+    line-height: 40px;
+}
+.recommed{
+    padding:0 20px;
+    height: 60px;
+    line-height: 60px;
+    background-color: #fff;
+    margin-top: 10px;
+    box-shadow: 0 1px 2px 0;
+}
+.recommed h3{
+    float: left;
+    color: #00a4ff;
+}
+.recommed ul{
+    float: left;
+    margin-left: 30px;
+}
+.recommed ul li{
+    float: left;   
+}
+.recommed li a{
+    color: black;
+    /* 想要边框距离内容远一点就加内边距扩大盒子与内容之前的距离 */
+    padding: 0 30px;
+    /* 给a加边框，默认就内容高度 */
+    border-left: 1px solid #ccc;
+
+}
+.recommed a span{
+    float: right;
+    font-size: 14px;
+    color: rgb(37, 129, 209);
+}
+.detailed{
+    margin-top: 30px;
+}
+.detailed .title{
+    /* 想要内容下方留白，可以加个高度，不需要加内边距 */
+    height: 50px;
+}
+.detailed h3{
+    float: left;
+    font-size: 20px;
+    color: #494949;
+    font-weight: 400;
+}
+.detailed .title a{
+    float: right;
+    margin-right: 30px;
+    padding-top: 10px;
+    font-size: 12px;
+    color: #a5a5a5;
+}
+.detailed  .content li{
+   float: left;
+   margin-right: 22px;
+   margin-bottom: 15px;
+   width: 233px;
+   height: 250px;
+   background-color: #fff;
+}
+.detailed .content li:nth-child(4n){
+   margin-right: 0;
+}
+.detailed .content li h5{
+   padding: 10px 20px;
+   color: #050505;
+   font-size: 14px;
+   font-weight: 400;
+}
+.detailed .content li p{
+   padding: 0 20px;
+   font-size: 12px;
+   color: #999;
+}
+.detailed .content p span{
+   color: #ff7c2d;
+}
+.footer {
+    /* float: left; */
+    /* 可以清除浮动带来的影响，但是给标签加外边距会不生效 */
+    /* clear: left; */
+    /* 给上一个浮动标签加clearfix解决 */
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-left: 30px;
+    height: 300px;
+    background-color: #fff;
+}
+.footer .left{
+    float: left;
+    /* width: 500px; */
+
+}
+.footer .left p{
+    padding: 20px 0 15px 0;
+    font-size: 12px;
+    color: #666666;
+}
+.footer .left a{
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 12px;
+    border: 2px solid #00a4ff;
+}
+.footer .right{
+    float: right;
+    /* width: 500px; */
+}
+.footer .right dl{
+    float: left;
+    margin: 0 30px 0 80px;
+}
+.footer .right dt{
+    margin-bottom: 15px;
+}
+.footer .right dd{
+    font-size: 12px;
+    letter-spacing: 3px;
+}

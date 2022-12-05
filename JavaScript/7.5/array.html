@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组</title>
+    <script>
+        // 创建数组
+        // 1.new 关键字
+        var arr = new Array();
+        // 2.利用数组字面量创建,数组中的数据用逗号分隔
+        var arr = [];
+        // 声明数组并赋值（初始化）  可以存放任意类型的数据，例如字符串，数字，布尔值
+        var arr1 = ['123',123,false,2.2];
+        //获取元素
+        console.log(arr1[0]); 
+        //打印输入星期天
+        var day = ['星期一','星期二','星期三','星期四','星期五','星期六','星期天'];
+        console.log(day[6]);
+        //遍历数组
+        for(var i = 0; i < day.length; i++){
+        //for(var i = 0; i < 7; i++){
+            console.log(day[i]);
+        }
+
+        //计算 数组和  平均值
+        var arr2 = [2,6,1,7,4];
+        var sum = 0;
+        var average = 0;
+        for(var i = 0;i < arr2.length; i++){
+            sum += arr2[i];
+        }
+        average = sum / arr2.length;
+        // console.log(sum);
+        // console.log(average);
+        console.log(sum,average);
+
+        //数组最大值
+        var arr3 = [2,6,77,52,25,7];
+        var max = arr3[0];
+        for(var i = 1; i < arr3.length; i++){
+            if(arr3[i] > max){
+                max = arr3[i];
+            }
+        }
+        console.log(max);
+
+        //数组转换为字符串
+        var arr4 = ['red','freen','blue','pink'];
+        var str = '';
+        for(var i = 0; i < arr4.length; i++){
+            str += arr4[i] + '|';
+        }
+        console.log(str);
+
+        //新增数组长度
+        var arr5 = ['1','2','3'];
+        arr5.length = 5;
+
+        var arr6 = ['4','5','6'];
+        arr6[3] = '7';
+
+        arr6 = 8; //不能直接给数组名赋值，否则里边的元素都没有了
+
+        //新增数组元素,在数组中存放10个整数
+        var arr7 = [];
+        for(var i = 0; i < 10; i++){
+            arr7[i] = i+1;
+        }
+        console.log(arr7);
+        
+        //筛选数组,留下比10大的数
+        var arr8 = [2,0,6,1,77,0,52,25,7];
+        var newArr = [];
+        var j = 0;
+        for(var i = 0; i < arr8.length; i++){
+            if(arr8[i] < 10){
+                newArr[j] = arr8[i];
+                j++;
+            }
+        }
+        console.log(newArr);
+        //第二种,利用newArr.length 
+        var arr8 = [2,0,6,1,77,0,52,25,7];
+        var newArr = [];
+        for(var i = 0; i < arr8.length; i++){
+            if(arr8[i] > 10){
+                newArr[newArr.length] = arr8[i];
+            }
+        }
+        console.log(newArr);
+
+    
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

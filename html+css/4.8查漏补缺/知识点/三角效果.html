@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.one{
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-top-color:  pink;
+        }
+        div.two{
+            position: relative;
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            background-color: #786789;
+        }
+        .two span{
+            position: absolute;
+            top: -35px;
+            left: 80px;
+            width: 0;
+            height: 0;
+            border: 20px solid transparent;
+            border-bottom-color: #786789;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one"></div>
+    <div class="two">
+        <span></span>
+    </div>
+</body>
+</html>

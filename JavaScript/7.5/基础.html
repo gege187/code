@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 外部引入，中间不能加内容 -->
+    <script src="wai.js"></script>
+    <title>Document</title>
+    <!-- 内嵌式 -->
+    <script type="text/javascript">
+        //1.单行注释   Ctrl + /
+        /* 2.多行注释  Shift + Alt + / 
+        修改快捷键     设置--键盘快捷方式---搜索--修改     */
+        alert('输出的警示框'); 
+        prompt('输入框');
+        // 定义变量--赋值：
+        var myname = prompt('请输入姓名');
+        alert('用户姓名：'+ myname);
+        // 同时声明多个变量
+        var a = 12,
+            b = 'dhf',
+            c = 123;
+        // 交换两个变量的值
+        var one = '第一个值',
+            two = '第二个值',
+            three;
+        three = one;
+        one = two;
+        two = three;
+        document.write('one =' + one, 'two = ' + two);
+    </script>
+</head>
+<body>
+    <!-- 行内式 -->
+    <input type="button"value="按钮" onclick="alert('弹窗')">
+    <!-- 将<script>标签放在<body>标签的底部，可以减少对整个页面下载的影响 -->
+    <script>
+        console.log('控制台打印输出');
+        document.write('页面输出文档');
+        document.write(22 == 33);
+        document.write('22' == '33');
+    </script>
+    <br/>
+    <script>
+        var age = 18;
+        console.log(age);
+    </script>
+</body>
+</html>

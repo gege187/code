@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打开浏览器显示上次传入的值</title>
+</head>
+<body>
+    <input type="text" id="user">
+    <input type="checkbox" name="" id="remember">记住此用户
+    <script>
+        var user = document.querySelector('#user')
+        var remember = document.querySelector('#remember')
+        if(localStorage.getItem('name')){
+            user.value = localStorage.getItem('name')
+            remember.checked = true
+        }
+        //通过复选框有咩有勾选来进行存储和删除，只有当浏览器关闭才能看出是否生效
+        remember.addEventListener('change',function(){
+            if(this.checked){
+                localStorage.setItem('name',user.value)
+            }else{
+                localStorage.removeItem('name')
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/animate.js"></script>
+    <title>侧边栏固定并出现顶部框</title>
+    <style>
+        body{
+            width: 100%;
+        }
+        .content{
+            width: 80%;
+            height: 1000px;
+            margin: 0 auto;
+            background-color: pink;
+        }
+        .aside{
+            position: absolute;
+            top: 300px;
+            width: 100px;
+        }
+        ul li{
+            list-style: none;
+            width: 50px;
+            height: 50px;
+            background-color: skyblue;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="content"></div>
+    <div class="aside">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li class="back" style="background-color: rgb(147, 235, 135);display: none;">返回顶部</li>
+        </ul>
+    </div>
+    <script>
+        var content = document.querySelector('.content');
+        var aside = document.querySelector('.aside')
+        var asideTop = aside.offsetTop
+        var back = document.querySelector('.back');
+        document.addEventListener('scroll',function(){
+            //元素被卷去的头部部分是scrollTop，页面应该用window.pageYOffset
+            if(window.pageYOffset >= 170){
+                aside.style.position = 'fixed'
+                aside.style.top = asideTop - 170 + 'px'
+            }else{
+                aside.style.position = 'ablosute'
+                aside.style.top = 300 + 'px'
+            }
+            if(window.pageYOffset >= 400){
+                back.style.display = 'block'
+            }else{
+                back.style.display = 'none'
+            }
+        })
+        //点击返回顶部，回到页面顶部
+        back.addEventListener('click',function(){
+            animateBack(window,0)
+        })
+    </script>
+</body>
+</html>

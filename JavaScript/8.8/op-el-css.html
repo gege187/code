@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改样式属性</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        .sprite{
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+        }
+        ul{
+            list-style: none;
+        }
+        ul li{
+            float: left;
+            width: 24px;
+            height: 24px;
+            margin: 15px;
+            background: url(./photo/sprite.png) no-repeat;
+        }
+
+        .inp{
+            width: 300px;
+            height: 100px;
+            margin: 20px auto;
+        }
+
+        .more{
+            width: 100px;
+            height: 100px;
+            background-color: #dda;
+        }
+        .change{
+            width: 200px;
+            height: 200px;
+            background-color: #bb3;
+            color: aqua;
+        }
+
+        .tip{
+            width: 300px;
+            height: 100px;
+            margin: 20px auto;
+        }
+        .tip input{
+            width: 200px;
+            height: 30px;
+        }
+        .mess{
+            background: url(./photo/mess.png) no-repeat left center;
+            padding-left: 20px;
+        }
+        .right{
+            background: url(./photo/right.png);
+            color: green;
+        }
+        .wrong{
+            background: url(./photo/wrong.png);
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!--1. 循环精灵图 -->
+    <div class="sprite">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    
+    <!-- 2.显示隐藏文本框的内容 -->
+    <!-- <div class="inp">
+        <input type="text" value="显示" style="width:200px">
+    </div> -->
+
+    <!-- 3.利用className修改元素样式 -->
+    <div class="more">文本</div>
+
+    <!-- 4.密码框验证信息，提示错误或正确 -->
+    <div class="tip">
+        <input type="text" value="" class="ipt">
+        <span class="mess">请输入：</span>
+    </div>
+
+    <script>
+        var lis = document.querySelectorAll('li');
+        for(var i = 0;i < lis.length; i++){
+            // lis.style.backgroundPosition = '0 -44px';
+            lis[i].style.backgroundPosition = '0 -'+(i*44)+'px';
+        }
+
+        /* 2.
+        var inp = document.querySelector('input');
+        //获取焦点事件(问题：用户输入value中文字也不能显示)
+        inp.onfocus = function(){
+            if(inp.value == '显示'){
+                this.value = '';
+            }
+        }
+        inp.onblur = function(){
+            if(inp.value === ''){
+                this.value = '显示';
+            }
+        } */
+
+        // 3.classNme修改
+        var more = document.querySelector('.more');
+        more.onclick = function(){
+            // more.style.backgroundColor = "#aad";
+            this.className = 'change';// more.className = 'change';
+            // 如果想要保留原来的类名，可以
+            this.className = 'more change';
+        }
+
+        //4.密码框验证
+        var ipt = document.querySelector('.ipt');
+        var mess = document.querySelector('.mess');
+        ipt.onblur = function(){
+            // if(ipt.value.length >= 6 && ipt.value.length <= 16){
+            if(this.value.length < 6 || this.value.length > 16){
+                mess.className = 'mess wrong';
+                mess.innerHTML = '错误';
+            }else{
+                mes.className = 'mess right';
+                mess.innerHTML = '正确';
+            }
+        }
+    </script>
+</body>
+</html>

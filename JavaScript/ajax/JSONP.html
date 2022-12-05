@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+</head>
+<body>
+    <script>
+        function success(data){
+            console.log(data);
+        }
+        function abc(data){
+            console.log(data);
+        }
+    </script>
+    <!-- <script src="./js/JSONP.js"></script> -->
+    <!-- 原理：利用查询字符串的方式，找到存放在服务器中的需要查询的字段 -->
+    <script src="http://www.liulongbin.top:3006/api/jsonp?callback=success&name=zs"></script>
+
+    <!-- 利用jquery提供的ajax函数，发起JSONP请求 -->
+    <script>
+        $(function(){
+            $.ajax({
+                url:'http://www.liulongbin.top:3006/api/jsonp?callback=abc&name=ww',
+                // 表示发起jsonp请求
+                dataType:'jsonp',
+                //  发送到服务端的参数名称，默认值为callback
+                //  jsonp:'cb',
+                //  自定义的回调函数名称，默认值为jQueryxxx 格式
+                jsonpCallback:'xyz',
+                success:function(res){
+                    console.log(res);
+                }
+            })
+        })
+    </script>
+</body>
+</html>

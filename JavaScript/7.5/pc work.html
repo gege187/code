@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流程控制作业</title>
+    <script>
+       /*  var time = parseInt(prompt('请输入当前时间')); 
+        switch(time){
+            case 12:
+                alert('中午好');
+                break;
+            case 18:
+                alert('傍晚好');
+                break;
+            case 23:
+                alert('深夜好');
+                break;
+            default:
+                alert('请正确输入');
+        } */
+
+        /* var num1 = prompt('请输入第一个值');
+        var num2 = prompt('请输入第二个值');
+        if(num1>num2){
+            alert("最大值：" + num1);
+        }else if(num1<num2){
+            alert('最大值' + num2);
+        }else{
+            alert('两数相等');
+        } */
+
+        /* var num3 = parseInt(prompt('请输入一个整数：'));
+        if(num3 % 2 == 0){
+            alert('值为偶数');
+        }else{
+            alert('值为奇数');
+        } */
+
+        /* var day = parseInt(prompt('请输入数字1-7'));
+        switch (day) {
+            case 1:
+                alert('星期一');
+                break;
+            case 2:
+                alert('星期二');
+                break;
+            case 3:
+                alert('星期三');
+                break;
+            case 4:
+                alert('星期四');
+                break;
+            case 5:
+                alert('星期五');
+                break;
+            case 6:
+                alert('星期六');
+                break;
+            case 7:
+                alert('星期七');
+                break;
+            default:
+                break;
+        } */
+
+        /* var money = parseInt(prompt('班长有多少钱'));
+        if(money>=2000){
+            alert('请大家吃西餐');
+        }else if(money>=1500){
+            alert('请大家吃快餐');
+        }else if(money>=1000){
+            alert('请大家喝饮料');
+        }else if(money>=500){
+            alert('请大家吃棒棒糖');
+        }else{
+            alert('带钱！');
+        } */
+
+        
+        /* var grade = parseInt(prompt('输入成绩'));
+        if(grade >= 90){
+            alert('等级：A');
+        }else if(grade >= 80){
+            alert('等级：B');
+        }else if(grade >=70){
+            alert('等级：C');
+        }else if(grade >= 60){
+            alert('等级：D');
+        }else{
+            alert('等级：E');
+        } */
+
+
+        // 打印九九乘法表
+        /* var sum = 0;
+        for(var i = 1; i <= 9; i++){
+            for(var j = 1; j <= i; j++){
+                sum += j + '*' + i + '=' + i*j + '\t'; 
+            }
+            sum += '\n';
+        }
+        console.log(sum); */
+
+        // 7.接收用户输入的用户名和密码，若用户名为"admin" ,密码为“123456" ,则提示用户登录成功! 否则，让用户一直输入。
+        /* var user = prompt('输入用户名');
+        var pass = prompt('输入密码');
+        while(user !== 'admin' && pass !== '123456'){
+            user = prompt('输入用户名');
+            pass = prompt('输入密码');
+        }
+        alert('登录成功！'); */
+
+        // 8.求整数1 ~ 100的累加值,但要求跳过所有个位为3的数 [用continue实现]。
+        /* var sum = 0;
+        for(var i = 1; i <= 100; i++){
+            if(i % 10 == 3){
+                continue;
+            }
+            sum += i;
+        }
+        console.log(sum); */
+
+        var a = parseInt(prompt('请输入你要进行的操作：\n 1.存钱 \n 2.取钱\n 3.显示余额 \n 4.退出'));
+        var currentMoney = 100;
+        var c;
+        switch (a) {
+            case 1:
+                c = parseInt(prompt('请选择你要存入的钱数：'));
+                currentMoney = currentMoney + c;
+                alert('当前余额为：'+ currentMoney);
+                a = parseInt(prompt('请输入你要进行的操作：\n 1.存钱 \n 2.取钱\n 3.显示余额 \n 4.退出'));
+            case 2:
+                c = parseInt(prompt('请选择你要取出的钱数：'));
+                if(currentMoney - c > 0){
+                    currentMoney = currentMoney - c;
+                }else{
+                    alert('余额不足！');
+                }
+                alert('当前余额为：'+ currentMoney);
+                a = parseInt(prompt('请输入你要进行的操作：\n 1.存钱 \n 2.取钱\n 3.显示余额 \n 4.退出'));
+            case 3:
+                alert('当前余额：' + currentMoney);
+                a = parseInt(prompt('请输入你要进行的操作：\n 1.存钱 \n 2.取钱\n 3.显示余额 \n 4.退出'));
+            case 4:
+                alert('正在退出');
+                break;
+            default:
+                break;
+                
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

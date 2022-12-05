@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        生命周期：
+            1.又名：生命周期回调函数、生命周期函数、生命周期钩子
+            2.是什么：Vue会在关键时刻帮我们调用的一些特殊名称的函数
+            3.生命周期函数的名字不可更改，但函数的具体内容是程序员根据需求写的
+            4.生命周期函数中的this指向的是vm或 组件实例对象
+     -->
+    <!-- 准备好一个容器 -->
+    <div id="root">
+        <h2 :style="{opacity}">wlecome to Vue</h2>
+        <button @click="stop">点击停止变换</button>
+        <button @click="opacity=1">点击透明度为1</button>
+    </div>
+    <script>
+    Vue.config.productionTip = false;   //以阻止 vue 在启动时生成生产提示。
+    new Vue({
+        el:'#root',
+        data:{
+            opacity:1,
+        },
+        methods: {
+            /* 没有被调用 
+            change(){
+                setInterval(() => {
+                    this.opacity -= 0.01;
+                    if(this.opacity <= 0) this.opacity = 1
+                }, 16);
+            } */
+            stop(){  //’自杀‘
+                // clearInterval(this.timer)
+                this.$destroy()
+            }
+        },
+        // 挂载,vue完成模版解析并把真实DOM元素放入页面后（挂载完毕）调用mounted
+        mounted() {
+            this.timer = setInterval(() => {
+                this.opacity -= 0.01;
+                if(this.opacity <= 0) this.opacity = 1
+            }, 16);
+        },
+        beforeDestroy() {
+            clearInterval(this.timer)
+        },
+    })
+    /* 外部定时器，不推荐
+    setInterval(() => {
+        vm.opacity -= 0.01;
+        if(vm.opacity <= 0) vm.opacity = 1
+    }, 16); */
+    </script>
+</body>
+</html>
+

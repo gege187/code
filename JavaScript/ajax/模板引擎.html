@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+    <script src="./lib/template-web.js"></script>
+</head>
+<body>
+    <!-- 
+        搜索引擎：数据、模板、调用函数
+        原文输出：如果要输出的value值中，包含了HTML标签结构,则需要使用原文输出语法，才能保证HTML标签被正常渲染。
+
+    -->
+    <div id="container"></div>
+
+    <!-- 搜索引擎的模板，必须定义在script 中，type类型为html -->
+    <script type="text/html" id="tpl-user">
+        <h1>{{name}}</h1>
+        <!-- 原文输出 -->
+        {{@ test}}
+        <!-- 条件输出:如果要实现条件输出，则可以在{{ }}中使用if...else if .. /if.的方式,进行按需输出。 -->
+        {{if flag == 0}}
+        flag的值是0
+        {{else if flag === 1}}
+        flag的值是1
+        {{/if}}
+        <!-- 循环输出：如果要实现循环输出，则可以在{{ }}内,通过each语法循环数组，当前循环的索引使用$index进行访问,当前的循环项使用$value进行访问。-->
+        <ul>
+            {{each habby}}
+            <li>索引值：{{$index}}  内容值：{{$value}}</li>
+            {{/each}}
+        </ul>
+        <!-- 过滤器： -->
+        <h3>{{regTime | dateFormat}}</h3>
+    </script>
+
+    <script>
+        // 定义一个处理时间的过滤器函数,必须放在最上边
+        template.defaults.imports.dateFormat = function (date) {
+            let y = date.getFullYear()
+            let m = date.getMonth()
+            let d = date.getDate()
+            /*return处理的结果*/
+            return y + '-' + m + '-' + d
+        }
+
+        // 定义需要渲染的数据
+        let data = {
+            name:'as',
+            age:20,
+            test:'<h3>test</h3>',
+            flag:0,
+            habby:['fan','sleep','dadoudou'],
+            regTime: new Date()
+        }
+
+        // 调用template函数,参数是（模板id，数据）返回一个字符串
+        $('#container').html(template('tpl-user',data))
+
+        
+    </script>
+</body>
+</html>

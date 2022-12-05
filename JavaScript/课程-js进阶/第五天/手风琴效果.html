@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 1000px;
+            height: 500px;
+            margin: 10px auto;
+            overflow: hidden;
+        }
+        ul{
+            width: 100%;
+        }
+        li{
+            list-style: none;
+            width: 200px;
+            height: 400px;
+            float: left;
+            transition: width 1s;
+        }
+        img{
+            /* width: 100%; */
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li><img src="./image/img1.jpeg" alt=""></li>
+            <li><img src="./image/img2.jpeg" alt=""></li>
+            <li><img src="./image/img3.jpeg" alt=""></li>
+            <li><img src="./image/img4.jpeg" alt=""></li>
+            <li><img src="./image/img5.jpeg" alt=""></li>
+        </ul>
+    </div>
+    <script>
+        let lis = document.querySelectorAll('li')
+        for(let i = 0; i < lis.length; i++){
+            lis[i].addEventListener('mouseenter',function(){
+                for(let j = 0; j < lis.length; j++){
+                    lis[j].style.width = '100px'
+                }
+                this.style.width = '600px'
+            })
+            lis[i].addEventListener('mouseleave',function(){
+                for(let j = 0; j < lis.length; j++){
+                    lis[j].style.width = '200px'
+                }
+            })
+        }
+    </script>
+</body>
+</html>

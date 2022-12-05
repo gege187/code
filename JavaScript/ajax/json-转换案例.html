@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.创建xhr对象
+        let xhr = new XMLHttpRequest()
+        // 2.调用open函数
+        xhr.open('GET','http://www.liulongbin.top:3006/api/getbooks')
+        // 3.调用send函数
+        xhr.send()
+        // 4.监听onreadystatechange事件
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4 && xhr.status === 200){
+                // 获取服务器响应的数据,返回的是json格式的字符串
+                // console.log(xhr.responseText);
+                // 转换为对象进行操作
+                let result = JSON.parse(xhr.responseText)
+                console.log(result);
+            }
+        }
+    </script>
+</body>
+</html>

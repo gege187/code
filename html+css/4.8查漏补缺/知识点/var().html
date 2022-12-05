@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插入变量</title>
+    <style>
+        :root{
+            --pink:pink;
+            --blue:skyblue;
+        }
+        .one{
+            width: 100px;
+            height: 100px;
+            background-color: var(--pink);
+        }
+        .two{
+            width: 100px;
+            height: 100px;
+            background-color: var(--blue);
+        }
+        button{
+            /* 局部变量覆盖全局变量 */
+            --blue:#4860b8;
+            background-color: var(--blue);
+            width: 100px;
+            height: 40px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="one"></div>
+    <div class="two"></div>
+    <button>button</button>
+</body>
+</html>

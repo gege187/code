@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/axios.js"></script>
+</head>
+<body>
+    <button id="btnGet">发起GET请求</button>
+    <button id="btnPost">发起POST请求</button>
+    <button id="btnGetIos">使用axios直接发起GET请求</button>
+    <button id="btnPostIos">使用axios直接发起POST请求</button>
+    <script>
+        document.querySelector('#btnGet').addEventListener('click',function(){
+            let url = 'http://www.liulongbin.top:3006/api/get'
+            let param = {name:'zs',age:20}
+            axios.get(url,{params:param}).then(function(res){
+                console.log(res.data);
+            })
+        })
+        document.querySelector('#btnPost').addEventListener('click',function(){
+            let url = 'http://www.liulongbin.top:3006/api/post'
+            let data = {address:'beijing',location:'shunyi'}
+            axios.post(url,data).then(function(res){
+                console.log(res.data);
+            })
+        })
+        document.querySelector('#btnGetIos').addEventListener('click',function(){
+            let url = 'http://www.liulongbin.top:3006/api/get'
+            let params = {name:'wu',age:11}
+            axios({
+                method:'GET',
+                url:url,
+                params:params
+            }).then(function(res){
+                console.log(res.data);
+            })
+        })
+        document.querySelector('#btnPostIos').addEventListener('click',function(){
+            axios({
+                method:'POST',
+                url:'http://www.liulongbin.top:3006/api/post',
+                data:{name:'aa',age:12}
+            }).then(function(res){
+                console.log(res.data);
+            })
+        })
+    </script>
+</body>
+</html>

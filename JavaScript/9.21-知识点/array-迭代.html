@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [88,'apple','3','banana','work','three','3','good','99']
+        // foreach(值，索引，数组)
+        var txt = ''
+        arr.forEach(x=>{
+            // console.log(x);
+        })
+        // map(值，索引，数组)
+        var m = arr.map(x=>{
+           return x
+        })
+        console.log('map: ', m);
+        // filter(值，索引，数组)
+        var f = arr.filter(x=>{
+            return x > 33
+        })
+        console.log('filter: ', f);
+        // reduce(总和，值，索引，数组),接受一个初始值
+        arr.reduce((sum,value)=>{
+            // console.log('sum: ',sum);
+            // console.log('value: ',value);
+            // return sum
+            return sum+value
+        },10)
+        // reduceRight(总和，值，索引，数组)
+        arr.reduceRight((sum,value)=>{
+            // console.log('sum: ',sum);
+            // console.log('value: ',value);
+            // return sum
+            return sum+value
+        },10)
+        // every(值，索引，数组), 所有都要满足返回true，否则false
+        var ev = arr.every(x=>{
+            // console.log(x > 33);
+            return x > 18
+        })
+        console.log('every: ',ev);
+        // some(值，索引，数组),全部都进行比较并输出布尔类型
+        var so = arr.some((x,y,z)=>{
+            return x > 18
+        })
+        console.log('some: ',so);
+        // indexOf(值，起始位置)
+        // lastIndexOf(值，起始位置)
+        // find(值，索引，数组)，返回满足条件的第一个值
+        var fi = arr.find(x=>{
+            return x > 'b'
+        })
+        console.log('find: ', fi);
+        // findIndex(值，索引，数组)
+        var fii = arr.findIndex(x=>{
+            return x > 'b'
+        })
+        console.log('findIndex: ', fii);
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象</title>
+    <script>
+        // 1.创建对象
+        var obj = {
+            name:'张三',
+            age:20,
+            sex:'男',
+            sayHi:function(){
+                console.log('hi');
+            }
+        }
+        // (2)new Object()
+        var obj = new Object();
+        obj.name = '张三';
+        obj.age = 20;
+        obj.sex = '男';
+        obj.sayHi = function(){
+            console.log('hi');
+        }
+        //(3)构造函数
+        /* function 构造函数名(){
+            this.属性 = 值;
+            this.方法 = function(){
+
+            }
+        }
+        new 构造函数名(); */
+
+        //1.构造函数名首字母大写
+        //泛指
+        function Star(name,age,sex){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            this.sing = function(sang){
+                console.log(sang);
+            }
+        }
+        //特指
+        var liu = new Star('刘德华',20,'男');
+        console.log(liu.name);
+        console.log(liu.age);
+        console.log(liu.sex);
+        liu.sing('忘情水');
+
+
+        //构造函数
+        function Hero(name,type,blood){
+            this.name = name;
+            this.type = type;
+            this.blood = blood;
+            this.attack = function(attack){
+                console.log(attack);
+            }
+        }
+        //创建对象
+        var lianpo = new Hero('廉颇','力量型',500);
+        console.log(lianpo);
+        // console.log(lianpo.name);
+        // console.log(lianpo.type);
+        // console.log(lianpo.blood);
+        // lianpo.attack('近战');
+        // var houyi = new Hero('后羿','射手型',100);
+        // console.log(houyi.name);
+        // console.log(houyi.type);
+        // console.log(houyi.blood);
+        // houyi.attack('远程');
+
+        //遍历对象
+        var obj = {
+            name:'刘德华',
+            age:20,
+            sex:'男',
+            height:182,
+        }
+        for(k in obj){  //一般用k
+            //console.log(k);   //只输出变量 得到属性名
+            console.log(k+':'+obj[k]);  //只输出obj[i],得到值  可以一块输出
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
